@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>BioSphere Kids — Plants & Animals (Printable Web Lesson)</title>
   <meta name="description" content="A modern kids science lesson page that looks like a premium website, but prints as a clean worksheet." />
+  <link rel="icon" href="assets/images/ladybug.png" />
   <!-- ========================================= -->
 <!-- 🧲 OPEN GRAPH + TWITTER CARD              -->
 <!-- Ariya Science Live Deployment             -->
@@ -77,6 +78,12 @@
       --a2: #22c55e; /* leaf */
       --a3: #fbbf24; /* sun */
       --a4: #a78bfa; /* bloom */
+      --s1: #15803d;
+      --s2: #0284c7;
+      --s3: #0f766e;
+      --s4: #7c3aed;
+      --s5: #d97706;
+      --paper-line: rgba(14, 116, 144, .18);
 
       /* Surface (premium white glass) */
       --surface: rgba(255,255,255,.78);
@@ -122,18 +129,21 @@
     /* ========================================= */
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top: 18px;
+    }
     body{
       margin:0;
       font-family: var(--font-sans);
       color: var(--ink);
       background:
-        radial-gradient(900px 600px at 8% 8%, rgba(56,189,248,.14), transparent 60%),
-        radial-gradient(800px 520px at 92% 18%, rgba(34,197,94,.12), transparent 58%),
-        radial-gradient(900px 650px at 30% 96%, rgba(167,139,250,.10), transparent 62%),
-        linear-gradient(180deg, var(--page), var(--page-2));
+        linear-gradient(125deg, rgba(232,248,255,.92), rgba(246,253,247,.88) 43%, rgba(249,246,255,.92)),
+        repeating-linear-gradient(0deg, rgba(15,23,42,.025) 0 1px, transparent 1px 34px);
       overflow-x:hidden;
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
     a{ color:inherit; }
     button, input, textarea{ font:inherit; }
@@ -145,7 +155,7 @@
       position:relative;
       z-index:1;
       min-height:100%;
-      padding: clamp(16px, 3vw, 30px) 14px 34px;
+      padding: clamp(16px, 3vw, 30px) 14px calc(70px + env(safe-area-inset-bottom, 0px));
       display:flex;
       justify-content:center;
     }
@@ -168,13 +178,26 @@
         "icons icons";
       gap: 10px;
 
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: var(--r-xl);
-      background: linear-gradient(135deg, var(--surface-2), var(--surface));
-      border: 1px solid var(--hairline);
-      box-shadow: var(--shadow-1);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(245,252,255,.84) 48%, rgba(249,247,255,.88)),
+        var(--surface-2);
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 18px 48px rgba(2,6,23,.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position:relative;
+      overflow:hidden;
+    }
+    .topbar:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:4px;
+      background: linear-gradient(90deg, var(--s1), var(--s2), var(--s3), var(--s4), var(--s5));
+      opacity:.72;
+      pointer-events:none;
     }
 
     .brand{
@@ -231,6 +254,7 @@
       border: 1px solid var(--hairline);
       background: rgba(255,255,255,.72);
       color: var(--ink);
+      min-height: 42px;
       padding: 10px 12px;
       border-radius: 14px;
       cursor:pointer;
@@ -244,6 +268,30 @@
       user-select:none;
       white-space:nowrap;
     }
+    .btn svg{
+      width:16px;
+      height:16px;
+      flex:0 0 auto;
+    }
+    select.btn{
+      min-width: 128px;
+      appearance:none;
+      -webkit-appearance:none;
+      padding-right: 34px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(15,23,42,.78) 50%),
+        linear-gradient(135deg, rgba(15,23,42,.78) 50%, transparent 50%),
+        linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.72));
+      background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 13px) 50%,
+        0 0;
+      background-size:
+        5px 5px,
+        5px 5px,
+        100% 100%;
+      background-repeat:no-repeat;
+    }
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.88);
@@ -255,10 +303,21 @@
       background: linear-gradient(135deg, rgba(34,197,94,.30), rgba(56,189,248,.22));
       border-color: rgba(34,197,94,.30);
     }
-    .btn.danger{
-      background: rgba(239,68,68,.10);
-      border-color: rgba(239,68,68,.25);
-      color: #4b0b0b;
+    .btn.teacher-mode-btn{
+      background: linear-gradient(135deg, rgba(251,191,36,.22), rgba(124,58,237,.12));
+      border-color: rgba(217,119,6,.26);
+      color: #3b2a05;
+    }
+    .btn.teacher-mode-btn[aria-pressed="true"]{
+      background: linear-gradient(135deg, rgba(251,191,36,.34), rgba(124,58,237,.22));
+      border-color: rgba(124,58,237,.36);
+      box-shadow: 0 10px 24px rgba(124,58,237,.14);
+      color: #2e1065;
+    }
+    .btn.icon-only{
+      width:42px;
+      padding:0;
+      justify-content:center;
     }
 
     /* Icons row */
@@ -276,9 +335,11 @@
     .icon-rail::-webkit-scrollbar{ height:0; }
 
     .icon-chip{
+      --chip-color: var(--s1);
+      --chip-bg: rgba(255,255,255,.72);
       flex: 0 0 auto;
       border: 1px solid var(--hairline);
-      background: rgba(255,255,255,.70);
+      background: var(--chip-bg);
       color: var(--ink);
       padding: 10px 12px;
       border-radius: 999px;
@@ -286,13 +347,41 @@
       font-weight: 900;
       font-size: 12px;
       letter-spacing:.01em;
-      transition: transform var(--t), background var(--t), border-color var(--t);
+      transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t), color var(--t);
       white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .icon-chip[data-section-nav="s1"]{ --chip-color: var(--s1); }
+    .icon-chip[data-section-nav="s2"]{ --chip-color: var(--s2); }
+    .icon-chip[data-section-nav="s3"]{ --chip-color: var(--s3); }
+    .icon-chip[data-section-nav="s4"]{ --chip-color: var(--s4); }
+    .icon-chip[data-section-nav="s5"]{ --chip-color: var(--s5); }
+    .nav-mark{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: var(--chip-color);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.82);
+      flex:0 0 auto;
     }
     .icon-chip:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.88);
       border-color: var(--hairline-2);
+    }
+    .icon-chip.is-active{
+      color: #07111f;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,255,255,.82)),
+        linear-gradient(135deg, var(--chip-color), transparent);
+      border-color: rgba(15,23,42,.16);
+      box-shadow: 0 10px 24px rgba(2,6,23,.10);
+    }
+    .icon-chip.is-active .nav-mark{
+      transform: scale(1.18);
+      box-shadow: 0 0 0 5px rgba(255,255,255,.90), 0 0 0 6px rgba(15,23,42,.08);
     }
 
     /* ========================================= */
@@ -395,13 +484,55 @@
     /* 🧩 SECTION BLOCKS                          */
     /* ========================================= */
     .section{
+      --section-color: var(--s1);
+      --section-tint: rgba(34,197,94,.10);
+      --section-border: rgba(34,197,94,.26);
       border-radius: var(--r-xl);
       overflow:hidden;
-      border: 1px solid var(--hairline);
-      background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+      border: 1px solid var(--section-border);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.78)),
+        linear-gradient(135deg, var(--section-tint), transparent 54%);
       box-shadow: var(--shadow-1);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      position:relative;
+      scroll-margin-top: 18px;
+      scroll-margin-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    }
+    .section[data-section="s1"]{
+      --section-color: var(--s1);
+      --section-tint: rgba(34,197,94,.12);
+      --section-border: rgba(34,197,94,.28);
+    }
+    .section[data-section="s2"]{
+      --section-color: var(--s2);
+      --section-tint: rgba(56,189,248,.13);
+      --section-border: rgba(14,165,233,.28);
+    }
+    .section[data-section="s3"]{
+      --section-color: var(--s3);
+      --section-tint: rgba(20,184,166,.12);
+      --section-border: rgba(20,184,166,.30);
+    }
+    .section[data-section="s4"]{
+      --section-color: var(--s4);
+      --section-tint: rgba(167,139,250,.14);
+      --section-border: rgba(124,58,237,.26);
+    }
+    .section[data-section="s5"]{
+      --section-color: var(--s5);
+      --section-tint: rgba(251,191,36,.15);
+      --section-border: rgba(217,119,6,.28);
+    }
+    .section:before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:6px;
+      background: linear-gradient(180deg, var(--section-color), transparent 76%);
+      opacity:.74;
+      pointer-events:none;
     }
     .section-inner{
       display:grid;
@@ -412,6 +543,7 @@
     .media{
       position:relative;
       min-height: 280px;
+      overflow:hidden;
       background:
         radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
         linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
@@ -419,10 +551,43 @@
       background-size: cover;
       background-position: center;
     }
+    .media:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.28)),
+        linear-gradient(135deg, rgba(255,255,255,.16), transparent 58%);
+      pointer-events:none;
+    }
+    .media:after{
+      content: attr(data-observation);
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      max-width: calc(100% - 28px);
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.62);
+      background: rgba(255,255,255,.82);
+      color: #08111f;
+      box-shadow: 0 10px 24px rgba(2,6,23,.18);
+      font-size: 11px;
+      line-height:1;
+      font-weight: 900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
     .chip{
       position:absolute;
       left: 14px;
       top: 14px;
+      color: var(--section-color);
+      background: rgba(255,255,255,.90);
+      border-color: rgba(255,255,255,.70);
+      box-shadow: 0 12px 28px rgba(2,6,23,.18);
     }
     .content{
       padding: clamp(16px, 2.8vw, 26px);
@@ -433,17 +598,19 @@
     }
     .h2{
       margin:0;
-      font-family: var(--font-display);
-      font-size: 26px;
+      font-family: var(--font-sans);
+      font-weight: 900;
+      font-size: clamp(22px, 2.4vw, 28px);
       line-height: 1.1;
-      letter-spacing:.15px;
+      letter-spacing:0;
       color: var(--ink);
+      max-width: 18ch;
     }
 
     .callout{
       border-radius: var(--r-lg);
-      border: 1px solid var(--hairline);
-      background: rgba(255,255,255,.74);
+      border: 1px solid var(--section-border);
+      background: linear-gradient(135deg, rgba(255,255,255,.82), var(--section-tint));
       padding: 12px 14px;
       display:flex;
       gap: 10px;
@@ -465,17 +632,18 @@
     }
     .card{
       border-radius: var(--r-lg);
-      border: 1px solid var(--hairline);
-      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(15,23,42,.09);
+      background: rgba(255,255,255,.80);
       padding: 12px 14px;
       color: var(--ink);
+      box-shadow: 0 8px 18px rgba(2,6,23,.04);
     }
     .card h3{
       margin:0 0 6px;
       font-size: 12px;
       letter-spacing:.14em;
       text-transform: uppercase;
-      color: var(--soft);
+      color: var(--section-color);
       font-weight: 900;
     }
     .card ul{
@@ -492,18 +660,35 @@
     .prompt{
       margin-top: 2px;
       border-radius: var(--r-lg);
-      border: 1px dashed rgba(15,23,42,.22);
-      background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(34,197,94,.08));
-      padding: 12px 14px;
+      border: 2px dashed var(--section-border);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78)),
+        linear-gradient(135deg, var(--section-tint), rgba(56,189,248,.08));
+      padding: 14px;
       display:flex;
       flex-direction:column;
       gap: 10px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.55);
+      scroll-margin-top: 20px;
+      scroll-margin-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
     }
     .prompt .label{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 10px;
+      flex-wrap:wrap;
+    }
+    .prompt .label:before{
+      content:"";
+      width:18px;
+      height:18px;
+      border-radius: 5px;
+      border:2px solid var(--section-color);
+      background:
+        linear-gradient(180deg, transparent 0 5px, rgba(15,23,42,.08) 5px 7px, transparent 7px),
+        linear-gradient(90deg, transparent 0 5px, rgba(15,23,42,.06) 5px 7px, transparent 7px);
+      flex:0 0 auto;
     }
     .prompt .label span{
       font-size: 12px;
@@ -511,45 +696,76 @@
       letter-spacing:.12em;
       text-transform: uppercase;
       color: var(--ink);
+      margin-right:auto;
     }
     .prompt .label .hint{
       font-size: 11px;
-      color: var(--soft);
+      color: var(--section-color);
       font-weight: 900;
       letter-spacing:.06em;
+      border: 1px solid var(--section-border);
+      background: rgba(255,255,255,.76);
+      padding: 6px 9px;
+      border-radius: 999px;
+      margin-right:0;
     }
 
     /* Screen: big clean editor area (dark ink, light bg) */
     textarea.answer{
       width:100%;
-      min-height: 240px;
+      min-height: clamp(260px, 32vh, 380px);
       resize: vertical;
       border-radius: 18px;
-      border: 1px solid var(--hairline-2);
-      background: rgba(255,255,255,.92);
+      border: 1px solid var(--section-border);
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 30px,
+          var(--paper-line) 31px
+        ),
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.95));
       color: var(--ink);
-      padding: 18px 18px;
+      padding: 18px 18px 22px;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.75;
       outline: none;
       transition: border-color var(--t), box-shadow var(--t), background var(--t);
+      scroll-margin-bottom: calc(140px + env(safe-area-inset-bottom, 0px));
     }
     textarea.answer:focus{
-      border-color: rgba(56,189,248,.55);
-      box-shadow: 0 0 0 4px rgba(56,189,248,.18);
-      background: #ffffff;
+      border-color: var(--section-color);
+      box-shadow: 0 0 0 4px var(--section-tint), 0 16px 28px rgba(2,6,23,.08);
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 30px,
+          var(--paper-line) 31px
+        ),
+        linear-gradient(180deg, #ffffff, #ffffff);
     }
 
     .teacher{
       display:none;
       margin-top: 6px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(239,68,68,.25);
-      background: rgba(239,68,68,.08);
-      color: #4b0b0b;
+      border: 1px solid rgba(124,58,237,.24);
+      background: linear-gradient(135deg, rgba(124,58,237,.10), rgba(56,189,248,.10));
+      color: #2e1065;
       font-weight: 900;
       font-size: 13px;
+      line-height:1.45;
+    }
+    .teacher:before{
+      content:"Teacher note";
+      display:block;
+      margin-bottom:4px;
+      color:#0f3c8a;
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
     }
     body.teacher-mode .teacher{ display:block; }
 
@@ -560,18 +776,71 @@
       .section-inner{ grid-template-columns: 1fr; }
       .media{ min-height: 240px; }
       .mini{ grid-template-columns: 1fr; }
+      .h2{ max-width:none; }
     }
     @media (max-width: 720px){
+      html{ scroll-padding-top: 12px; }
+      .app{
+        padding-inline: 10px;
+        padding-bottom: calc(132px + env(safe-area-inset-bottom, 0px));
+      }
       .topbar{
         grid-template-columns: 1fr;
         grid-template-areas:
           "brand"
           "icons"
           "actions";
+        border-radius: 20px;
       }
-      .top-actions{ justify-content:flex-start; }
+      .top-actions{
+        width:100%;
+        justify-content:stretch;
+        display:grid;
+        grid-template-columns: 1fr auto auto auto;
+        gap:8px;
+      }
+      #teacherToggle{
+        grid-column: 1 / -1;
+        justify-content:center;
+      }
+      #lessonSelect{
+        min-width:0;
+        width:100%;
+      }
+      .btn.icon-only{ width:44px; }
+      .brand h1{ font-size:13px; }
+      .brand p{ font-size:10px; letter-spacing:.10em; }
+      .icon-rail{
+        margin-inline:-4px;
+        padding: 2px 4px 8px;
+      }
+      .icon-chip{
+        min-height:40px;
+        padding: 9px 11px;
+      }
       .hero-media{ min-height: 360px; }
       .pill{ letter-spacing:.10em; }
+      .section,
+      .prompt,
+      textarea.answer{
+        scroll-margin-bottom: calc(150px + env(safe-area-inset-bottom, 0px));
+      }
+      textarea.answer{
+        min-height: clamp(280px, 42vh, 440px);
+      }
+    }
+    @media (max-width: 430px){
+      .top-actions{
+        grid-template-columns: 1fr 44px 44px;
+      }
+      .top-actions .btn.primary{
+        grid-column: 1 / -1;
+        justify-content:center;
+      }
+      .media:after{
+        left:14px;
+        right:auto;
+      }
     }
 
     /* ========================================= */
@@ -638,7 +907,11 @@
     page-break-inside: avoid !important;
   }
   .hero-media:before,
-  .hero-media:after{ display:none !important; }
+  .hero-media:after,
+  .media:before,
+  .media:after,
+  .section:before,
+  .prompt .label:before{ display:none !important; }
 
   .media{
     position:relative !important;
@@ -773,6 +1046,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 
   /* Prompts spacing */
   .prompt{ margin-top:10px !important; }
+  .teacher:before{ display:none !important; }
 
   /* Let these split naturally (spill happens at bottom) */
   .content,
@@ -845,24 +1119,43 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
         </div>
 
         <div class="top-actions">
-  <button id="teacherToggle" class="btn danger" type="button" aria-pressed="false">Teacher Mode</button>
+  <button id="teacherToggle" class="btn teacher-mode-btn" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H18v17H8a3 3 0 0 0-3 3V4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M8 6h6M8 10h7M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span data-teacher-toggle-label>Teacher Mode</span>
+  </button>
 
   <select id="lessonSelect" class="btn" aria-label="Select lesson">
     <option value="lesson-01">Lesson 1</option>
   </select>
   
-  <button id="lessonPrev" class="btn" type="button" aria-label="Previous lesson">⬅️</button>
-  <button id="lessonNext" class="btn" type="button" aria-label="Next lesson">➡️</button>
+  <button id="lessonPrev" class="btn icon-only" type="button" aria-label="Previous lesson">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button id="lessonNext" class="btn icon-only" type="button" aria-label="Next lesson">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
-  <button class="btn primary" type="button" onclick="window.print()">Print</button>
+  <button class="btn primary" type="button" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-3a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3a2 2 0 0 1-2 2h-2M7 14h10v7H7v-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+    Print
+  </button>
 </div>
 
         <nav class="icon-rail" aria-label="Lesson shortcuts">
-          <button class="icon-chip" type="button" data-jump="#s1">🌿 Learn</button>
-          <button class="icon-chip" type="button" data-jump="#s2">🔍 Observe</button>
-          <button class="icon-chip" type="button" data-jump="#s3">🏞️ Habitats</button>
-          <button class="icon-chip" type="button" data-jump="#s4">🧬 Adapt</button>
-          <button class="icon-chip" type="button" data-jump="#s5">✅ Review</button>
+          <button class="icon-chip is-active" type="button" data-jump="#s1" data-section-nav="s1" aria-current="true"><span class="nav-mark" aria-hidden="true"></span><span>Learn</span></button>
+          <button class="icon-chip" type="button" data-jump="#s2" data-section-nav="s2"><span class="nav-mark" aria-hidden="true"></span><span>Observe</span></button>
+          <button class="icon-chip" type="button" data-jump="#s3" data-section-nav="s3"><span class="nav-mark" aria-hidden="true"></span><span>Habitats</span></button>
+          <button class="icon-chip" type="button" data-jump="#s4" data-section-nav="s4"><span class="nav-mark" aria-hidden="true"></span><span>Adapt</span></button>
+          <button class="icon-chip" type="button" data-jump="#s5" data-section-nav="s5"><span class="nav-mark" aria-hidden="true"></span><span>Review</span></button>
         </nav>
       </div>
 
@@ -953,7 +1246,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 <section class="section" id="s1" aria-label="What makes something alive" data-section="s1">
   <div class="section-inner">
 
-    <div class="media" data-media="s1" style="background-image:
+    <div class="media" data-media="s1" data-observation="Living clue" style="background-image:
       radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
       linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
       var(--img-plants);">
@@ -1012,7 +1305,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 <section class="section" id="s2" aria-label="Living things need food, water, and air" data-section="s2">
   <div class="section-inner">
 
-    <div class="media" data-media="s2" style="background-image:
+    <div class="media" data-media="s2" data-observation="Needs clue" style="background-image:
       radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
       linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
       var(--img-animals);">
@@ -1081,7 +1374,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 <section class="section" id="s3" aria-label="Habitats" data-section="s3">
   <div class="section-inner">
 
-    <div class="media" data-media="s3" style="background-image:
+    <div class="media" data-media="s3" data-observation="Habitat clue" style="background-image:
       radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
       linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
       var(--img-habitat);">
@@ -1140,7 +1433,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 <section class="section" id="s4" aria-label="Adaptations" data-section="s4">
   <div class="section-inner">
 
-    <div class="media" data-media="s4" style="background-image:
+    <div class="media" data-media="s4" data-observation="Adaptation clue" style="background-image:
       radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
       linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
       var(--img-adapt);">
@@ -1199,7 +1492,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
 <section class="section" id="s5" aria-label="Review and summary" data-section="s5">
   <div class="section-inner">
 
-    <div class="media" data-media="s5" style="background-image:
+    <div class="media" data-media="s5" data-observation="Review clue" style="background-image:
       radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
       linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
       var(--img-review);">
@@ -1346,7 +1639,12 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
     const btn = $("#teacherToggle");
     if (btn){
       btn.setAttribute("aria-pressed", on ? "true" : "false");
-      btn.textContent = on ? "Teacher Mode: ON" : "Teacher Mode";
+      const label = btn.querySelector("[data-teacher-toggle-label]");
+      if (label) {
+        label.textContent = on ? "Teacher Mode: ON" : "Teacher Mode";
+      } else {
+        btn.textContent = on ? "Teacher Mode: ON" : "Teacher Mode";
+      }
     }
     try { localStorage.setItem(MODE_KEY, on ? "1" : "0"); } catch {}
   }
@@ -1436,15 +1734,79 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
   /* =========================
      🧭 JUMP NAV
   ========================= */
+  let NAV_TARGET_HOLD = null;
+  let NAV_TARGET_TIMER = null;
+
+  function setActiveSection(id){
+    if (!id) return;
+    $$("[data-section-nav]").forEach((btn) => {
+      const active = btn.getAttribute("data-section-nav") === id;
+      btn.classList.toggle("is-active", active);
+      if (active) {
+        btn.setAttribute("aria-current", "true");
+      } else {
+        btn.removeAttribute("aria-current");
+      }
+    });
+  }
+
   function initJumpNav(){
     $$("[data-jump]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const sel = btn.getAttribute("data-jump");
         const el = sel ? document.querySelector(sel) : null;
         if (!el) return;
+        const sectionId = el.getAttribute("data-section");
+        setActiveSection(sectionId);
+
+        NAV_TARGET_HOLD = sectionId;
+        if (NAV_TARGET_TIMER) clearTimeout(NAV_TARGET_TIMER);
+        NAV_TARGET_TIMER = setTimeout(() => {
+          setActiveSection(sectionId);
+          NAV_TARGET_HOLD = null;
+        }, 1200);
+
         el.scrollIntoView({ behavior:"smooth", block:"start" });
       });
     });
+  }
+
+  function initSectionNav(){
+    const sections = $$(".section[data-section]");
+    if (!sections.length) return;
+
+    setActiveSection(sections[0].getAttribute("data-section"));
+
+    if ("IntersectionObserver" in window){
+      const observer = new IntersectionObserver((entries) => {
+        if (NAV_TARGET_HOLD) return;
+
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) setActiveSection(visible.target.getAttribute("data-section"));
+      }, {
+        rootMargin: "-22% 0px -54% 0px",
+        threshold: [0.16, 0.34, 0.52, 0.70]
+      });
+
+      sections.forEach((section) => observer.observe(section));
+      return;
+    }
+
+    const syncFromScroll = () => {
+      const marker = window.innerHeight * 0.38;
+      const current = sections.reduce((best, section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= marker) return section;
+        return best;
+      }, sections[0]);
+      setActiveSection(current.getAttribute("data-section"));
+    };
+
+    window.addEventListener("scroll", syncFromScroll, { passive:true });
+    syncFromScroll();
   }
 
   /* =========================
@@ -1766,6 +2128,7 @@ document.body.setAttribute("data-lesson", entry.id);
   async function boot(){
     initTeacherToggle();
     initJumpNav();
+    initSectionNav();
 
     try {
       await initLessons();
