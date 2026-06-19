@@ -328,9 +328,15 @@ function checkNetlifyToml() {
   };
 }
 
-function main() {
-  fs.mkdirSync(LOG_DIR, { recursive: true });
+function parseArgs(argv) {
+  const args = new Set(argv);
+  return {
+    json: args.has('--json'),
+    noWrite: args.has('--no-write') || args.has('--check'),
+  };
+}
 
+function buildResults() {
   const results = [];
 
   REQUIRED_ROOT_FILES.forEach((file) => results.push(checkExists(file.path, file.label)));
@@ -359,26 +365,34 @@ function main() {
   results.push(checkSeoArtifacts());
   results.push(checkNetlifyToml());
 
+  return results;
+}
+
+function summarizeResults(results) {
   const passed = results.filter((r) => r.status === 'PASS').length;
   const failed = results.filter((r) => r.status === 'FAIL').length;
   const total = results.length;
 
-  const timestamp = new Date().toISOString();
-  const stamp = timestamp.replace(/[:.]/g, '-');
-  const reportName = `validation-report-${stamp}.md`;
-  const reportPath = path.join(LOG_DIR, reportName);
+  return {
+    ok: failed === 0,
+    passed,
+    failed,
+    total,
+  };
+}
 
+function buildReport(results, summary, timestamp) {
   let md = `# Validation Report\n\n`;
   md += `**Generated:** ${timestamp}\n`;
   md += `**Project:** SV2 Science Lessons\n`;
-  md += `**Result:** ${passed}/${total} passed, ${failed} failed\n\n`;
+  md += `**Result:** ${summary.passed}/${summary.total} passed, ${summary.failed} failed\n\n`;
 
   md += `## Summary\n\n`;
   md += `| Status | Count |\n`;
   md += `|--------|-------|\n`;
-  md += `| PASS | ${passed} |\n`;
-  md += `| FAIL | ${failed} |\n`;
-  md += `| **Total** | **${total}** |\n\n`;
+  md += `| PASS | ${summary.passed} |\n`;
+  md += `| FAIL | ${summary.failed} |\n`;
+  md += `| **Total** | **${summary.total}** |\n\n`;
 
   md += `## Details\n\n`;
   md += `| Check | Status | Detail |\n`;
@@ -387,21 +401,65 @@ function main() {
     md += `| ${cleanDetail(r.label)} | ${r.status} | ${cleanDetail(r.detail)} |\n`;
   });
 
+  return md;
+}
+
+function writeReport(md, timestamp) {
+  fs.mkdirSync(LOG_DIR, { recursive: true });
+
+  const stamp = timestamp.replace(/[:.]/g, '-');
+  const reportName = `validation-report-${stamp}.md`;
+  const reportPath = path.join(LOG_DIR, reportName);
+
   fs.writeFileSync(reportPath, md, 'utf8');
   fs.writeFileSync(path.join(LOG_DIR, 'LATEST.md'), md, 'utf8');
 
-  console.log(`✓ Validation report written: ${path.relative(ROOT, reportPath)}`);
-  console.log(`  Passed: ${passed}/${total}`);
+  return path.relative(ROOT, reportPath);
+}
 
-  if (failed > 0) {
-    console.log(`  Failed: ${failed}`);
+function printHuman(summary, results, reportPath) {
+  if (reportPath) {
+    console.log(`✓ Validation report written: ${reportPath}`);
+  } else {
+    console.log('Validation report not written (--no-write).');
+  }
+  console.log(`  Passed: ${summary.passed}/${summary.total}`);
+
+  if (summary.failed > 0) {
+    console.log(`  Failed: ${summary.failed}`);
     results.filter((r) => r.status === 'FAIL').forEach((r) => {
       console.log(`    ✗ ${r.label}: ${r.detail}`);
     });
-    process.exit(1);
+    return;
   }
 
   console.log('  All checks passed.');
+}
+
+function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const timestamp = new Date().toISOString();
+  const results = buildResults();
+  const summary = summarizeResults(results);
+  const md = buildReport(results, summary, timestamp);
+  const reportPath = args.noWrite ? null : writeReport(md, timestamp);
+
+  if (args.json) {
+    console.log(JSON.stringify({
+      ok: summary.ok,
+      passed: summary.passed,
+      failed: summary.failed,
+      total: summary.total,
+      report: reportPath,
+      results,
+    }, null, 2));
+  } else {
+    printHuman(summary, results, reportPath);
+  }
+
+  if (!summary.ok) {
+    process.exit(1);
+  }
 }
 
 main();

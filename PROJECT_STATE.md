@@ -187,6 +187,7 @@ Local print assets are required for every hero and section image. Validation che
 | `scripts/hash_project.js` | Hashes project files while excluding logs, hidden files, and env files |
 | `scripts/create_receipt.js` | Writes timestamped project receipts |
 | `scripts/checkpoint.js` | Runs hash, validation, and receipt in one command |
+| `scripts/sv2.js` | Project CLI for doctor, status, syntax, SEO, validation, checkpoint, and PR readiness gates |
 | `scripts/test_image_providers.js` | Historical provider test helper; requires local env configuration |
 
 ## Quality Gates
@@ -194,8 +195,8 @@ Local print assets are required for every hero and section image. Validation che
 Run these after meaningful changes:
 
 ```bash
-node scripts/generate_seo.js
-node scripts/validate_project.js
+node scripts/sv2.js seo
+node scripts/sv2.js validate
 node scripts/checkpoint.js \
   --session "descriptive-session-name" \
   --worker "Agent Name" \
@@ -203,6 +204,14 @@ node scripts/checkpoint.js \
   --created "new-file.ext" \
   --modified "changed-file.ext" \
   --next "Recommended next action"
+```
+
+For pull requests and CI-style no-write checks:
+
+```bash
+node scripts/sv2.js pr-ready
+node scripts/sv2.js seo --check
+node scripts/sv2.js validate --no-write
 ```
 
 Validation checks:

@@ -1,0 +1,29 @@
+name: SV2 Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  sv2-checks:
+    name: sv2-checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Doctor
+        run: node scripts/sv2.js --json doctor
+
+      - name: PR readiness gates
+        run: node scripts/sv2.js --json pr-ready
