@@ -15,7 +15,31 @@ Read `AGENT_LESSON_PRODUCTION_PROTOCOL.md` before creating or modifying lessons.
 | Screen media | `screenImage` fields | Web images selected from reviewed provider results |
 | Print media | `assets/images/*.png` | Local black-and-white worksheet assets |
 | SEO | `seo-snapshots/`, `sitemap.xml`, `robots.txt`, `_redirects` | Crawlable lesson layer |
-| Quality gates | `scripts/validate_project.js`, `scripts/checkpoint.js` | Validation, hashes, and receipts |
+| Quality gates | `scripts/sv2.js`, `scripts/validate_project.js`, `scripts/checkpoint.js` | CLI, validation, hashes, and receipts |
+
+## Branch And PR Workflow
+
+`main` is the canonical saved version. Create all changes on a branch from the latest GitHub `main`:
+
+```bash
+git fetch origin
+git worktree add ../SV2-worktrees/<short-task-name> -b codex/<short-task-name> origin/main
+cd ../SV2-worktrees/<short-task-name>
+node scripts/sv2.js doctor
+```
+
+Before pushing:
+
+```bash
+node scripts/sv2.js pr-ready
+git status -sb
+git add <intended-files>
+git commit -m "Short description"
+git push -u origin codex/<short-task-name>
+gh pr create --draft --base main --head codex/<short-task-name>
+```
+
+Do not merge your own PR unless the user explicitly asks for that.
 
 ## Create a New Lesson
 
@@ -100,8 +124,8 @@ Do not use unrelated decorative art. Do not use a generic diagram when the lesso
 After editing lesson JSON or images:
 
 ```bash
-node scripts/generate_seo.js
-node scripts/validate_project.js
+node scripts/sv2.js seo
+node scripts/sv2.js validate
 ```
 
 `generate_seo.js` rebuilds:
@@ -113,6 +137,14 @@ node scripts/validate_project.js
 - `SEO_GENERATION_REPORT.md`
 
 Validation must pass before handoff.
+
+For CI-style checks that do not write timestamped logs:
+
+```bash
+node scripts/sv2.js seo --check
+node scripts/sv2.js validate --no-write
+node scripts/sv2.js pr-ready
+```
 
 ## Local Test
 
@@ -160,7 +192,7 @@ node scripts/checkpoint.js \
 | Random external image URLs | Weak provenance and fragile lessons | Use reviewed provider candidates |
 | Generic print art | Print output no longer matches the lesson | Convert selected screen sources into coloring pages |
 | Stale SEO snapshots | Clean URLs describe old lesson content | Re-run `generate_seo.js` |
-| Skipping validation | Handoff inherits unknown breakage | Run `validate_project.js` |
+| Skipping validation | Handoff inherits unknown breakage | Run `sv2 validate` or `sv2 pr-ready` |
 | Reading `.env` manually | Secret exposure risk | Let scripts consume env at runtime only |
 
 ## Reference Files

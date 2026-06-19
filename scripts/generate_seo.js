@@ -425,6 +425,107 @@ function buildRedirects(lessons) {
   return lines.join('\n');
 }
 
+// ─── Check Mode ──────────────────────────────────────────────────────────────
+
+function parseArgs(argv) {
+  const args = new Set(argv);
+  return {
+    check: args.has('--check'),
+    json: args.has('--json'),
+  };
+}
+
+function compareGeneratedFile(relPath, expected) {
+  const abs = path.join(ROOT, relPath);
+  if (!fs.existsSync(abs)) {
+    return { file: relPath, status: 'FAIL', detail: 'File is missing' };
+  }
+
+  const actual = fs.readFileSync(abs, 'utf-8');
+  if (actual !== expected) {
+    return { file: relPath, status: 'FAIL', detail: 'File is out of date; run node scripts/generate_seo.js' };
+  }
+
+  return { file: relPath, status: 'PASS', detail: 'Generated artifact is current' };
+}
+
+function summarizeCheck(results) {
+  const passed = results.filter((r) => r.status === 'PASS').length;
+  const failed = results.filter((r) => r.status === 'FAIL').length;
+  return {
+    ok: failed === 0,
+    passed,
+    failed,
+    total: results.length,
+  };
+}
+
+function runCheckMode(args) {
+  const results = [];
+  let manifest;
+
+  try {
+    manifest = readJson(MANIFEST_FILE);
+  } catch (err) {
+    results.push({ file: 'lessons/manifest.json', status: 'FAIL', detail: err.message });
+    const summary = summarizeCheck(results);
+    if (args.json) {
+      console.log(JSON.stringify({ ok: summary.ok, summary, results }, null, 2));
+    } else {
+      console.log('SEO check failed: cannot read lessons/manifest.json.');
+    }
+    process.exit(1);
+  }
+
+  const lessons = manifest.lessons || [];
+
+  lessons.forEach((entry) => {
+    const lessonPath = path.join(ROOT, entry.file);
+    let lesson;
+    try {
+      lesson = readJson(lessonPath);
+    } catch (err) {
+      results.push({ file: entry.file, status: 'FAIL', detail: err.message });
+      return;
+    }
+
+    const expected = buildSnapshot(lesson, `${BASE_URL}/lesson/${entry.id}`);
+    results.push(compareGeneratedFile(`seo-snapshots/${entry.id}.html`, expected));
+  });
+
+  results.push(compareGeneratedFile('sitemap.xml', buildSitemap(lessons)));
+  results.push(compareGeneratedFile('robots.txt', buildRobots()));
+  results.push(compareGeneratedFile('_redirects', buildRedirects(lessons)));
+
+  if (fs.existsSync(NETLIFY_FILE)) {
+    results.push({ file: 'netlify.toml', status: 'PASS', detail: 'File exists; syntax is covered by validation' });
+  } else {
+    results.push(compareGeneratedFile('netlify.toml', buildNetlifyToml()));
+  }
+
+  const summary = summarizeCheck(results);
+
+  if (args.json) {
+    console.log(JSON.stringify({
+      ok: summary.ok,
+      summary,
+      results,
+    }, null, 2));
+  } else {
+    console.log(`SEO check: ${summary.passed}/${summary.total} current`);
+    results.filter((r) => r.status === 'FAIL').forEach((r) => {
+      console.log(`  ✗ ${r.file}: ${r.detail}`);
+    });
+    if (summary.ok) {
+      console.log('All generated SEO artifacts are current.');
+    }
+  }
+
+  if (!summary.ok) {
+    process.exit(1);
+  }
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 function main() {
@@ -616,4 +717,9 @@ function main() {
   if (!allOk) process.exit(1);
 }
 
-main();
+const cliArgs = parseArgs(process.argv.slice(2));
+if (cliArgs.check) {
+  runCheckMode(cliArgs);
+} else {
+  main();
+}

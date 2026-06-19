@@ -1,0 +1,24 @@
+{
+  "name": "sv2-science-lessons",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static science lesson engine with agent-operated validation, SEO, and checkpoint workflows.",
+  "bin": {
+    "sv2": "./scripts/sv2.js"
+  },
+  "scripts": {
+    "sv2": "node scripts/sv2.js",
+    "doctor": "node scripts/sv2.js doctor",
+    "status": "node scripts/sv2.js status",
+    "check:syntax": "node scripts/sv2.js check-syntax",
+    "seo": "node scripts/sv2.js seo",
+    "seo:check": "node scripts/sv2.js seo --check",
+    "validate": "node scripts/sv2.js validate",
+    "validate:ci": "node scripts/sv2.js validate --no-write --json",
+    "pr-ready": "node scripts/sv2.js pr-ready",
+    "checkpoint": "node scripts/sv2.js checkpoint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
