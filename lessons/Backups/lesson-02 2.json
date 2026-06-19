@@ -1,0 +1,134 @@
+{
+  "id": "lesson-02",
+  "meta": {
+    "kicker": ["Lesson 2", "20–30 min", "Grades 2–4", "Print-ready"],
+    "title": "Food Chains",
+    "subtitle": "Food Chains • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "A nature scene showing plants and animals connected by food",
+    "screenImage": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/elephant.png"
+  },
+  "heroCopy": {
+    "lede": "On screen this looks like a modern lesson page — but when you print it, it becomes a worksheet. Read, observe, then write your explanations in complete sentences.",
+    "whatStudentsLearn": "Students learn how energy moves through a food chain: producers make food, consumers eat plants or animals, and decomposers break down dead material. Each section builds vocabulary and explanation skills.",
+    "learningTargets": [
+      "I can identify a producer, consumer, and decomposer.",
+      "I can explain how energy moves in a food chain.",
+      "I can describe what happens when one part of a food chain changes.",
+      "I can use food-chain vocabulary correctly in a sentence."
+    ],
+    "studentDirections": [
+      "Read each section and study the picture.",
+      "Use evidence from the quick facts to answer.",
+      "Write complete sentences when asked.",
+      "On paper: underline key vocabulary words."
+    ],
+    "keyVocabulary": [
+      { "term": "Producer", "def": "a plant that makes its own food using sunlight." },
+      { "term": "Consumer", "def": "an animal that gets energy by eating plants or animals." },
+      { "term": "Decomposer", "def": "an organism that breaks down dead plants and animals." },
+      { "term": "Energy", "def": "the power living things use to grow, move, and survive." }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/butterfly.png",
+      "title": "Producers: where food chains begin",
+      "lede": "Producers are usually plants. They use sunlight, water, and air to make food.",
+      "cards": [
+        { "title": "Quick Facts", "items": ["Plants are producers.", "Producers capture sunlight.", "All food chains start with producers."] },
+        { "title": "Look Closely", "items": ["Find a plant in the image.", "What does it need to make food?", "What might eat this plant?"] }
+      ],
+      "prompt": {
+        "label": "Prompt A — Identify",
+        "hint": "2–3 sentences",
+        "placeholder": "Explain why the plant is a producer. What makes it different from an animal?",
+        "teacherKey": "✔ Key idea: Producers make their own food using sunlight; animals cannot."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/33550/deer-fawn-animal-baby.jpg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/tiger.png",
+      "title": "Consumers: animals that eat",
+      "lede": "Consumers get energy by eating plants or other animals. Some are herbivores, carnivores, or omnivores.",
+      "cards": [
+        { "title": "Types", "items": ["Herbivore: eats plants", "Carnivore: eats animals", "Omnivore: eats both"] },
+        { "title": "Look Closely", "items": ["What might this animal eat?", "Is it a herbivore or carnivore?", "What clues help you decide?"] }
+      ],
+      "callout": "Use evidence from the picture and the facts.",
+      "prompt": {
+        "label": "Prompt B — Classify",
+        "hint": "Fill both lines",
+        "placeholder": "This animal is a (herbivore / carnivore / omnivore) because: ____________\nOne thing it might eat is: ____________",
+        "teacherKey": "✔ Key idea: Use teeth, claws, and habitat clues to justify the type."
+      }
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/67557/frog-toad-amphibian-green-67557.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/habitat.png",
+      "title": "Food chains in habitats",
+      "lede": "Habitats provide the plants and animals needed to form food chains.",
+      "cards": [
+        { "title": "Vocabulary", "items": ["Habitat: where organisms live", "Population: a group of the same kind", "Community: all living things in an area"] },
+        { "title": "Image Mission", "items": ["Name 2 living things you see.", "What could eat what?", "Where does the chain start?"] }
+      ],
+      "prompt": {
+        "label": "Prompt C — Build a Chain",
+        "hint": "3–4 sentences",
+        "placeholder": "Write a simple food chain using three living things (plant → animal → animal). Explain the order.",
+        "teacherKey": "✔ Key idea: Arrows show energy moving from food to eater."
+      }
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/45853/fox-wildlife-nature-red-45853.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/zebra.png",
+      "title": "What happens if something changes?",
+      "lede": "If one part of a food chain changes (less food, fewer predators), other parts are affected too.",
+      "cards": [
+        { "title": "Examples", "items": ["Less rain → fewer plants", "Fewer plants → fewer herbivores", "Fewer herbivores → fewer carnivores"] },
+        { "title": "Think Like a Scientist", "items": ["What changed?", "Who is affected first?", "Who is affected next?"] }
+      ],
+      "prompt": {
+        "label": "Prompt D — Cause & Effect",
+        "hint": "One paragraph",
+        "placeholder": "If a habitat has less water, how might that affect a food chain? Explain step by step.",
+        "teacherKey": "✔ Key idea: Start with producers, then consumers; explain the chain reaction."
+      }
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/36762/butterfly-insect-nature-colorful.jpg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/ladybug.png",
+      "title": "Quick Check + Create",
+      "lede": "Use the words producer, consumer, decomposer, and energy.",
+      "cards": [
+        { "title": "Mini Quiz", "items": ["What is a producer?", "What is a consumer?", "What do decomposers do?"] },
+        { "title": "Challenge", "items": ["Invent a habitat.", "Add a producer and two consumers.", "Explain the energy path."] }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Write a summary explaining producers, consumers, decomposers, and energy in a food chain.",
+        "teacherKey": "✔ Key idea: Mention energy direction and each role."
+      },
+      "promptF": {
+        "label": "Prompt F — Create a Food Chain",
+        "hint": "Bullets OK",
+        "placeholder": "Habitat: ____________\nProducer: ____________\nConsumer #1: ____________\nConsumer #2: ____________\nEnergy path: ____________",
+        "teacherKey": "✔ Key idea: Producer must be a plant; energy flows from food to eater."
+      }
+    }
+  ]
+}

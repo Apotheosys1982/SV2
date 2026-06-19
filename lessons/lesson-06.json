@@ -1,0 +1,227 @@
+{
+  "id": "lesson-06",
+  "meta": {
+    "kicker": [
+      "Lesson 6",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Habitats",
+    "subtitle": "Where Living Things Find Food, Water, and Shelter"
+  },
+  "hero": {
+    "ariaLabel": "Antelope grazing at sunrise on the African savanna showing a natural habitat with grass, trees, and wildlife",
+    "screenImage": "https://images.pexels.com/photos/4733657/pexels-photo-4733657.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/habitat.png",
+    "imageQuery": "savanna habitat sunrise antelope"
+  },
+  "heroCopy": {
+    "lede": "This page is designed like a premium educational website — but when you print it, it becomes a clean worksheet. Read each section, study the images, then answer in the writing boxes (type on screen or write on paper).",
+    "whatStudentsLearn": "In this lesson, students explore what a habitat is and why habitats matter. They discover that every living thing needs food, water, shelter, and space to survive. Students will explore three very different habitats — forests, oceans, and deserts — and learn how animals and plants are adapted to each one. The lesson ends with why protecting habitats is important for all living things, including us.",
+    "learningTargets": [
+      "I can explain what a habitat is and name the four things living things need to survive.",
+      "I can describe a forest habitat and name animals and plants that live there.",
+      "I can describe an ocean habitat and explain how sea animals and plants depend on each other.",
+      "I can describe a desert habitat and explain how living things survive with very little water.",
+      "I can explain why protecting habitats matters and name one way people can help."
+    ],
+    "studentDirections": [
+      "Read each section and study the image.",
+      "Use the \"Quick Facts\" to support your answers.",
+      "Write in complete sentences when asked.",
+      "On paper: you may draw and label the habitat you are reading about."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Habitat",
+        "def": "the natural home of a plant or animal, where it finds food, water, shelter, and space."
+      },
+      {
+        "term": "Shelter",
+        "def": "a safe place where an animal can hide, rest, and stay protected from weather and predators."
+      },
+      {
+        "term": "Adaptation",
+        "def": "a body part or behavior that helps a living thing survive in its habitat."
+      },
+      {
+        "term": "Ecosystem",
+        "def": "a community of living things and the nonliving parts of their environment working together."
+      },
+      {
+        "term": "Conservation",
+        "def": "protecting nature and keeping habitats safe for the plants and animals that live there."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://images.pexels.com/photos/11760862/pexels-photo-11760862.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/elephant.png",
+      "title": "What Is a Habitat?",
+      "lede": "A habitat is the natural home of a plant or animal. It is the place where a living thing finds everything it needs to survive. Every habitat must provide four important things: food, water, shelter, and space. Without even one of these, a living thing cannot survive for long.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "A habitat is not just a place to live — it is where a living thing finds food, water, shelter, and space.",
+            "Different habitats look very different. A pond, a forest, and a desert are all habitats.",
+            "Plants need habitats too! They need sunlight, water, air, and space to grow."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at the image of zebras at a waterhole. What do you see that could be food for the zebras?",
+            "Where do you think the zebras find shelter in this habitat?",
+            "Can you spot water in the image? Why is water important here?"
+          ]
+        }
+      ],
+      "callout": "Every living thing — from the tiniest insect to the biggest whale — needs a habitat to survive.",
+      "prompt": {
+        "label": "Prompt A — Observe a Habitat",
+        "hint": "3–4 sentences",
+        "placeholder": "Look at the image. Describe this habitat. What do you see that could provide food, water, shelter, and space for living things?",
+        "teacherKey": "✔ Key idea: A habitat provides food (grass, plants), water (waterhole, river), shelter (trees, burrows, shade), and space (room to move, grow, and find resources). Students should identify at least two of these in the image."
+      },
+      "imageQuery": "zebras waterhole savanna habitat"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/12463584/pexels-photo-12463584.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/squirrel.png",
+      "title": "Forest Habitats",
+      "lede": "A forest is one of the richest habitats on Earth. Tall trees form a canopy that shelters the animals below. Birds build nests in the branches. Squirrels gather nuts from the forest floor. Insects live under logs and bark. Every part of the forest — from the treetops to the soil — is home to something alive.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Forests cover about 30 percent of the Earth's land surface.",
+            "One forest tree can be home to hundreds of different species of insects, birds, and small mammals.",
+            "Trees in a forest provide food (nuts, fruits, leaves), shelter (hollow trunks, dense branches), and shade."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at the squirrel in the image. What part of the forest habitat is it using?",
+            "What food might the squirrel find on the forest floor?",
+            "Why do you think the squirrel's bushy tail is helpful in a forest?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt B — Forest Report",
+        "hint": "3–4 sentences",
+        "placeholder": "Describe the forest habitat in the image. Name two animals or plants that could live here and explain how the forest helps them survive.",
+        "teacherKey": "✔ Key idea: Forests provide food (nuts, seeds, leaves, insects), shelter (tree hollows, dense branches, under logs), water (rain, streams), and space. Animals like squirrels, birds, and insects all depend on different parts of the forest."
+      },
+      "imageQuery": "squirrel forest habitat"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/2314945/pexels-photo-2314945.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/reef.png",
+      "title": "Ocean Habitats",
+      "lede": "The ocean is the biggest habitat on Earth. It covers more than 70 percent of our planet's surface. Under the waves, coral reefs are like underwater cities. Sea turtles glide between colorful corals. Fish hide in the reef's nooks and crannies. Sea plants use sunlight near the surface to make food. Everything in the ocean is connected in a giant food chain.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Coral reefs are home to about 25 percent of all ocean species, even though they cover less than 1 percent of the ocean floor.",
+            "Sea turtles eat jellyfish, seagrass, and sponges found in ocean habitats.",
+            "Ocean food chains start with tiny plants called phytoplankton that use sunlight to make food."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at the sea turtle swimming near the coral reef. What does the reef provide for the turtle?",
+            "Why do you think so many fish live near coral reefs instead of in open water?",
+            "What might happen to the fish if the coral reef was damaged?"
+          ]
+        }
+      ],
+      "callout": "Ocean habitats are connected. When one part of the food chain is affected, many other animals feel the impact too.",
+      "prompt": {
+        "label": "Prompt C — Ocean Food Chain",
+        "hint": "4–5 sentences",
+        "placeholder": "Describe the ocean habitat in the image. Start with the sun and sea plants, then explain how energy moves to fish and sea turtles. Use the words: producer, consumer, food chain.",
+        "teacherKey": "✔ Key idea: Sunlight helps sea plants (producers) make food. Small fish (consumers) eat the plants. Bigger animals like sea turtles (consumers) eat the small fish. Energy flows from sun → plants → small fish → big animals. The coral reef provides shelter and food for many links in this chain."
+      },
+      "imageQuery": "sea turtle coral reef habitat"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/14186776/pexels-photo-14186776.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/desert.png",
+      "title": "Desert Habitats",
+      "lede": "A desert is a habitat that gets very little rain. It can be extremely hot during the day and cold at night. Even so, many living things call the desert home. Cacti store water inside their thick stems. Lizards rest on warm rocks to heat their bodies. Snakes hunt at night when it is cooler. Desert living things have special adaptations that help them survive with very little water.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Deserts can be hot or cold. The Antarctic is actually the largest desert on Earth.",
+            "A cactus can store hundreds of liters of water inside its stem.",
+            "Many desert animals are nocturnal — they are active at night to avoid the daytime heat."
+          ]
+        },
+        {
+          "title": "Think Like a Scientist",
+          "items": [
+            "Look at the cacti in the image. Why do you think cacti have thick, waxy skin instead of thin leaves?",
+            "How might a lizard's behavior help it survive in a place with very little water?",
+            "If a forest animal like a squirrel was dropped into a desert, what challenges would it face?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Desert Adaptations",
+        "hint": "One paragraph (4–5 sentences)",
+        "placeholder": "Choose one desert plant OR one desert animal. Describe two adaptations it has and explain how each adaptation helps it survive in the desert habitat.",
+        "teacherKey": "✔ Key idea: Adaptations are body parts or behaviors that help survival. Cacti: thick stems store water, waxy skin reduces water loss, spines protect from animals. Lizards: burrow underground to stay cool, active at night, get water from food. Students should connect each adaptation to a desert challenge (heat, water scarcity, predators)."
+      },
+      "imageQuery": "desert cactus habitat"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/6551920/pexels-photo-6551920.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/giraffe.png",
+      "title": "Why Habitats Matter",
+      "lede": "Every habitat on Earth is home to living things that depend on it. When a habitat is damaged or destroyed, the plants and animals that live there lose their homes. Pollution, cutting down forests, and filling in wetlands are some of the ways habitats are harmed. But people can help! Conservation means protecting nature so that habitats — and the living things in them — can thrive for generations to come.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "When a forest is cut down, hundreds of species can lose their habitat at once.",
+            "Pollution in rivers and oceans harms the animals that depend on clean water.",
+            "National parks and nature reserves are examples of protected habitats where animals are safe."
+          ]
+        },
+        {
+          "title": "Think About It",
+          "items": [
+            "Look at the elephants in the image. What do these elephants need from their habitat to survive?",
+            "What might happen to the elephants if their habitat was turned into farmland?",
+            "Can you think of one thing people do to protect habitats?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt E — Habitat Hero",
+        "hint": "5–6 sentences",
+        "placeholder": "Write about why habitats matter. Choose one habitat from this lesson (forest, ocean, or desert). Explain what living things need from it, what could harm it, and one way people can help protect it. Use the word conservation.",
+        "teacherKey": "✔ Key idea: Habitats provide food, water, shelter, and space. Threats include pollution, deforestation, overfishing, and climate change. Conservation actions: creating nature reserves, reducing pollution, planting trees, protecting endangered species, and teaching others. Students should connect a specific habitat to a specific threat and a specific solution."
+      },
+      "imageQuery": "elephants savanna habitat conservation"
+    }
+  ]
+}

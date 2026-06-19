@@ -1,0 +1,206 @@
+{
+  "id": "lesson-03",
+  "meta": {
+    "kicker": ["Lesson 3", "20–30 min", "Grades 2–4", "Print-ready"],
+    "title": "Ecosystems & Interdependence",
+    "subtitle": "Ecosystems & Interdependence • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "A scenic nature landscape at sunset showing an ecosystem environment",
+    "screenImage": "https://images.pexels.com/photos/9730355/pexels-photo-9730355.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/sunset.jpg"
+  },
+  "heroCopy": {
+    "lede": "On screen this looks like a modern lesson page — but when you print it, it becomes a worksheet. Read, observe, then write your explanations using evidence from the images and quick facts.",
+    "whatStudentsLearn": "Students learn what an ecosystem is, how living and nonliving parts work together, and why living things depend on each other. They explore interdependence (like pollination), what happens when ecosystems change, and how to design their own ecosystem using resources, relationships, and survival needs.",
+    "learningTargets": [
+      "I can explain what an ecosystem is (living and nonliving parts together).",
+      "I can identify biotic (living) and abiotic (nonliving) factors.",
+      "I can describe how living things depend on each other for survival.",
+      "I can explain how changes can affect an ecosystem."
+    ],
+    "studentDirections": [
+      "Read each section and study the picture.",
+      "Use evidence from the quick facts to answer.",
+      "Write complete sentences when asked.",
+      "On paper: underline key vocabulary words."
+    ],
+    "keyVocabulary": [
+      { "term": "Ecosystem", "def": "a community of living things and the nonliving parts of their environment working together." },
+      { "term": "Biotic", "def": "living parts of an ecosystem (plants, animals, fungi, bacteria)." },
+      { "term": "Abiotic", "def": "nonliving parts of an ecosystem (sunlight, water, air, soil, rocks, temperature)." },
+      { "term": "Interdependence", "def": "when living things depend on each other to survive." }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://images.pexels.com/photos/927414/pexels-photo-927414.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/rainforest.jpg",
+      "title": "What is an ecosystem?",
+      "lede": "An ecosystem includes all the living things in an area and all the nonliving parts they interact with—like water, air, sunlight, and soil.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Ecosystems can be large (rainforests) or small (a pond).",
+            "Living things need nonliving resources to survive.",
+            "Ecosystems include plants, animals, and many other organisms."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Name 3 living things that could live here.",
+            "Name 3 nonliving things you notice or can infer.",
+            "What makes this place a good home?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Define + Evidence",
+        "hint": "2–3 sentences",
+        "placeholder": "Explain why this scene is an ecosystem. Name one living thing and one nonliving thing, and explain how they connect.",
+        "teacherKey": "✔ Key idea: Ecosystem = living + nonliving working together (example: plants use sunlight/water/soil)."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/7944411/pexels-photo-7944411.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/plant.jpg",
+      "title": "Biotic vs. Abiotic factors",
+      "lede": "Biotic factors are living things. Abiotic factors are nonliving parts like soil, water, sunlight, and temperature. Both affect survival.",
+      "cards": [
+        {
+          "title": "Biotic (Living)",
+          "items": [
+            "Plants",
+            "Animals",
+            "Fungi",
+            "Bacteria (tiny living things)"
+          ]
+        },
+        {
+          "title": "Abiotic (Nonliving)",
+          "items": [
+            "Soil and rocks",
+            "Water",
+            "Air",
+            "Sunlight and temperature"
+          ]
+        }
+      ],
+      "callout": "Use the picture to support your choices—don’t guess without evidence.",
+      "prompt": {
+        "label": "Prompt B — Sort & Explain",
+        "hint": "Fill both lines",
+        "placeholder": "One BIOTIC factor in this picture is: ____________\nOne ABIOTIC factor in this picture is: ____________\nExplain how the abiotic factor helps the biotic factor survive: ____________________________",
+        "teacherKey": "✔ Key idea: Abiotic factors support life (soil holds nutrients/water; sunlight powers plant food-making)."
+      }
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/5352172/pexels-photo-5352172.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/honeybee.jpg",
+      "title": "Interdependence: living things need each other",
+      "lede": "Many living things depend on each other for food, shelter, protection, or reproduction. Pollination is one example.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Bees collect nectar for food.",
+            "As bees move, they transfer pollen between flowers.",
+            "Pollination helps plants make seeds and fruit."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "What is the bee getting from the flower?",
+            "How is the flower helped by the bee?",
+            "Why is this relationship important?"
+          ]
+        }
+      ],
+      "prompt": {
+  "label": "Prompt C —Interdependence",
+  "hint": "3–4 sentences",
+  "placeholder": "Describe how the bee and the flower depend on each other. What does each one get from this relationship?",
+  "teacherKey": "✔ Key idea: Bee gets food (nectar/pollen). Flower gets pollination so it can make seeds/fruit."
+}
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/4869960/pexels-photo-4869960.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/desert.jpg",
+      "title": "What happens when ecosystems change?",
+      "lede": "When an abiotic factor changes—like water, temperature, or storms—living things may struggle to survive. Some move, adapt, or die.",
+      "cards": [
+        {
+          "title": "Examples",
+          "items": [
+            "Less rain → fewer plants grow",
+            "Fewer plants → fewer animals can find food",
+            "Extreme heat or cold → some animals migrate"
+          ]
+        },
+        {
+          "title": "Think Like a Scientist",
+          "items": [
+            "What nonliving factor might have changed here?",
+            "Which living things would be affected first?",
+            "What could happen next in the ecosystem?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Cause & Effect",
+        "hint": "One paragraph",
+        "placeholder": "Imagine this area gets much less water for a long time. Explain what could happen to plants first, then animals. Use step-by-step reasoning.",
+        "teacherKey": "✔ Key idea: Start with abiotic change → producers impacted → consumers impacted → ecosystem balance shifts."
+      }
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/4620507/pexels-photo-4620507.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/reef.jpg",
+      "title": "Quick Check + Create",
+      "lede": "Use the words ecosystem, biotic, abiotic, and interdependence.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "What is an ecosystem?",
+            "Name 2 abiotic factors.",
+            "What does interdependence mean?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Choose an ecosystem type (reef, desert, forest, pond).",
+            "List 2 biotic parts and 2 abiotic parts.",
+            "Describe one way living things depend on each other."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Write a summary explaining what an ecosystem is, how biotic and abiotic factors work together, and why interdependence matters.",
+        "teacherKey": "✔ Key idea: Include living + nonliving, name examples, and explain dependence relationships."
+      },
+      "promptF": {
+        "label": "Prompt F — Build Your Own Ecosystem",
+        "hint": "Bullets OK",
+        "placeholder": "Ecosystem type: ____________\nBiotic #1 (living): ____________\nBiotic #2 (living): ____________\nAbiotic #1 (nonliving): ____________\nAbiotic #2 (nonliving): ____________\nOne interdependence link (who needs who and why): ____________________________",
+        "teacherKey": "✔ Key idea: Must include at least 2 living + 2 nonliving, plus a clear dependency link with a reason."
+      }
+    }
+  ]
+}

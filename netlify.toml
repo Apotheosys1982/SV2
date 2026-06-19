@@ -1,0 +1,8 @@
+# Netlify configuration for SV2 SEO snapshot layer
+# Clean lesson URLs: /lesson/lesson-XX → seo-snapshots/lesson-XX.html
+
+[[redirects]]
+  from = "/lesson/:id"
+  to = "/seo-snapshots/:id.html"
+  status = 200
+  force = true

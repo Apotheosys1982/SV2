@@ -1,0 +1,35 @@
+{
+  "defaultLessonId": "lesson-01",
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "label": "Lesson 1 — Plants & Animals",
+      "file": "lessons/lesson-01.json"
+    },
+    {
+      "id": "lesson-02",
+      "label": "Lesson 2 — Food Chains",
+      "file": "lessons/lesson-02.json"
+    },
+    {
+      "id": "lesson-03",
+      "label": "Lesson 3 — Ecosystems & Interdependence",
+      "file": "lessons/lesson-03.json"
+    },
+    {
+      "id": "lesson-04",
+      "label": "Lesson 04 — The Water Cycle",
+      "file": "lessons/lesson-04.json"
+    },
+    {
+      "id": "lesson-05",
+      "label": "Lesson 05 — Trees",
+      "file": "lessons/lesson-05.json"
+    },
+    {
+      "id": "lesson-06",
+      "label": "Lesson 06 — Habitats",
+      "file": "lessons/lesson-06.json"
+    }
+  ]
+}

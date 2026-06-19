@@ -1,0 +1,137 @@
+# Hash Report
+
+**Generated:** 2026-06-11T10:11:56.895Z
+**Project:** SV2 Science Lessons
+**Files hashed:** 96
+
+## Application (1 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `index.html` | 60601 B | `6054087b27fd915ce06386117e862f12e63252ddc6c4e306103c466db5009147` |
+
+## Lessons (14 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `lessons/Backups/lesson-02 2.json` | 7252 B | `5d3502d062a3cd5279b0fe84b68c7959eeb2d06a46caf668d7acfca8e96cc965` |
+| `lessons/Backups/lesson-02 3.json` | 7234 B | `21ff7e5d7003d6b5fa14a8d8574cb742bbe7b3469526bd78d822b91cd651732d` |
+| `lessons/Backups/lesson-02 4.json` | 8000 B | `0de89262fb3080e0d74a2df8d94cf47f22f8a8c42babaf319feab4a923267439` |
+| `lessons/Backups/lesson-02.json` | 6817 B | `73ef7404ed86e1789297a0b5785835fe99895eb4df862565d697ac8786542483` |
+| `lessons/Backups/lesson-03.json` | 9399 B | `07b47138323ad1e122f3ad93403fff441fdf12ad04f95f36759d0fffd2f6d7fd` |
+| `lessons/Backups/manifest.json` | 256 B | `dd3419c738a8668d8143e2196d046eade7f9d7acf80071f53ca84abbf0aa9f65` |
+| `lessons/lesson-01.json` | 9254 B | `d25c57776ab1afcf4cc8fb71d6f2e7e7704b8f8a925a742646e3bdbb19815a2e` |
+| `lessons/lesson-02.json` | 8414 B | `8bd3cdcd5697d48c7c07590b09cae585716332e17987fdca3bcddcb8db94b2bb` |
+| `lessons/lesson-03.json` | 9860 B | `0853c8c4e0e4ce65e8a0a1f60186ab52fcdc0d16f726a477389507a1f1e641d9` |
+| `lessons/lesson-04.json` | 10718 B | `2afca988dd42a466a6e4bd136a7b46de2d679fe7fbfbe1f7ffca3aea15613e10` |
+| `lessons/lesson-05.json` | 11976 B | `7096581eeebae7ad9872fbc13f19953641d45613125d2fb0ae1e4b7db89b4503` |
+| `lessons/lesson-06.json` | 13602 B | `694ea0c11cffac5ebda3a34dbc65fe474f04488ce6549719fb2df99fdc9b7cd9` |
+| `lessons/lesson_template.json` | 6549 B | `537f6a5731ff9190e72408125e70d1f8249b77790509f5fdaefde2c7ab9ca2f4` |
+| `lessons/manifest.json` | 795 B | `6ea6aa15ce7dcf43b83e6a2d3e251a45dda74f703b83682664080ced33558062` |
+
+## Scripts (10 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `scripts/checkpoint.js` | 4856 B | `aa842c1c4376431a504f1fecd14978074d8838fdeeeb041bde47bfefb78925f1` |
+| `scripts/create_lesson.js` | 4405 B | `5f36bd7e9c487124f303867436f216251f46ecdc9db2cd28b8fdfa88beeb9b91` |
+| `scripts/create_receipt.js` | 3739 B | `89495df862c7a60d07701f2e88bdd2a8fa2f937d564b1361aef693360ee2a35f` |
+| `scripts/generate_seo.js` | 23182 B | `50e26b2ebe50030378b2aef98841f442ce9320ba6468251938d769c627950994` |
+| `scripts/hash_project.js` | 4254 B | `03751bc00c1660a9456165c78191110725a08d2c5b44961b903825911c13ea37` |
+| `scripts/prepare_print_assets.js` | 11401 B | `610fa48c5745676ccf5b85da6d21c291f59723739736062da585287bb4d330e1` |
+| `scripts/search_lesson_images.js` | 11764 B | `6eacfd217aee55c42414f41478965f5719b1b77d96f4a2473e71d7cfdfeb1384` |
+| `scripts/test_image_providers.js` | 10779 B | `c82be84865baadc238f86d03566912a15722b6edd0bd8d83e0305fb2ce595644` |
+| `scripts/update_manifest.js` | 2468 B | `da7bcd4f33aa3eed5eb5a4b8a44090f487be3bd64f05a727b336bd18109b5fda` |
+| `scripts/validate_project.js` | 16904 B | `955166ca0981dcfdabc4c0b9a8c37ab8d94359fb32ff2570f86fdbb743b18191` |
+
+## Assets (41 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `assets/images/butterfly.png` | 1063586 B | `7f1280bc1125c9786bb05a6e4be8d69f476dae638c82fe484c7fb42408a0711d` |
+| `assets/images/desert.png` | 673771 B | `5a5766f9e62e3fb6f492b747383815363d4146193f9954b23586f6bc22220bd7` |
+| `assets/images/elephant.png` | 1698188 B | `e5d5f22a0989e4064190a366be65c5996c31b821b5b51d820b4b5abb197fc843` |
+| `assets/images/giraffe.png` | 727863 B | `b23e350f3b26462593a888702c310e0fede4acaaafcff686e632f7c77fbf4432` |
+| `assets/images/habitat.png` | 1439222 B | `7d6a837f2b7e42d1ed489ee166aec7b3dc8438869c91cecfeedfd6a372a8043d` |
+| `assets/images/honeybee.png` | 1017956 B | `0adfd74347ee1ef5d86f2dc2b021a853c9c6de10fd04099cc7e82c1fb1239b1a` |
+| `assets/images/ladybug.png` | 1206767 B | `1481c32b1c50c68f33f262b09f66f351a116b49332a046f5ee4b91fa694d2c87` |
+| `assets/images/leopard.png` | 1025879 B | `07ce0a0606ed49964f22b2193cdaf539eea43129db8dcf7290319f6307b98510` |
+| `assets/images/plant.png` | 1187439 B | `c5a70c90d028d6301d28816a4ac73298b51aa2ad5160fa27d5ecc217d3e7cac1` |
+| `assets/images/rainforest.png` | 1483333 B | `138bbf51100d005150d89db5f410edff123abfb0078ace4ad0709c922d1b61b4` |
+| `assets/images/redpanda.png` | 1129316 B | `fe442172350dbaf8741a9571b14ca05216d3b5bc93de870b2268fcd290f1e9b5` |
+| `assets/images/reef.png` | 1566215 B | `dd1d6e244b5eba34f9f7dbd1dfe4408a6bde2b0a206e7fc517c3aed5c3464b5b` |
+| `assets/images/squirrel.png` | 1262848 B | `4b3e30c891fcbe1165e8260651242dc0aa71f8080b58f75e135073102853bd8b` |
+| `assets/images/sunflower.png` | 285993 B | `2e989e6b985b89660c3d5e5974d85e57ad226efa06bb409860caeea8118a44ca` |
+| `assets/images/sunset.png` | 1803870 B | `322dea526f4595ba286161b0f3ded7b8339815f5f1fe6cc56904968f3a6920be` |
+| `assets/images/tiger.png` | 999638 B | `6bc8cd73698d516c8483154a1b6cdefe96dc629347164fef4f81ecbef36c5d25` |
+| `assets/images/turtle.png` | 1044194 B | `55193a2b760c3fcdb533e0a7ab4cf75cbf1c3ed7b17023e2a327aeec10fca65b` |
+| `assets/images/water-clouds.png` | 682856 B | `85311bd456c133be60d6b5221bf06169443738b51baf8755416c0fad73fcc508` |
+| `assets/images/water-cycle.png` | 984264 B | `df614da71b26dd242801cd4690b1d5deb53cd99fcd496dc2c2b52525539708e0` |
+| `assets/images/water-ocean.png` | 960730 B | `304d2f9bc6ca930f2ba10cf912db5858fd56299cd798914d80e3b72e6a2ebb2f` |
+| `assets/images/water-rain.png` | 972111 B | `8643907ed3449b121c4e974eca369972cdc7a5f159cfb446d4089ba9c52d83e0` |
+| `assets/images/water-river.png` | 889337 B | `8066a3452229796f472b670154f118c8db5980909dc906bf94b1c6d531c9e7c1` |
+| `assets/images/water-sun.png` | 964755 B | `38e36332efc40750b68749bc902fef838f621c1d3e61bcbb153dbca11d09c530` |
+| `assets/images/zebra.png` | 1211927 B | `9873b32cc8f9670889e2d870c13d98d588576e6cfe9f2806a6c9ebcee0e2862a` |
+| `assets/index 2.html` | 39212 B | `e0f200dcba0c2bd870e2bcfbd783b6a53c0f9cfe68f8b894349317be66c6aaaf` |
+| `assets/index 3.html` | 43860 B | `c4f8403ad18b0d690c8ed45e9670f31ce93d5723ebd2ccfa54a3fbc9e930af57` |
+| `assets/index 4.html` | 44043 B | `79ea9698759dc8899688e0c5d950f7ac60ebda345a5504503e30a88f9ea97e27` |
+| `assets/index 5.html` | 53640 B | `f5509f5d5938d607cba334a3f3281776e42dc50e20871163784e9a048668dba9` |
+| `assets/index 6.html` | 55998 B | `637c4b24486ab77134733e2d8573690080d845e8786b811505d05b01a153ee5a` |
+| `assets/index 7.html` | 56980 B | `7768fac506cd6976bad285cb8b84f747b0c67954c7324fe442948aa5ef461b43` |
+| `assets/index 8.txt` | 58404 B | `3cc4d4b800dbe0082c17ecb1bc7b127fe847e06d48235792b605288fd5531226` |
+| `assets/index.html` | 53656 B | `156ee5f966157d42b247bb27b3112d537d9898a8cb14ba9ffcd99af2076b81fd` |
+| `assets/index.txt` | 58853 B | `f2dc9a13677a680589d728a3a4280f746bae6d64586cce5ddc73d17f66f23cd6` |
+| `assets/index01.html` | 60601 B | `6054087b27fd915ce06386117e862f12e63252ddc6c4e306103c466db5009147` |
+| `assets/index2.txt` | 58853 B | `f2dc9a13677a680589d728a3a4280f746bae6d64586cce5ddc73d17f66f23cd6` |
+| `assets/source-images/lesson-04/hero.jpg` | 637189 B | `efe6a821d422ca229e11b844d8b857ef6b2500c3f195abfa323fcb9004c4b20d` |
+| `assets/source-images/lesson-04/s1.jpg` | 342769 B | `a8a8f02cda4f71f42ffef53a86986814e2e87b33976aa69d98fbf4ca419b4334` |
+| `assets/source-images/lesson-04/s2.jpg` | 275436 B | `7830d7ec45fc2b097e6bd9a6aa04878d351c60ffea13f105a662535a78e729a5` |
+| `assets/source-images/lesson-04/s3.jpg` | 67984 B | `2d690db14238a74a9c6fffbbedbde51c06b8ca2920b658c67566f121e46d0e80` |
+| `assets/source-images/lesson-04/s4.jpg` | 251355 B | `72282f6720f375853e618dceb054019061be5f0b5069d6daf220e07716bc68e8` |
+| `assets/source-images/lesson-04/s5.jpg` | 231037 B | `85f93db6ec276f6ce37953cb1c0200079c96db71aa1ca91eff1bf741761298bd` |
+
+## Documentation (20 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `AGENT_LESSON_PRODUCTION_PROTOCOL.md` | 6395 B | `1b5367cbd4524a1ce142e422001790b2484f8c221e9fdb6dee8079eed93457e6` |
+| `CHECKPOINT_IMPLEMENTATION_SUMMARY.md` | 4956 B | `ef4357a3036b6a5338a09cd310a1723b16c6c2694f628b5783c343c36a37edc4` |
+| `CHECKPOINT_PROTOCOL.md` | 5163 B | `855cb05bb5500e41c1d2967e8b2f9972166da812e5126f1fb3f0c5278e92584c` |
+| `CLEAN_ROUTE_FIX_SUMMARY.md` | 4251 B | `660549a5016bcf632349f697076ff74ff6a58e1e3ad834991193b0d07395ba68` |
+| `CONTRIBUTING.md` | 5503 B | `c2d1fef75687b66cb82e652fa9194711cf01be18e5ec367ed41efedd413a6db3` |
+| `IMAGE_PROVIDER_TEST.md` | 74224 B | `5e9badbaff8942e9cc697bec290177fb7cf7b78f1dbe2479b45caa5694275e97` |
+| `IMPLEMENTATION_SUMMARY.md` | 12587 B | `cc0266d645d82cc6cbe66e470e2edb2f045aac4ebf709f9c1ebfb7d8ed859d85` |
+| `KIMI_ONBOARDING_REPORT.md` | 8025 B | `95730fc2024077ab5c1fdcc24d394e775f57907dbd2e9943e545d0abe3dce77b` |
+| `LESSON_04_IMAGE_PATCH_SUMMARY.md` | 7641 B | `21871b738e8a5b9e87d37c268d7c75623a8848ea4a13a57228685cb355fefd5e` |
+| `LESSON_04_SUMMARY.md` | 14129 B | `f2ea062ece324a2fe6e41e337df92ed27e22b85d4849e5d664b9bd497462ada4` |
+| `LESSON_05_SUMMARY.md` | 6238 B | `9948a2629d3740a8967f064b80814aa3239fc4a67ce4eff4b5e5a1b4a5ab0c01` |
+| `LESSON_06_SUMMARY.md` | 5347 B | `15b2bede38cabccd9541c400f6bcd526392080e61a6483071ebffd3b179242d5` |
+| `ONBOARDING_REPORT.md` | 6903 B | `08a094a7edcecb0f8e3ca2751be8f5df0bfd4e5a33e72f8adbbecdb324165003` |
+| `PRINT_ASSET_GENERATION_REPORT.md` | 1060 B | `0418c1a486c88dff3005aedd1f1de8bda59e57feb87a9af0414fac5fec00a513` |
+| `PROJECT_STATE.md` | 9601 B | `cdca780367cd2b15a4d3ce572f68e605a247d97a73207f205354aa1ab5121fdd` |
+| `REPOSITORY_ANALYSIS.md` | 8660 B | `7c6d6f9b99ce11a39de33cb37b97ce3dc0910d4ee7a1232ecb39588ff9f7ea36` |
+| `SEO_ARCHITECTURE_PLAN.md` | 17192 B | `9b86d6d839db6233a26b0cc962d75a20668ba1ef7eba5def3989049ebade4587` |
+| `SEO_GENERATION_REPORT.md` | 1106 B | `09a1114201b0cbf83307ec18e4b940c6051526f0900659073875b87da0c32309` |
+| `SEO_IMPLEMENTATION_SUMMARY.md` | 4867 B | `8d7717de5b18a47e3b681f0a9ff9255beeaabc38e32c52b21251d7bc399566d4` |
+| `print-asset-work-orders/lesson-04.md` | 2552 B | `8414b1bafc119d6c2921e549f0cf940ed2854b21c5ebd01a23f11b681b8d55e3` |
+
+## Other (10 files)
+
+| File | Size | SHA-256 |
+|------|------|----------|
+| `_redirects` | 493 B | `a0b69aecdf5f9a42ed78370b08f7e4067880753c81a1fee5fb8e10f2056f2068` |
+| `netlify.toml` | 224 B | `e14ef0e10dae40f6486fb374d7bb3ba2a665053345861d06600ab6e5b3e5d93c` |
+| `robots.txt` | 79 B | `cb4ad757eddec305f781638713f793c5c92ebf75760918121809e3c6c36dd1b0` |
+| `seo-snapshots/lesson-01.html` | 14740 B | `8608ad788f979b212b961076f85db75c30a323dc11fec947f1d30e0b355468e7` |
+| `seo-snapshots/lesson-02.html` | 13877 B | `1d3b7c15d3cf78a2192b1ea6547c94f876d665eca2714e23bda832303e763d24` |
+| `seo-snapshots/lesson-03.html` | 15362 B | `ce17d21fdb8ce63b8a4cd3c21af702856f92955c2e72dae4b3f8f191cf626d8f` |
+| `seo-snapshots/lesson-04.html` | 16294 B | `f649159c44e6290071dca08f82ead9e8ab01f99950ab08ab680863c66ba460ba` |
+| `seo-snapshots/lesson-05.html` | 17140 B | `b3eb0e5c3318254432412b4b894ea43942e37253e04b1fae52a822ee5b0c05e5` |
+| `seo-snapshots/lesson-06.html` | 18423 B | `f9ac8870437b3d082bf37a3f0fe5a20ff1abb9bb2562d92f9ad1d2dd7603b01a` |
+| `sitemap.xml` | 1136 B | `46d70f2bbc3d68b1518b39bd21d206abdb433bdc47aa541c867637a40b492cf5` |
+
+## Exclusions
+
+- Directories: `logs`, `node_modules`, `.git`, `.vscode`
+- Files: `.env`, `.DS_Store`
+- Hidden files (dot-prefixed) are excluded.

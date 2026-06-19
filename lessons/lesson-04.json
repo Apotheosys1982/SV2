@@ -1,0 +1,227 @@
+{
+  "id": "lesson-04",
+  "meta": {
+    "kicker": [
+      "Lesson 4",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "The Water Cycle",
+    "subtitle": "How Water Moves Around Earth • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "A landscape showing water in different forms: ocean, clouds, and rain",
+    "screenImage": "https://images.pexels.com/photos/14604812/pexels-photo-14604812.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/water-cycle.png",
+    "imageQuery": "water cycle waterfall clouds"
+  },
+  "heroCopy": {
+    "lede": "This page is designed like a premium educational website — but when you print it, it becomes a clean worksheet. Read each section, study the images, then answer in the writing boxes (type on screen or write on paper).",
+    "whatStudentsLearn": "In this lesson, students explore how water moves around Earth in a continuous cycle. They learn about evaporation, condensation, precipitation, and collection—the four main steps that keep water moving through our environment. Each section includes quick facts, observation missions, and writing prompts that build science vocabulary and explain how Earth's water stays in motion.",
+    "learningTargets": [
+      "I can explain what evaporation is and when it happens.",
+      "I can describe how water vapor turns into liquid water during condensation.",
+      "I can identify forms of precipitation and explain why rain is important.",
+      "I can trace the path of water through the complete cycle."
+    ],
+    "studentDirections": [
+      "Read the section and study the image.",
+      "Use the \"Quick Facts\" to support your answers.",
+      "Write in complete sentences when asked.",
+      "On paper: you may draw arrows to show water movement."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Evaporation",
+        "def": "when water turns from a liquid into a gas (vapor) and rises into the air."
+      },
+      {
+        "term": "Condensation",
+        "def": "when water vapor cools and turns back into liquid water droplets."
+      },
+      {
+        "term": "Precipitation",
+        "def": "water that falls from clouds to Earth (rain, snow, sleet, or hail)."
+      },
+      {
+        "term": "Collection",
+        "def": "when water gathers in oceans, lakes, rivers, and the ground."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://cdn.pixabay.com/photo/2016/06/23/23/10/river-1476372_1280.jpg",
+      "printImage": "assets/images/water-ocean.png",
+      "title": "What is the water cycle?",
+      "lede": "Water is always moving. It travels through the air, falls as rain, flows into rivers and oceans, and rises again as vapor. This never-ending journey is called the water cycle.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "The same water has cycled for billions of years.",
+            "Water moves between the sky, land, and oceans.",
+            "The sun's heat powers the water cycle."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at this ocean or lake. Where could water go from here?",
+            "Can you see any clouds? What are they made of?",
+            "What happens to puddles after rain?"
+          ]
+        }
+      ],
+      "callout": "The water cycle never stops—it's always happening, even on cloudy days.",
+      "prompt": {
+        "label": "Prompt A — The Journey of Water",
+        "hint": "2–3 sentences",
+        "placeholder": "Describe where a water drop from the ocean might travel. Use the words evaporation, condensation, and precipitation.",
+        "teacherKey": "✔ Key idea: Water moves from oceans/lakes up to the sky and back down as rain (cycle repeats)."
+      },
+      "imageQuery": "river swirl water cycle"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/9795612/pexels-photo-9795612.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/water-sun.png",
+      "title": "Evaporation: water rises into the air",
+      "lede": "When the sun heats water in oceans, lakes, and rivers, the water changes into a gas called water vapor. This process is called evaporation. Water vapor rises into the air and is invisible—you cannot see it.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "The sun provides heat energy for evaporation.",
+            "Liquid water becomes water vapor (a gas).",
+            "Water vapor is invisible but always in the air."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Feel the warmth from the sun. How does heat affect water?",
+            "After rain, puddles disappear. Where do you think the water goes?",
+            "On a sunny day, wet clothes dry faster. What is happening?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt B — Evaporation in Action",
+        "hint": "Fill both lines",
+        "placeholder": "1) Evaporation happens when: ______________________\n2) Two places where evaporation occurs are: ______________________",
+        "teacherKey": "✔ Key idea: Sun heats water (oceans, lakes, puddles) → water turns to vapor and rises (invisible)."
+      },
+      "imageQuery": "evaporation steam sunlight water"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/28462141/pexels-photo-28462141.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/water-clouds.png",
+      "title": "Condensation: water vapor forms clouds",
+      "lede": "As water vapor rises higher into the sky, the air gets colder. When water vapor cools down enough, it turns back into tiny liquid water droplets. Many droplets together form a cloud. This process is called condensation.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Clouds are made of billions of tiny water droplets.",
+            "Water vapor turns into liquid when it cools.",
+            "Condensation is the opposite of evaporation."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at clouds in the sky. What are they made of?",
+            "On a cold day, your breath becomes visible—why?",
+            "When does fog appear? What is it made of?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Clouds Form",
+        "hint": "3–4 sentences",
+        "placeholder": "Explain how water vapor in the air becomes a cloud. What has to happen for droplets to form?",
+        "teacherKey": "✔ Key idea: Water vapor rises, cools, and condenses into liquid droplets (visible as clouds/fog)."
+      },
+      "imageQuery": "condensation clouds sky"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/18641869/pexels-photo-18641869.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/water-rain.png",
+      "title": "Precipitation: water falls to Earth",
+      "lede": "Inside a cloud, water droplets bump into each other and combine, getting heavier and heavier. When they become too heavy to float in the air, they fall back to Earth as precipitation. Precipitation can be rain, snow, sleet, or hail.",
+      "cards": [
+        {
+          "title": "Types of Precipitation",
+          "items": [
+            "Rain: water droplets that fall as liquid",
+            "Snow: water that freezes into ice crystals",
+            "Sleet and hail: ice that forms from frozen rain"
+          ]
+        },
+        {
+          "title": "Think Like a Scientist",
+          "items": [
+            "Why does precipitation fall downward?",
+            "What determines if it rains or snows?",
+            "Where does precipitation land?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — All Kinds of Precipitation",
+        "hint": "One paragraph",
+        "placeholder": "Describe the difference between rain and snow. Why do you think these different types of precipitation occur in different seasons or places?",
+        "teacherKey": "✔ Key idea: Droplets get heavy and fall; type depends on temperature (rain if warm, snow/ice if cold)."
+      },
+      "imageQuery": "precipitation rain leaves"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/66090/pexels-photo-66090.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/water-river.png",
+      "title": "Collection & why the cycle matters",
+      "lede": "When precipitation lands on Earth, it collects in oceans, lakes, rivers, and soil. Some water soaks into the ground (infiltration) to become groundwater. All this collected water will eventually evaporate again, and the cycle continues forever.",
+      "cards": [
+        {
+          "title": "Collection Locations",
+          "items": [
+            "Oceans hold about 97% of Earth's water.",
+            "Lakes and rivers collect freshwater.",
+            "Groundwater soaks into soil and rocks."
+          ]
+        },
+        {
+          "title": "Why It Matters",
+          "items": [
+            "The cycle provides fresh water for plants and animals.",
+            "It distributes heat around the planet.",
+            "It shapes weather and climate everywhere."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Complete the Cycle",
+        "hint": "5–6 sentences",
+        "placeholder": "Describe the complete water cycle using all four vocabulary words: evaporation, condensation, precipitation, and collection. Explain how water travels through each stage.",
+        "teacherKey": "✔ Key idea: Evaporation (heat)→ Condensation (cooling)→ Precipitation (falling)→ Collection (gathering)→ starts over."
+      },
+      "promptF": {
+        "label": "Prompt F — Track a Water Molecule",
+        "hint": "Bullets OK",
+        "placeholder": "Follow one water molecule through the cycle:\n1) Where does it start? ____________\n2) What happens during evaporation? ____________\n3) What does it become in a cloud? ____________\n4) How does it return to Earth? ____________\n5) Where does it collect? ____________",
+        "teacherKey": "✔ Key idea: Student traces path through all 4 stages, starting and ending with collection (continuous cycle)."
+      },
+      "imageQuery": "river water collection stream"
+    }
+  ]
+}

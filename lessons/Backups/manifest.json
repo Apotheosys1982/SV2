@@ -1,0 +1,7 @@
+{
+  "defaultLessonId": "lesson-01",
+  "lessons": [
+    { "id": "lesson-01", "label": "Lesson 1 — Plants & Animals", "file": "lessons/lesson-01.json" },
+    { "id": "lesson-02", "label": "Lesson 2 — Food Chains", "file": "lessons/lesson-02.json" }
+  ]
+}

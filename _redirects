@@ -1,0 +1,10 @@
+# Netlify redirects — SV2 SEO snapshot layer
+# Clean lesson URLs → static snapshot files (served at same URL, status 200)
+# These are explicit rules for maximum compatibility.
+
+/lesson/lesson-01 /seo-snapshots/lesson-01.html 200
+/lesson/lesson-02 /seo-snapshots/lesson-02.html 200
+/lesson/lesson-03 /seo-snapshots/lesson-03.html 200
+/lesson/lesson-04 /seo-snapshots/lesson-04.html 200
+/lesson/lesson-05 /seo-snapshots/lesson-05.html 200
+/lesson/lesson-06 /seo-snapshots/lesson-06.html 200

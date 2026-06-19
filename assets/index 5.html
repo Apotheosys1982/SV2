@@ -1,0 +1,1596 @@
+<!-- ========================================= -->
+<!-- 🧠 HEAD LAYER — BIOSPHERE KIDS (V3 WHITE)  -->
+<!-- Website-first UI • Worksheet-at-print      -->
+<!-- ========================================= -->
+<head>
+  <!-- ========================================= -->
+  <!-- 🧾 META / TITLE                           -->
+  <!-- ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>BioSphere Kids — Plants & Animals (Printable Web Lesson)</title>
+  <meta name="description" content="A modern kids science lesson page that looks like a premium website, but prints as a clean worksheet." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+
+  <!-- ========================================= -->
+  <!-- 🔤 FONTS                                  -->
+  <!-- ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+
+  <!-- ========================================= -->
+  <!-- 🎛️ CSS TOKENS + PREMIUM WHITE GLASS UI    -->
+  <!-- ========================================= -->
+  <style>
+    :root{
+      /* Layout */
+      --shell-max: 1100px;
+      --shell-pad: clamp(14px, 2.5vw, 26px);
+      --section-gap: clamp(14px, 2.2vw, 22px);
+
+      /* Print */
+      --print-margin: 0.5in;
+
+      /* Typography */
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+      /* Ink (WHITE UI = dark ink) */
+      --ink: #0b1220;
+      --muted: rgba(11,18,32,.72);
+      --soft: rgba(11,18,32,.55);
+      --hairline: rgba(15,23,42,.10);
+      --hairline-2: rgba(15,23,42,.16);
+
+      /* Page background */
+      --page: #ffffff;
+      --page-2: #f7fafc;
+
+      /* Accents (nature) */
+      --a1: #38bdf8; /* sky */
+      --a2: #22c55e; /* leaf */
+      --a3: #fbbf24; /* sun */
+      --a4: #a78bfa; /* bloom */
+
+      /* Surface (premium white glass) */
+      --surface: rgba(255,255,255,.78);
+      --surface-2: rgba(255,255,255,.88);
+      --surface-3: rgba(255,255,255,.96);
+
+      /* Shadows (soft editorial) */
+      --shadow-1: 0 10px 30px rgba(2,6,23,.08);
+      --shadow-2: 0 28px 80px rgba(2,6,23,.10);
+
+      /* Radii */
+      --r-xl: 26px;
+      --r-lg: 20px;
+      --r-md: 16px;
+      --r-sm: 12px;
+
+      /* Motion */
+      --t: 220ms cubic-bezier(.2,.8,.2,1);
+
+      /* Images (screen) */
+      --hero-img: url("https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600");
+      --img-plants: url("https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400");
+      --img-animals: url("https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400");
+      --img-habitat: url("https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg?auto=compress&cs=tinysrgb&w=1400");
+      --img-adapt: url("https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1400");
+      --img-review: url("https://images.pexels.com/photos/29176285/pexels-photo-29176285.jpeg?auto=compress&cs=tinysrgb&w=1400");
+
+      /* Print-friendly B&W assets
+         IMPORTANT FIX:
+         - Removed leading "/" so this works on GitHub Pages / subdirectory hosts too.
+         - Leading "/" breaks when your site is served from /<repo>/... because it points to domain root.
+      */
+      --hero-print: url("assets/images/elephant.png");
+      --plants-print: url("assets/images/butterfly.png");
+      --animals-print: url("assets/images/tiger.png");
+      --habitat-print: url("assets/images/habitat.png");
+      --adapt-print: url("assets/images/zebra.png");
+      --review-print: url("assets/images/ladybug.png");
+    }
+
+    /* ========================================= */
+    /* 🧼 RESET                                   */
+    /* ========================================= */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 600px at 8% 8%, rgba(56,189,248,.14), transparent 60%),
+        radial-gradient(800px 520px at 92% 18%, rgba(34,197,94,.12), transparent 58%),
+        radial-gradient(900px 650px at 30% 96%, rgba(167,139,250,.10), transparent 62%),
+        linear-gradient(180deg, var(--page), var(--page-2));
+      overflow-x:hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    a{ color:inherit; }
+    button, input, textarea{ font:inherit; }
+
+    /* ========================================= */
+    /* 🧊 APP SHELL                               */
+    /* ========================================= */
+    .app{
+      position:relative;
+      z-index:1;
+      min-height:100%;
+      padding: clamp(16px, 3vw, 30px) 14px 34px;
+      display:flex;
+      justify-content:center;
+    }
+    .shell{
+      width:min(var(--shell-max), 100%);
+      display:flex;
+      flex-direction:column;
+      gap: var(--section-gap);
+    }
+
+    /* ========================================= */
+    /* 🧭 HEADER (STATIC, WHITE UI)               */
+    /* ========================================= */
+    .topbar{
+      position: static;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "brand actions"
+        "icons icons";
+      gap: 10px;
+
+      padding: 14px 16px;
+      border-radius: var(--r-xl);
+      background: linear-gradient(135deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--hairline);
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .brand{
+      grid-area: brand;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .logo{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.70), transparent 60%),
+        linear-gradient(135deg, rgba(56,189,248,.85), rgba(34,197,94,.70));
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 14px 28px rgba(2,6,23,.12);
+      flex: 0 0 auto;
+    }
+    .brand-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .brand h1{
+      margin:0;
+      font-size: 14px;
+      letter-spacing:.2px;
+      font-weight: 900;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0;
+      font-size: 11px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 900;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .top-actions{
+      grid-area: actions;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.02em;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.88);
+      border-color: var(--hairline-2);
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    .btn.primary{
+      color: #07210f;
+      background: linear-gradient(135deg, rgba(34,197,94,.30), rgba(56,189,248,.22));
+      border-color: rgba(34,197,94,.30);
+    }
+    .btn.danger{
+      background: rgba(239,68,68,.10);
+      border-color: rgba(239,68,68,.25);
+      color: #4b0b0b;
+    }
+
+    /* Icons row */
+    .icon-rail{
+      grid-area: icons;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:flex-start;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2px;
+    }
+    .icon-rail::-webkit-scrollbar{ height:0; }
+
+    .icon-chip{
+      flex: 0 0 auto;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.70);
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.01em;
+      transition: transform var(--t), background var(--t), border-color var(--t);
+      white-space:nowrap;
+    }
+    .icon-chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.88);
+      border-color: var(--hairline-2);
+    }
+
+    /* ========================================= */
+    /* 🖼️ HERO (IMAGE ONLY)                       */
+    /* ========================================= */
+    .hero{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position:relative;
+    }
+    .hero-media{
+      position:relative;
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.38)),
+        var(--hero-img);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-media:before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(1200px 700px at 50% 20%, rgba(56,189,248,.18), rgba(0,0,0,.24));
+      mix-blend-mode: screen;
+      opacity:.55;
+      pointer-events:none;
+    }
+    .hero-media:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(34,197,94,.16), transparent 55%);
+      opacity:.45;
+      pointer-events:none;
+    }
+
+    /* ========================================= */
+    /* 🧾 HERO COPY (BELOW HERO)                  */
+    /* ========================================= */
+    .hero-copy{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: linear-gradient(135deg, var(--surface-3), var(--surface-2));
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-copy-inner{
+      padding: clamp(16px, 2.8vw, 26px);
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      align-items:center;
+      margin:0;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+    }
+
+    .h1{
+      margin:0;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.02;
+      letter-spacing: .2px;
+      color: var(--ink);
+    }
+    .lede{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 78ch;
+    }
+
+    /* ========================================= */
+    /* 🧩 SECTION BLOCKS                          */
+    /* ========================================= */
+    .section{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .section-inner{
+      display:grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+      min-height: 280px;
+    }
+    .media{
+      position:relative;
+      min-height: 280px;
+      background:
+        radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+        var(--img-plants);
+      background-size: cover;
+      background-position: center;
+    }
+    .chip{
+      position:absolute;
+      left: 14px;
+      top: 14px;
+    }
+    .content{
+      padding: clamp(16px, 2.8vw, 26px);
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      color: var(--ink);
+    }
+    .h2{
+      margin:0;
+      font-family: var(--font-display);
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing:.15px;
+      color: var(--ink);
+    }
+
+    .callout{
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.74);
+      padding: 12px 14px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: var(--ink);
+    }
+    .callout p{
+      margin:0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .callout strong{ color: var(--ink); }
+
+    .mini{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card{
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.76);
+      padding: 12px 14px;
+      color: var(--ink);
+    }
+    .card h3{
+      margin:0 0 6px;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 900;
+    }
+    .card ul{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* ========================================= */
+    /* ✍️ ANSWER BOXES                            */
+    /* ========================================= */
+    .prompt{
+      margin-top: 2px;
+      border-radius: var(--r-lg);
+      border: 1px dashed rgba(15,23,42,.22);
+      background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(34,197,94,.08));
+      padding: 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .prompt .label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .prompt .label span{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .prompt .label .hint{
+      font-size: 11px;
+      color: var(--soft);
+      font-weight: 900;
+      letter-spacing:.06em;
+    }
+
+    /* Screen: big clean editor area (dark ink, light bg) */
+    textarea.answer{
+      width:100%;
+      min-height: 240px;
+      resize: vertical;
+      border-radius: 18px;
+      border: 1px solid var(--hairline-2);
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      padding: 18px 18px;
+      font-size: 15px;
+      line-height: 1.6;
+      outline: none;
+      transition: border-color var(--t), box-shadow var(--t), background var(--t);
+    }
+    textarea.answer:focus{
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.18);
+      background: #ffffff;
+    }
+
+    .teacher{
+      display:none;
+      margin-top: 6px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(239,68,68,.25);
+      background: rgba(239,68,68,.08);
+      color: #4b0b0b;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    body.teacher-mode .teacher{ display:block; }
+
+    /* ========================================= */
+    /* 📱 RESPONSIVE                              */
+    /* ========================================= */
+    @media (max-width: 980px){
+      .section-inner{ grid-template-columns: 1fr; }
+      .media{ min-height: 240px; }
+      .mini{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .topbar{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "brand"
+          "icons"
+          "actions";
+      }
+      .top-actions{ justify-content:flex-start; }
+      .hero-media{ min-height: 360px; }
+      .pill{ letter-spacing:.10em; }
+    }
+
+    /* ========================================= */
+    /* 🧾 PRINT MODE — WEBSITE → WORKSHEET        */
+    /* Clean, structured, ink-friendly            */
+    /* ========================================= */
+    
+        /* ========================================= */
+    /* 🖨️ PRINT-ONLY IMAGE LAYER (RELIABLE)       */
+    /* Background images often don't print unless */
+    /* users enable "Background graphics".        */
+    /* This uses real <img> tags for print.       */
+    /* ========================================= */
+    .print-img{
+      display:none;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* Keep containers ready for absolute image overlays */
+    .hero-media,
+    .media{
+      position:relative;
+    }
+
+    @media print{
+      /* Show real images in print */
+      .print-img{
+        display:block !important;
+        position:absolute;
+        inset:0;
+      }
+
+      /* Turn OFF background layers in print so they don't compete */
+      .hero-media,
+      .media{
+        background: none !important;
+      }
+
+      /* Also kill hero overlay layers in print (you already do this, keep it) */
+      .hero-media:before,
+      .hero-media:after{ display:none !important; }
+    }
+    
+    @media print{
+      html, body{
+        background:#fff !important;
+        color:#000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Hide any screen-only chrome */
+      .no-print{ display:none !important; }
+
+      /* Neutralize glass */
+      .topbar,
+      .hero,
+      .hero-copy,
+      .section,
+      .card,
+      .callout,
+      .prompt{
+        background:#fff !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        border-color:#d7dbe3 !important;
+      }
+
+      .app{ padding:0 !important; display:block !important; }
+      .shell{ width:auto !important; }
+
+      @page{
+        size: letter;
+        margin: var(--print-margin);
+      }
+
+      /* IMPORTANT FIX:
+         Your previous swap selectors used .section:nth-of-type(n),
+         but nth-of-type counts ALL <section> siblings (hero, hero-copy, etc.),
+         so none of your swaps were actually targeting the right sections.
+         Use IDs instead. Bulletproof.
+      */
+
+      /* Kill hero overlay layers in print */
+      .hero-media:before,
+      .hero-media:after{ display:none !important; }
+
+      /* Typography to ink */
+      .h1, .h2{ color:#000 !important; }
+      .lede, .card ul, .callout p, .pill{ color:#111 !important; }
+      .pill{
+        border-color:#d7dbe3 !important;
+        background:#f6f7fb !important;
+      }
+
+      /* Answer boxes = big writing zones */
+      textarea.answer{
+        min-height: 3.8in !important;
+        max-height: none !important;
+        resize: none !important;
+
+        background:#fff !important;
+        color:#000 !important;
+
+        border: 2px solid #2b2f36 !important;
+        padding: 0.25in 0.25in !important;
+
+        background-image:
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 26px,
+            rgba(0,0,0,.18) 27px
+          ) !important;
+
+        box-shadow:none !important;
+        border-radius: 0 !important;
+      }
+
+      /* Page breaks — Canonical Layout */
+.hero{
+  page-break-after: avoid;
+}
+
+.hero-copy{
+  page-break-after: auto;      /* REMOVE forced break */
+  break-after: auto;
+}
+
+/* Section 1 always begins Page 2 */
+#s1{
+  page-break-before: always;
+  break-before: page;
+}
+
+/* Prevent ugly section splitting */
+.section{
+  page-break-inside: avoid;
+  break-inside: avoid;
+  
+  
+}
+
+      /* Crisp print */
+      .hero, .hero-copy, .section, .card, .callout, .prompt{
+        border-radius: 0 !important;
+      }
+
+      /* Swap photographic images for coloring pages
+         Use background shorthand to wipe gradients completely.
+      */
+      .hero-media{
+        background: var(--hero-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #s1 .media{
+        background: var(--plants-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #s2 .media{
+        background: var(--animals-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #s3 .media{
+        background: var(--habitat-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #s4 .media{
+        background: var(--adapt-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #s5 .media{
+        background: var(--review-print) !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+    }
+  </style>
+
+  <!-- ✅ STOP HERE: HEAD + CSS layer only (waiting for Body instructions) -->
+</head>
+
+<!-- ========================================= -->
+<!-- 🧱 BODY LAYER — BIOSPHERE KIDS (V3 WHITE)  -->
+<!-- Static site look • Prints as worksheet     -->
+<!-- ========================================= -->
+<body>
+  <main class="app" id="top">
+    <div class="shell">
+
+      <!-- ========================================= -->
+      <!-- 🧭 HEADER (SCREEN ONLY)                   -->
+      <!-- - Static (NOT sticky)                     -->
+      <!-- - Mobile: icon rail below brand/title     -->
+      <!-- ========================================= -->
+      <div class="topbar no-print" role="banner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-12h-7l0-8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="brand-text">
+            <h1>BioSphere Kids</h1>
+            <p>Plants + Animals • Printable Web Lesson</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+  <button id="teacherToggle" class="btn danger" type="button" aria-pressed="false">Teacher Mode</button>
+
+  <button id="lessonPrev" class="btn" type="button" aria-label="Previous lesson">⬅️</button>
+
+  <select id="lessonSelect" class="btn" aria-label="Select lesson">
+    <option value="lesson-01">Lesson 1</option>
+  </select>
+
+  <button id="lessonNext" class="btn" type="button" aria-label="Next lesson">➡️</button>
+
+  <button class="btn primary" type="button" onclick="window.print()">Print</button>
+</div>
+
+        <nav class="icon-rail" aria-label="Lesson shortcuts">
+          <button class="icon-chip" type="button" data-jump="#s1">🌿 Learn</button>
+          <button class="icon-chip" type="button" data-jump="#s2">🔍 Observe</button>
+          <button class="icon-chip" type="button" data-jump="#s3">🏞️ Habitats</button>
+          <button class="icon-chip" type="button" data-jump="#s4">🧬 Adapt</button>
+          <button class="icon-chip" type="button" data-jump="#s5">✅ Review</button>
+        </nav>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- 🖼️ HERO (IMAGE ONLY)                      -->
+      <!-- - No copy overlay                          -->
+      <!-- ========================================= -->
+      <section class="hero" aria-label="Lesson hero">
+        <div class="hero-media" data-hero-media role="img" aria-label="A forest habitat with plants and animals">
+  <img class="print-img" data-hero-print src="assets/images/elephant.png" alt="Black and white printable hero image">
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+<!-- 🧾 HERO COPY (BELOW HERO)                 -->
+<!-- ========================================= -->
+<section class="hero-copy" aria-label="Lesson overview">
+  <div class="hero-copy-inner">
+
+    <!-- Kicker pills (THIS is the only kicker container) -->
+    <div class="kicker" data-hero-kicker>
+      <span class="pill">Lesson 1</span>
+      <span class="pill">20–30 min</span>
+      <span class="pill">Grades 2–4</span>
+      <span class="pill">Print-ready</span>
+    </div>
+
+    <h1 class="h1" data-hero-title>Plants &amp; Animals</h1>
+
+    <p class="lede" data-hero-lede>
+      This page is designed like a premium educational website — but when you print it,
+      it becomes a clean worksheet. Read each section, study the images, then answer in
+      the writing boxes (type on screen or write on paper).
+    </p>
+
+    <div class="callout" style="margin-top:10px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-top:2px;">
+        <path d="M12 2l1.4 6.2L20 7l-4.8 4.1L16.8 18 12 14.9 7.2 18l1.6-6.9L4 7l6.6 1.2L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- This is the paragraph the engine will overwrite -->
+      <p data-hero-whatlearn>
+        <strong>What students will learn:</strong> In this lesson, students explore what makes something a living thing,
+        what plants and animals need to survive, how habitats provide resources, and how adaptations help living things
+        solve problems in their environment. Each section includes quick facts, a “look closely” mission, and a writing
+        prompt that builds science vocabulary and complete-sentence explanations.
+      </p>
+    </div>
+
+    <div class="mini" style="margin-top:10px;">
+      <div class="card">
+        <h3>Learning Targets</h3>
+        <ul data-hero-targets>
+          <li>I can describe clues that show something is living.</li>
+          <li>I can compare what plants need and what animals need.</li>
+          <li>I can explain what a habitat provides (food, water, shelter, space).</li>
+          <li>I can connect an adaptation to a habitat challenge.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Student Directions</h3>
+        <ul data-hero-directions>
+          <li>Read the section and study the image.</li>
+          <li>Use the “Quick Facts” to support your answers.</li>
+          <li>Write in complete sentences when asked.</li>
+          <li>On paper: you may circle, label, or underline key details.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px;">
+      <h3>Key Vocabulary</h3>
+      <ul data-hero-vocab>
+        <li><strong>Living thing</strong> — something that grows, uses energy, and needs resources.</li>
+        <li><strong>Needs</strong> — resources required to survive (water, energy, food, air, space).</li>
+        <li><strong>Habitat</strong> — the place a plant or animal lives.</li>
+        <li><strong>Adaptation</strong> — a body part or behavior that helps survival.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+      <!-- ========================================= -->
+<!-- 🌿 SECTION 1 — WHAT MAKES SOMETHING ALIVE -->
+<!-- ========================================= -->
+<section class="section" id="s1" aria-label="What makes something alive" data-section="s1">
+  <div class="section-inner">
+
+    <div class="media" data-media="s1" style="background-image:
+      radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+      var(--img-plants);">
+      <img class="print-img" data-print="s1" src="assets/images/ladybug.png" alt="Black and white printable image for section 1">
+      <span class="pill chip" data-chip="s1">Section 1</span>
+    </div>
+
+    <div class="content">
+      <h2 class="h2" data-title="s1">What makes something a living thing?</h2>
+
+      <p class="lede" data-lede="s1">
+        Living things have needs and can do certain jobs to stay alive. Many living things
+        <strong>grow</strong>, <strong>use energy</strong>, <strong>respond</strong> to changes, and <strong>make more</strong> of their kind.
+      </p>
+
+      <div class="mini">
+        <div class="card">
+          <h3>Quick Facts</h3>
+          <ul data-bullets="s1-facts">
+            <li>Plants make their own food using sunlight.</li>
+            <li>Animals must eat plants or other animals.</li>
+            <li>All living things need water and energy.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Look Closely</h3>
+          <ul data-bullets="s1-look">
+            <li>Find a leaf, stem, and flower (or bud).</li>
+            <li>What clues show the plant is alive?</li>
+            <li>Where might it get water?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s1">Prompt A — Living or Not?</span>
+          <span class="hint" data-prompt-hint="s1">2–3 sentences</span>
+        </div>
+
+        <textarea class="answer" data-answer="s1" placeholder="Explain how you know the thing in the picture is alive. Use at least two clues."></textarea>
+
+        <div class="teacher" data-teacher="s1">
+          ✔ Key idea: Living things grow, use energy, respond to changes, and reproduce (plants also make food from sunlight).
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- 🐾 SECTION 2 — NEEDS (FOOD, WATER, AIR)   -->
+<!-- ========================================= -->
+<section class="section" id="s2" aria-label="Living things need food, water, and air" data-section="s2">
+  <div class="section-inner">
+
+    <div class="media" data-media="s2" style="background-image:
+      radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+      var(--img-animals);">
+      <img class="print-img" data-print="s2" src="assets/images/tiger.png" alt="Black and white printable image for section 2">
+      <span class="pill chip" data-chip="s2">Section 2</span>
+    </div>
+
+    <div class="content">
+      <h2 class="h2" data-title="s2">What do plants and animals need?</h2>
+
+      <p class="lede" data-lede="s2">
+        Plants and animals both need <strong>water</strong> and <strong>energy</strong>.
+        Animals also need <strong>food</strong>. Plants need <strong>sunlight</strong> to make food.
+        Many animals need <strong>air</strong> to breathe.
+      </p>
+
+      <div class="callout">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-top:2px;">
+          <path d="M12 2l1.4 6.2L20 7l-4.8 4.1L16.8 18 12 14.9 7.2 18l1.6-6.9L4 7l6.6 1.2L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <p data-callout="s2"><strong>Website on screen, worksheet on paper:</strong> these writing boxes work both ways.</p>
+      </div>
+
+      <div class="mini">
+        <div class="card">
+          <h3>Plants Need</h3>
+          <ul data-bullets="s2-plants">
+            <li>Sunlight</li>
+            <li>Water</li>
+            <li>Air (carbon dioxide)</li>
+            <li>Space to grow</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Animals Need</h3>
+          <ul data-bullets="s2-animals">
+            <li>Food</li>
+            <li>Water</li>
+            <li>Air (oxygen)</li>
+            <li>Shelter</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s2">Prompt B — Compare</span>
+          <span class="hint" data-prompt-hint="s2">Fill both lines</span>
+        </div>
+
+        <textarea class="answer" data-answer="s2" placeholder="1) One need plants and animals share is: ______________________&#10;2) One need that is different is: _____________________________"></textarea>
+
+        <div class="teacher" data-teacher="s2">
+          ✔ Key idea: Shared needs include water/energy; difference: plants need sunlight to make food, animals must eat.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- 🏞️ SECTION 3 — HABITATS                  -->
+<!-- ========================================= -->
+<section class="section" id="s3" aria-label="Habitats" data-section="s3">
+  <div class="section-inner">
+
+    <div class="media" data-media="s3" style="background-image:
+      radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+      var(--img-habitat);">
+      <img class="print-img" data-print="s3" src="assets/images/habitat.png" alt="Black and white printable image for section 3">
+      <span class="pill chip" data-chip="s3">Section 3</span>
+    </div>
+
+    <div class="content">
+      <h2 class="h2" data-title="s3">Habitats: a living thing’s home</h2>
+
+      <p class="lede" data-lede="s3">
+        A <strong>habitat</strong> is the place where a plant or animal lives. A good habitat provides
+        <strong>food</strong>, <strong>water</strong>, <strong>shelter</strong>, and <strong>space</strong>.
+      </p>
+
+      <div class="mini">
+        <div class="card">
+          <h3>Vocabulary</h3>
+          <ul data-bullets="s3-vocab">
+            <li><strong>Habitat</strong>: where it lives</li>
+            <li><strong>Shelter</strong>: safe place to hide/rest</li>
+            <li><strong>Resource</strong>: something it needs</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Image Mission</h3>
+          <ul data-bullets="s3-mission">
+            <li>Name 2 things you see.</li>
+            <li>On paper: circle where shelter might be.</li>
+            <li>What food could exist here?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s3">Prompt C — Habitat Report</span>
+          <span class="hint" data-prompt-hint="s3">3–4 sentences</span>
+        </div>
+
+        <textarea class="answer" data-answer="s3" placeholder="Describe this habitat. What resources could help plants and animals survive here?"></textarea>
+
+        <div class="teacher" data-teacher="s3">
+          ✔ Key idea: Habitat provides resources: food, water, shelter, and space (use visible evidence).
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- 🧬 SECTION 4 — ADAPTATIONS               -->
+<!-- ========================================= -->
+<section class="section" id="s4" aria-label="Adaptations" data-section="s4">
+  <div class="section-inner">
+
+    <div class="media" data-media="s4" style="background-image:
+      radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+      var(--img-adapt);">
+      <img class="print-img" data-print="s4" src="assets/images/zebra.png" alt="Black and white printable image for section 4">
+      <span class="pill chip" data-chip="s4">Section 4</span>
+    </div>
+
+    <div class="content">
+      <h2 class="h2" data-title="s4">Adaptations: helpful body parts or behaviors</h2>
+
+      <p class="lede" data-lede="s4">
+        An <strong>adaptation</strong> is something that helps a living thing survive. It can be a body part
+        (like sharp claws) or a behavior (like migrating). Adaptations match the habitat.
+      </p>
+
+      <div class="mini">
+        <div class="card">
+          <h3>Examples</h3>
+          <ul data-bullets="s4-examples">
+            <li>Thick fur keeps animals warm.</li>
+            <li>Camouflage helps hide from predators.</li>
+            <li>Waxy leaves help plants save water.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Think Like a Scientist</h3>
+          <ul data-bullets="s4-think">
+            <li>What problem does the habitat create?</li>
+            <li>What feature solves that problem?</li>
+            <li>How does it help survival?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s4">Prompt D — Match &amp; Explain</span>
+          <span class="hint" data-prompt-hint="s4">One paragraph</span>
+        </div>
+
+        <textarea class="answer" data-answer="s4" placeholder="Choose one plant OR one animal. Name one adaptation and explain how it helps in its habitat."></textarea>
+
+        <div class="teacher" data-teacher="s4">
+          ✔ Key idea: Adaptation = trait/behavior that improves survival (tie it to habitat problem + solution).
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================= -->
+<!-- ✅ SECTION 5 — REVIEW + CREATE            -->
+<!-- ========================================= -->
+<section class="section" id="s5" aria-label="Review and summary" data-section="s5">
+  <div class="section-inner">
+
+    <div class="media" data-media="s5" style="background-image:
+      radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+      var(--img-review);">
+      <img class="print-img" data-print="s5" src="assets/images/butterfly.png" alt="Black and white printable image for section 5">
+      <span class="pill chip" data-chip="s5">Section 5</span>
+    </div>
+
+    <div class="content">
+      <h2 class="h2" data-title="s5">Quick Check + Create</h2>
+
+      <p class="lede" data-lede="s5">
+        Finish strong. Use the words <strong>needs</strong>, <strong>habitat</strong>, and <strong>adaptation</strong>.
+      </p>
+
+      <div class="mini">
+        <div class="card">
+          <h3>Mini Quiz</h3>
+          <ul data-bullets="s5-quiz">
+            <li>Define <strong>habitat</strong> in your own words.</li>
+            <li>Name 2 needs all living things share.</li>
+            <li>What is an <strong>adaptation</strong>?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Challenge</h3>
+          <ul data-bullets="s5-challenge">
+            <li>Invent a new animal.</li>
+            <li>Choose its habitat.</li>
+            <li>Give it 2 adaptations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s5">Prompt E — Summary</span>
+          <span class="hint" data-prompt-hint="s5">5–6 sentences</span>
+        </div>
+
+        <textarea class="answer" data-answer="s5" placeholder="Write a short summary: needs, habitats, and adaptations. Use all three words."></textarea>
+
+        <div class="teacher" data-teacher="s5">
+          ✔ Key idea: Summary includes shared needs (water/energy), habitat resources, and adaptations that match habitat.
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="label">
+          <span data-prompt-label="s5b">Prompt F — Create an Animal</span>
+          <span class="hint" data-prompt-hint="s5b">Bullets OK</span>
+        </div>
+
+        <textarea class="answer" data-answer="s5b" placeholder="Name: ____________&#10;Habitat: ____________&#10;Adaptation #1: ____________ (helps by ________)&#10;Adaptation #2: ____________ (helps by ________)"></textarea>
+
+        <div class="teacher" data-teacher="s5b">
+          ✔ Key idea: Adaptations must connect to habitat challenges (cold, heat, predators, low water, etc.).
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+      <!-- ========================================= -->
+      <!-- 🔚 END (NO FOOTER — HOMEPAGE-LIKE)        -->
+      <!-- ========================================= -->
+
+    </div>
+  </main>
+
+  
+  <!-- ✅ STOP HERE: BODY layer only (waiting for Script instructions) -->
+
+<!-- ========================================= -->
+<!-- 🧠 SCRIPT LAYER — INTERACTIVITY + SAVE     -->
+<!-- Teacher toggle • Local autosave • Jump nav -->
+<!-- ========================================= -->
+<script>
+(() => {
+  "use strict";
+
+  /* =========================
+     🔎 HELPERS
+  ========================= */
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const safeParse = (s, fallback) => { try { return JSON.parse(s); } catch { return fallback; } };
+
+  /* =========================
+     📦 KEYS (Lesson-aware)
+  ========================= */
+  const MODE_KEY = "biosphere_kids_v3::teacherMode";
+  const LESSON_KEY = "biosphere_kids_v3::currentLesson";
+
+  const answersKeyFor = (lessonId) => `biosphere_kids_v3::answers::${lessonId}`;
+
+  /* =========================
+     🧑‍🏫 TEACHER MODE
+  ========================= */
+  function setTeacherMode(on){
+    document.body.classList.toggle("teacher-mode", !!on);
+
+    const btn = $("#teacherToggle");
+    if (btn){
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.textContent = on ? "Teacher Mode: ON" : "Teacher Mode";
+    }
+
+    try { localStorage.setItem(MODE_KEY, on ? "1" : "0"); } catch {}
+  }
+
+  function initTeacherToggle(){
+    const btn = $("#teacherToggle");
+    if (!btn) return;
+
+    const stored = (localStorage.getItem(MODE_KEY) || "0") === "1";
+    setTeacherMode(stored);
+
+    btn.addEventListener("click", () => {
+      const isOn = document.body.classList.contains("teacher-mode");
+      setTeacherMode(!isOn);
+    });
+  }
+
+  /* =========================
+     🧠 AUTOSAVE (Lesson-aware)
+  ========================= */
+  function initAutosave(lessonId){
+    const key = answersKeyFor(lessonId);
+    const save = (data) => { try { localStorage.setItem(key, JSON.stringify(data)); } catch {} };
+    const load = () => safeParse(localStorage.getItem(key), {});
+
+    const data = load();
+    const textareas = $$("textarea.answer");
+
+    textareas.forEach((ta, i) => {
+      if (!ta.id) ta.id = `ans-${String(i + 1).padStart(2, "0")}`;
+      if (data[ta.id] != null) ta.value = data[ta.id];
+
+      const onInput = () => { data[ta.id] = ta.value; save(data); };
+      ta.addEventListener("input", onInput, { passive:true });
+      ta.addEventListener("change", onInput, { passive:true });
+    });
+
+    // Autogrow (screen only)
+    const autoGrow = (ta) => {
+      if (!ta) return;
+      if (window.matchMedia && window.matchMedia("print").matches) return;
+      ta.style.height = "auto";
+      ta.style.height = Math.min(ta.scrollHeight, 520) + "px";
+    };
+
+    textareas.forEach((ta) => {
+      autoGrow(ta);
+      ta.addEventListener("input", () => autoGrow(ta), { passive:true });
+    });
+
+    window.addEventListener("beforeprint", () => {
+      textareas.forEach((ta) => (ta.style.height = ""));
+    });
+  }
+
+  /* =========================
+     🧭 JUMP NAV
+  ========================= */
+  function initJumpNav(){
+    $$("[data-jump]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sel = btn.getAttribute("data-jump");
+        const el = sel ? document.querySelector(sel) : null;
+        if (!el) return;
+        el.scrollIntoView({ behavior:"smooth", block:"start" });
+      });
+    });
+  }
+
+  /* =========================
+     📚 LESSON ENGINE
+  ========================= */
+  async function fetchJSON(url){
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Fetch failed: ${url} (${res.status})`);
+    return res.json();
+  }
+
+  function setHeroKicker(kickerArr){
+    const wrap = $("[data-hero-kicker]");
+    if (!wrap || !Array.isArray(kickerArr)) return;
+
+    wrap.innerHTML = "";
+    kickerArr.forEach((txt) => {
+      const span = document.createElement("span");
+      span.className = "pill";
+      span.textContent = txt;
+      wrap.appendChild(span);
+    });
+  }
+
+  function setList(ul, items){
+    if (!ul) return;
+    ul.innerHTML = "";
+    (items || []).forEach((txt) => {
+      const li = document.createElement("li");
+      li.textContent = txt;
+      ul.appendChild(li);
+    });
+  }
+
+  function setVocabList(ul, vocab){
+    if (!ul) return;
+    ul.innerHTML = "";
+    (vocab || []).forEach((v) => {
+      const li = document.createElement("li");
+      const strong = document.createElement("strong");
+      strong.textContent = v.term;
+      li.appendChild(strong);
+      li.appendChild(document.createTextNode(` — ${v.def}`));
+      ul.appendChild(li);
+    });
+  }
+
+  function setHeroMedia(hero){
+    const heroMedia = $("[data-hero-media]");
+    const heroPrint = $("[data-hero-print]");
+    if (heroMedia && hero?.ariaLabel) heroMedia.setAttribute("aria-label", hero.ariaLabel);
+
+    // Screen image: background-image stack
+    if (heroMedia && hero?.screenImage){
+      heroMedia.style.backgroundImage =
+        `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.38)), url("${hero.screenImage}")`;
+      heroMedia.style.backgroundSize = "cover";
+      heroMedia.style.backgroundPosition = "center";
+    }
+
+    // Print image: <img src>
+    if (heroPrint && hero?.printImage){
+      heroPrint.setAttribute("src", hero.printImage);
+    }
+  }
+
+  function setSectionMedia(section){
+    const media = $(`[data-media="${section.id}"]`);
+    const printImg = $(`[data-print="${section.id}"]`);
+
+    // Screen image background stack
+    if (media && section?.screenImage){
+      media.style.backgroundImage =
+        `radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%), ` +
+        `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)), ` +
+        `url("${section.screenImage}")`;
+      media.style.backgroundSize = "cover";
+      media.style.backgroundPosition = "center";
+    }
+
+    // Print image
+    if (printImg && section?.printImage){
+      printImg.setAttribute("src", section.printImage);
+    }
+  }
+
+  function applyLesson(lesson){
+    // Top branding line
+    const brandP = document.querySelector(".brand-text p");
+    if (brandP && lesson?.meta?.subtitle) brandP.textContent = lesson.meta.subtitle;
+
+    // Hero copy
+    setHeroKicker(lesson?.meta?.kicker);
+    const hTitle = $("[data-hero-title]");
+    const hLede  = $("[data-hero-lede]");
+    if (hTitle) hTitle.textContent = lesson?.meta?.title || "";
+    if (hLede)  hLede.textContent  = lesson?.heroCopy?.lede || "";
+
+    const wl = $("[data-hero-whatlearn]");
+    if (wl) {
+      wl.innerHTML = `<strong>What students will learn:</strong> ${lesson?.heroCopy?.whatStudentsLearn || ""}`;
+    }
+
+    setList($("[data-hero-targets]"), lesson?.heroCopy?.learningTargets);
+    setList($("[data-hero-directions]"), lesson?.heroCopy?.studentDirections);
+    setVocabList($("[data-hero-vocab]"), lesson?.heroCopy?.keyVocabulary);
+
+    // Hero images
+    setHeroMedia(lesson?.hero);
+
+    // Sections (text + media)
+    (lesson?.sections || []).forEach((s) => {
+      setSectionMedia(s);
+
+      const root = document.getElementById(s.id);
+      if (!root) return;
+
+      const h2 = root.querySelector(".h2");
+      const lede = root.querySelector(".content > .lede");
+      if (h2 && s.title) h2.textContent = s.title;
+      if (lede && s.lede) lede.textContent = s.lede;
+
+      // Callout (only present in some sections)
+      const calloutP = root.querySelector(".callout p");
+      if (calloutP && s.callout){
+        calloutP.innerHTML = `<strong>Website on screen, worksheet on paper:</strong> ${s.callout}`;
+      }
+
+      // Cards (2-up)
+      const cards = root.querySelectorAll(".mini .card");
+      if (cards.length >= 2 && Array.isArray(s.cards)){
+        // Card 1
+        const c1h = cards[0].querySelector("h3");
+        const c1u = cards[0].querySelector("ul");
+        if (c1h && s.cards[0]?.title) c1h.textContent = s.cards[0].title;
+        if (c1u) setList(c1u, s.cards[0]?.items);
+
+        // Card 2
+        const c2h = cards[1].querySelector("h3");
+        const c2u = cards[1].querySelector("ul");
+        if (c2h && s.cards[1]?.title) c2h.textContent = s.cards[1].title;
+        if (c2u) setList(c2u, s.cards[1]?.items);
+      }
+
+      // Prompts (section 5 has two prompts)
+      const prompts = root.querySelectorAll(".prompt");
+      if (s.prompt && prompts[0]){
+        const label = prompts[0].querySelector(".label span");
+        const hint  = prompts[0].querySelector(".label .hint");
+        const ta    = prompts[0].querySelector("textarea.answer");
+        const tk    = prompts[0].querySelector(".teacher");
+        if (label) label.textContent = s.prompt.label || "";
+        if (hint)  hint.textContent  = s.prompt.hint || "";
+        if (ta)    ta.setAttribute("placeholder", s.prompt.placeholder || "");
+        if (tk)    tk.textContent = s.prompt.teacherKey || "";
+      }
+
+      if (s.promptE && prompts[0]){
+        // For s5: promptE goes in first prompt
+        const label = prompts[0].querySelector(".label span");
+        const hint  = prompts[0].querySelector(".label .hint");
+        const ta    = prompts[0].querySelector("textarea.answer");
+        const tk    = prompts[0].querySelector(".teacher");
+        if (label) label.textContent = s.promptE.label || "";
+        if (hint)  hint.textContent  = s.promptE.hint || "";
+        if (ta)    ta.setAttribute("placeholder", s.promptE.placeholder || "");
+        if (tk)    tk.textContent = s.promptE.teacherKey || "";
+      }
+
+      if (s.promptF && prompts[1]){
+        // For s5: promptF goes in second prompt
+        const label = prompts[1].querySelector(".label span");
+        const hint  = prompts[1].querySelector(".label .hint");
+        const ta    = prompts[1].querySelector("textarea.answer");
+        const tk    = prompts[1].querySelector(".teacher");
+        if (label) label.textContent = s.promptF.label || "";
+        if (hint)  hint.textContent  = s.promptF.hint || "";
+        if (ta)    ta.setAttribute("placeholder", s.promptF.placeholder || "");
+        if (tk)    tk.textContent = s.promptF.teacherKey || "";
+      }
+    });
+  }
+
+  function getLessonFromURL(){
+    const p = new URLSearchParams(location.search);
+    return p.get("lesson");
+  }
+
+  function setURLLesson(id){
+    const p = new URLSearchParams(location.search);
+    p.set("lesson", id);
+    history.replaceState(null, "", `${location.pathname}?${p.toString()}`);
+  }
+
+  async function initLessons(){
+    const manifest = await fetchJSON("lessons/manifest.json");
+    const lessons = manifest.lessons || [];
+    const defaultId = manifest.defaultLessonId || (lessons[0] && lessons[0].id);
+
+    const stored = localStorage.getItem(LESSON_KEY);
+    const urlId = getLessonFromURL();
+    const currentId = urlId || stored || defaultId;
+
+    // Build dropdown
+    const sel = $("#lessonSelect");
+    if (sel){
+      sel.innerHTML = "";
+      lessons.forEach((l) => {
+        const opt = document.createElement("option");
+        opt.value = l.id;
+        opt.textContent = l.label || l.id;
+        sel.appendChild(opt);
+      });
+      sel.value = currentId;
+
+      sel.addEventListener("change", async () => {
+        await loadLesson(sel.value, lessons);
+      });
+    }
+
+    // Buttons
+    const prev = $("#lessonPrev");
+    const next = $("#lessonNext");
+
+    const indexOf = (id) => lessons.findIndex((l) => l.id === id);
+
+    if (prev){
+      prev.addEventListener("click", async () => {
+        const i = indexOf(sel ? sel.value : currentId);
+        const target = lessons[Math.max(0, i - 1)];
+        if (target) await loadLesson(target.id, lessons);
+      });
+    }
+
+    if (next){
+      next.addEventListener("click", async () => {
+        const i = indexOf(sel ? sel.value : currentId);
+        const target = lessons[Math.min(lessons.length - 1, i + 1)];
+        if (target) await loadLesson(target.id, lessons);
+      });
+    }
+
+    // Initial load
+    await loadLesson(currentId, lessons);
+  }
+
+  async function loadLesson(id, lessons){
+    const entry = lessons.find((l) => l.id === id) || lessons[0];
+    if (!entry) return;
+
+    const lesson = await fetchJSON(entry.file);
+
+    try { localStorage.setItem(LESSON_KEY, entry.id); } catch {}
+    setURLLesson(entry.id);
+
+    // Apply content
+    applyLesson(lesson);
+
+    // Re-init autosave using lesson-aware key (so answers don’t bleed across lessons)
+    initAutosave(entry.id);
+
+    // Keep dropdown synced
+    const sel = $("#lessonSelect");
+    if (sel) sel.value = entry.id;
+  }
+
+  /* =========================
+     ✅ BOOT
+  ========================= */
+  async function boot(){
+    initTeacherToggle();
+    initJumpNav();
+
+    // Lessons will call initAutosave after loading content
+    try {
+      await initLessons();
+    } catch (e) {
+      console.warn("Lesson engine failed:", e);
+      // Fallback: still enable autosave on the base page
+      initAutosave("lesson-01");
+    }
+  }
+
+  if (document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", () => { boot(); }, { once:true });
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>

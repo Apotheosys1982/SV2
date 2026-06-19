@@ -1,0 +1,229 @@
+{
+  "id": "lesson-01",
+  "meta": {
+    "kicker": [
+      "Lesson 1",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Plants & Animals",
+    "subtitle": "Plants + Animals • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "A forest habitat with plants and animals",
+    "screenImage": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/elephant.png",
+    "imageQuery": "plants and animals elementary science"
+  },
+  "heroCopy": {
+    "lede": "This page is designed like a premium educational website — but when you print it, it becomes a clean worksheet. Read each section, study the images, then answer in the writing boxes (type on screen or write on paper).",
+    "whatStudentsLearn": "In this lesson, students explore what makes something a living thing, what plants and animals need to survive, how habitats provide resources, and how adaptations help living things solve problems in their environment. Each section includes quick facts, a “look closely” mission, and a writing prompt that builds science vocabulary and complete-sentence explanations.",
+    "learningTargets": [
+      "I can describe clues that show something is living.",
+      "I can compare what plants need and what animals need.",
+      "I can explain what a habitat provides (food, water, shelter, space).",
+      "I can connect an adaptation to a habitat challenge."
+    ],
+    "studentDirections": [
+      "Read the section and study the image.",
+      "Use the “Quick Facts” to support your answers.",
+      "Write in complete sentences when asked.",
+      "On paper: you may circle, label, or underline key details."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Living thing",
+        "def": "something that grows, uses energy, and needs resources."
+      },
+      {
+        "term": "Needs",
+        "def": "resources required to survive (water, energy, food, air, space)."
+      },
+      {
+        "term": "Habitat",
+        "def": "the place a plant or animal lives."
+      },
+      {
+        "term": "Adaptation",
+        "def": "a body part or behavior that helps survival."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/ladybug.png",
+      "title": "What makes something a living thing?",
+      "lede": "Living things have needs and can do certain jobs to stay alive. Many living things grow, use energy, respond to changes, and make more of their kind.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Plants make their own food using sunlight.",
+            "Animals must eat plants or other animals.",
+            "All living things need water and energy."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Find a leaf, stem, and flower (or bud).",
+            "What clues show the plant is alive?",
+            "Where might it get water?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Living or Not?",
+        "hint": "2–3 sentences",
+        "placeholder": "Explain how you know the thing in the picture is alive. Use at least two clues.",
+        "teacherKey": "✔ Key idea: Living things grow, use energy, respond to changes, and reproduce (plants also make food from sunlight)."
+      },
+      "imageQuery": "living things plants animals"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/tiger.png",
+      "title": "What do plants and animals need?",
+      "lede": "Plants and animals both need water and energy. Animals also need food. Plants need sunlight to make food. Many animals need air to breathe.",
+      "cards": [
+        {
+          "title": "Plants Need",
+          "items": [
+            "Sunlight",
+            "Water",
+            "Air (carbon dioxide)",
+            "Space to grow"
+          ]
+        },
+        {
+          "title": "Animals Need",
+          "items": [
+            "Food",
+            "Water",
+            "Air (oxygen)",
+            "Shelter"
+          ]
+        }
+      ],
+      "callout": "Website on screen, worksheet on paper: these writing boxes work both ways.",
+      "prompt": {
+        "label": "Prompt B — Compare",
+        "hint": "Fill both lines",
+        "placeholder": "1) One need plants and animals share is: ______________________\n2) One need that is different is: _____________________________",
+        "teacherKey": "✔ Key idea: Shared needs include water/energy; difference: plants need sunlight to make food, animals must eat."
+      },
+      "imageQuery": "plants animals need food water air"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/habitat.png",
+      "title": "Habitats: a living thing’s home",
+      "lede": "A habitat is the place where a plant or animal lives. A good habitat provides food, water, shelter, and space.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "Habitat: where it lives",
+            "Shelter: safe place to hide/rest",
+            "Resource: something it needs"
+          ]
+        },
+        {
+          "title": "Image Mission",
+          "items": [
+            "Name 2 things you see.",
+            "On paper: circle where shelter might be.",
+            "What food could exist here?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Habitat Report",
+        "hint": "3–4 sentences",
+        "placeholder": "Describe this habitat. What resources could help plants and animals survive here?",
+        "teacherKey": "✔ Key idea: Habitat provides resources: food, water, shelter, and space (use visible evidence)."
+      },
+      "imageQuery": "animal habitat forest"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/zebra.png",
+      "title": "Adaptations: helpful body parts or behaviors",
+      "lede": "An adaptation is something that helps a living thing survive. It can be a body part (like sharp claws) or a behavior (like migrating). Adaptations match the habitat.",
+      "cards": [
+        {
+          "title": "Examples",
+          "items": [
+            "Thick fur keeps animals warm.",
+            "Camouflage helps hide from predators.",
+            "Waxy leaves help plants save water."
+          ]
+        },
+        {
+          "title": "Think Like a Scientist",
+          "items": [
+            "What problem does the habitat create?",
+            "What feature solves that problem?",
+            "How does it help survival?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Match & Explain",
+        "hint": "One paragraph",
+        "placeholder": "Choose one plant OR one animal. Name one adaptation and explain how it helps in its habitat.",
+        "teacherKey": "✔ Key idea: Adaptation = trait/behavior that improves survival (tie it to habitat problem + solution)."
+      },
+      "imageQuery": "animal adaptations camouflage"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/29176285/pexels-photo-29176285.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/butterfly.png",
+      "title": "Quick Check + Create",
+      "lede": "Finish strong. Use the words needs, habitat, and adaptation.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "Define habitat in your own words.",
+            "Name 2 needs all living things share.",
+            "What is an adaptation?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Invent a new animal.",
+            "Choose its habitat.",
+            "Give it 2 adaptations."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Write a short summary: needs, habitats, and adaptations. Use all three words.",
+        "teacherKey": "✔ Key idea: Summary includes shared needs (water/energy), habitat resources, and adaptations that match habitat."
+      },
+      "promptF": {
+        "label": "Prompt F — Create an Animal",
+        "hint": "Bullets OK",
+        "placeholder": "Name: ____________\nHabitat: ____________\nAdaptation #1: ____________ (helps by ________)\nAdaptation #2: ____________ (helps by ________)",
+        "teacherKey": "✔ Key idea: Adaptations must connect to habitat challenges (cold, heat, predators, low water, etc.)."
+      },
+      "imageQuery": "plants animals nature review"
+    }
+  ]
+}

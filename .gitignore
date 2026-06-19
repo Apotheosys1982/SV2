@@ -1,0 +1,16 @@
+.DS_Store
+**/.DS_Store
+
+# Local secrets
+.env
+*.env
+scripts/.env
+
+# Local deployment state
+.herenow/
+
+# Common dependency/build output
+node_modules/
+dist/
+build/
+.netlify/

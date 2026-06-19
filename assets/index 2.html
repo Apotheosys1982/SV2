@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ========================================= -->
+<!-- 🧠 HEAD LAYER — BIOSPHERE KIDS (V3 WHITE)  -->
+<!-- Website-first UI • Worksheet-at-print      -->
+<!-- ========================================= -->
+<head>
+  <!-- ========================================= -->
+  <!-- 🧾 META / TITLE                           -->
+  <!-- ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>BioSphere Kids — Plants & Animals (Printable Web Lesson)</title>
+  <meta name="description" content="A modern kids science lesson page that looks like a premium website, but prints as a clean worksheet." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+
+  <!-- ========================================= -->
+  <!-- 🔤 FONTS                                  -->
+  <!-- ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+
+  <!-- ========================================= -->
+  <!-- 🎛️ CSS TOKENS + PREMIUM WHITE GLASS UI    -->
+  <!-- ========================================= -->
+  <style>
+    :root{
+      /* Layout */
+      --shell-max: 1100px;
+      --shell-pad: clamp(14px, 2.5vw, 26px);
+      --section-gap: clamp(14px, 2.2vw, 22px);
+
+      /* Print */
+      --print-margin: 0.5in;
+
+      /* Typography */
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+      /* Ink (WHITE UI = dark ink) */
+      --ink: #0b1220;
+      --muted: rgba(11,18,32,.72);
+      --soft: rgba(11,18,32,.55);
+      --hairline: rgba(15,23,42,.10);
+      --hairline-2: rgba(15,23,42,.16);
+
+      /* Page background */
+      --page: #ffffff;
+      --page-2: #f7fafc;
+
+      /* Accents (nature) */
+      --a1: #38bdf8; /* sky */
+      --a2: #22c55e; /* leaf */
+      --a3: #fbbf24; /* sun */
+      --a4: #a78bfa; /* bloom */
+
+      /* Surface (premium white glass) */
+      --surface: rgba(255,255,255,.78);
+      --surface-2: rgba(255,255,255,.88);
+      --surface-3: rgba(255,255,255,.96);
+
+      /* Shadows (soft editorial) */
+      --shadow-1: 0 10px 30px rgba(2,6,23,.08);
+      --shadow-2: 0 28px 80px rgba(2,6,23,.10);
+
+      /* Radii */
+      --r-xl: 26px;
+      --r-lg: 20px;
+      --r-md: 16px;
+      --r-sm: 12px;
+
+      /* Motion */
+      --t: 220ms cubic-bezier(.2,.8,.2,1);
+
+      /* Images */
+      /* Images */
+--hero-img: url("https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600");
+
+--img-plants: url("https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400");
+
+--img-animals: url("https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400");
+
+--img-habitat: url("https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg?auto=compress&cs=tinysrgb&w=1400");
+
+--img-adapt: url("https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1400");
+
+--img-review: url("https://images.pexels.com/photos/29176285/pexels-photo-29176285.jpeg?auto=compress&cs=tinysrgb&w=1400");
+    
+    
+    /* Print-friendly B&W assets */
+--hero-print: url("/assets/images/elephant.png");
+--plants-print: url("/assets/images/butterfly.png");
+--animals-print: url("/assets/images/tiger.png");
+--habitat-print: url("/assets/images/habitat.png");
+--adapt-print: url("/assets/images/zebra.png");
+--review-print: url("/assets/images/ladybug.png");
+      }
+    /* ========================================= */
+    /* 🧼 RESET                                   */
+    /* ========================================= */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 600px at 8% 8%, rgba(56,189,248,.14), transparent 60%),
+        radial-gradient(800px 520px at 92% 18%, rgba(34,197,94,.12), transparent 58%),
+        radial-gradient(900px 650px at 30% 96%, rgba(167,139,250,.10), transparent 62%),
+        linear-gradient(180deg, var(--page), var(--page-2));
+      overflow-x:hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    a{ color:inherit; }
+    button, input, textarea{ font:inherit; }
+
+    /* ========================================= */
+    /* 🧊 APP SHELL                               */
+    /* ========================================= */
+    .app{
+      position:relative;
+      z-index:1;
+      min-height:100%;
+      padding: clamp(16px, 3vw, 30px) 14px 34px;
+      display:flex;
+      justify-content:center;
+    }
+    .shell{
+      width:min(var(--shell-max), 100%);
+      display:flex;
+      flex-direction:column;
+      gap: var(--section-gap);
+    }
+
+    /* ========================================= */
+    /* 🧭 HEADER (STATIC, WHITE UI)               */
+    /* ========================================= */
+    .topbar{
+      position: static;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "brand actions"
+        "icons icons";
+      gap: 10px;
+
+      padding: 14px 16px;
+      border-radius: var(--r-xl);
+      background: linear-gradient(135deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--hairline);
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .brand{
+      grid-area: brand;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .logo{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.70), transparent 60%),
+        linear-gradient(135deg, rgba(56,189,248,.85), rgba(34,197,94,.70));
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 14px 28px rgba(2,6,23,.12);
+      flex: 0 0 auto;
+    }
+    .brand-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .brand h1{
+      margin:0;
+      font-size: 14px;
+      letter-spacing:.2px;
+      font-weight: 900;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0;
+      font-size: 11px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 900;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .top-actions{
+      grid-area: actions;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.02em;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.88);
+      border-color: var(--hairline-2);
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    .btn.primary{
+      color: #07210f;
+      background: linear-gradient(135deg, rgba(34,197,94,.30), rgba(56,189,248,.22));
+      border-color: rgba(34,197,94,.30);
+    }
+    .btn.danger{
+      background: rgba(239,68,68,.10);
+      border-color: rgba(239,68,68,.25);
+      color: #4b0b0b;
+    }
+
+    /* Icons row */
+    .icon-rail{
+      grid-area: icons;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:flex-start;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2px;
+    }
+    .icon-rail::-webkit-scrollbar{ height:0; }
+
+    .icon-chip{
+      flex: 0 0 auto;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.70);
+      color: var(--ink);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.01em;
+      transition: transform var(--t), background var(--t), border-color var(--t);
+      white-space:nowrap;
+    }
+    .icon-chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.88);
+      border-color: var(--hairline-2);
+    }
+
+    /* ========================================= */
+    /* 🖼️ HERO (IMAGE ONLY)                       */
+    /* ========================================= */
+    .hero{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position:relative;
+    }
+    .hero-media{
+      position:relative;
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.38)),
+        var(--hero-img);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-media:before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(1200px 700px at 50% 20%, rgba(56,189,248,.18), rgba(0,0,0,.24));
+      mix-blend-mode: screen;
+      opacity:.55;
+      pointer-events:none;
+    }
+    .hero-media:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(34,197,94,.16), transparent 55%);
+      opacity:.45;
+      pointer-events:none;
+    }
+
+    /* ========================================= */
+    /* 🧾 HERO COPY (BELOW HERO)                  */
+    /* ========================================= */
+    .hero-copy{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: linear-gradient(135deg, var(--surface-3), var(--surface-2));
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-copy-inner{
+      padding: clamp(16px, 2.8vw, 26px);
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      align-items:center;
+      margin:0;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+    }
+
+    .h1{
+      margin:0;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.02;
+      letter-spacing: .2px;
+      color: var(--ink);
+    }
+    .lede{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 78ch;
+    }
+
+    /* ========================================= */
+    /* 🧩 SECTION BLOCKS                          */
+    /* ========================================= */
+    .section{
+      border-radius: var(--r-xl);
+      overflow:hidden;
+      border: 1px solid var(--hairline);
+      background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .section-inner{
+      display:grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+      min-height: 280px;
+    }
+    .media{
+      position:relative;
+      min-height: 280px;
+      background:
+        radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+        var(--img-plants);
+      background-size: cover;
+      background-position: center;
+    }
+    .chip{
+      position:absolute;
+      left: 14px;
+      top: 14px;
+    }
+    .content{
+      padding: clamp(16px, 2.8vw, 26px);
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      color: var(--ink);
+    }
+    .h2{
+      margin:0;
+      font-family: var(--font-display);
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing:.15px;
+      color: var(--ink);
+    }
+
+    .callout{
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.74);
+      padding: 12px 14px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: var(--ink);
+    }
+    .callout p{
+      margin:0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .callout strong{ color: var(--ink); }
+
+    .mini{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card{
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.76);
+      padding: 12px 14px;
+      color: var(--ink);
+    }
+    .card h3{
+      margin:0 0 6px;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 900;
+    }
+    .card ul{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* ========================================= */
+    /* ✍️ ANSWER BOXES                            */
+    /* ========================================= */
+    .prompt{
+      margin-top: 2px;
+      border-radius: var(--r-lg);
+      border: 1px dashed rgba(15,23,42,.22);
+      background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(34,197,94,.08));
+      padding: 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .prompt .label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .prompt .label span{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .prompt .label .hint{
+      font-size: 11px;
+      color: var(--soft);
+      font-weight: 900;
+      letter-spacing:.06em;
+    }
+
+    /* Screen: big clean editor area (dark ink, light bg) */
+    textarea.answer{
+      width:100%;
+      min-height: 240px;
+      resize: vertical;
+      border-radius: 18px;
+      border: 1px solid var(--hairline-2);
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      padding: 18px 18px;
+      font-size: 15px;
+      line-height: 1.6;
+      outline: none;
+      transition: border-color var(--t), box-shadow var(--t), background var(--t);
+    }
+    textarea.answer:focus{
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.18);
+      background: #ffffff;
+    }
+
+    .teacher{
+      display:none;
+      margin-top: 6px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(239,68,68,.25);
+      background: rgba(239,68,68,.08);
+      color: #4b0b0b;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    body.teacher-mode .teacher{ display:block; }
+
+    /* ========================================= */
+    /* 📱 RESPONSIVE                              */
+    /* ========================================= */
+    @media (max-width: 980px){
+      .section-inner{ grid-template-columns: 1fr; }
+      .media{ min-height: 240px; }
+      .mini{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px){
+      .topbar{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "brand"
+          "icons"
+          "actions";
+      }
+      .top-actions{ justify-content:flex-start; }
+      .hero-media{ min-height: 360px; }
+      .pill{ letter-spacing:.10em; }
+    }
+
+    /* ========================================= */
+    /* 🧾 PRINT MODE — WEBSITE → WORKSHEET        */
+    /* Clean, structured, ink-friendly            */
+    /* ========================================= */
+    @media print{
+      html, body{
+        background:#fff !important;
+        color:#000 !important;
+      }
+
+      /* Hide any screen-only chrome */
+      .no-print{ display:none !important; }
+
+      /* Neutralize glass */
+      .topbar,
+      .hero,
+      .hero-copy,
+      .section,
+      .card,
+      .callout,
+      .prompt{
+        background:#fff !important;
+        box-shadow:none !important;
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+        border-color:#d7dbe3 !important;
+      }
+
+      .app{ padding:0 !important; display:block !important; }
+      .shell{ width:auto !important; }
+
+      @page{
+        size: letter;
+        margin: var(--print-margin);
+      }
+
+      /* Images remain visible but ink-safe */
+      .hero-media,
+      .media{
+        filter: contrast(1.05) saturate(1.02) !important;
+      }
+
+      /* Typography to ink */
+      .h1, .h2{ color:#000 !important; }
+      .lede, .card ul, .callout p, .pill{ color:#111 !important; }
+      .pill{
+        border-color:#d7dbe3 !important;
+        background:#f6f7fb !important;
+      }
+
+      /* Answer boxes = big writing zones */
+      textarea.answer{
+        min-height: 3.8in !important;
+        max-height: none !important;
+        resize: none !important;
+
+        background:#fff !important;
+        color:#000 !important;
+
+        border: 2px solid #2b2f36 !important;
+        padding: 0.25in 0.25in !important;
+
+        background-image:
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 26px,
+            rgba(0,0,0,.18) 27px
+          ) !important;
+
+        box-shadow:none !important;
+        border-radius: 0 !important;
+      }
+
+      /* Page breaks */
+      .hero{ page-break-after: avoid; }
+      .hero-copy{ page-break-after: always; break-after: page; }
+      .section{ page-break-inside: avoid; break-inside: avoid; }
+
+      /* Crisp print */
+      .hero, .hero-copy, .section, .card, .callout, .prompt{
+        border-radius: 0 !important;
+      }
+      
+      /* Swap photographic images for coloring pages */
+.hero-media{
+  background-image: var(--hero-print) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.section:nth-of-type(1) .media{
+  background-image: var(--plants-print) !important;
+}
+
+.section:nth-of-type(2) .media{
+  background-image: var(--animals-print) !important;
+}
+
+.section:nth-of-type(3) .media{
+  background-image: var(--habitat-print) !important;
+}
+
+.section:nth-of-type(4) .media{
+  background-image: var(--adapt-print) !important;
+}
+
+.section:nth-of-type(5) .media{
+  background-image: var(--review-print) !important;
+}
+    }
+  </style>
+
+  <!-- ✅ STOP HERE: HEAD + CSS layer only (waiting for Body instructions) -->
+</head>
+
+<!-- ========================================= -->
+<!-- 🧱 BODY LAYER — BIOSPHERE KIDS (V3 WHITE)  -->
+<!-- Static site look • Prints as worksheet     -->
+<!-- ========================================= -->
+<body>
+  <main class="app" id="top">
+    <div class="shell">
+
+      <!-- ========================================= -->
+      <!-- 🧭 HEADER (SCREEN ONLY)                   -->
+      <!-- - Static (NOT sticky)                     -->
+      <!-- - Mobile: icon rail below brand/title     -->
+      <!-- ========================================= -->
+      <div class="topbar no-print" role="banner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-12h-7l0-8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="brand-text">
+            <h1>BioSphere Kids</h1>
+            <p>Plants + Animals • Printable Web Lesson</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button id="teacherToggle" class="btn danger" type="button" aria-pressed="false">Teacher Mode</button>
+          <button class="btn primary" type="button" onclick="window.print()">Print</button>
+        </div>
+
+        <nav class="icon-rail" aria-label="Lesson shortcuts">
+          <button class="icon-chip" type="button" data-jump="#s1">🌿 Learn</button>
+          <button class="icon-chip" type="button" data-jump="#s2">🔍 Observe</button>
+          <button class="icon-chip" type="button" data-jump="#s3">🏞️ Habitats</button>
+          <button class="icon-chip" type="button" data-jump="#s4">🧬 Adapt</button>
+          <button class="icon-chip" type="button" data-jump="#s5">✅ Review</button>
+        </nav>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- 🖼️ HERO (IMAGE ONLY)                      -->
+      <!-- - No copy overlay                          -->
+      <!-- ========================================= -->
+      <section class="hero" aria-label="Lesson hero">
+        <div class="hero-media" role="img" aria-label="A forest habitat with plants and animals"></div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🧾 HERO COPY (BELOW HERO)                 -->
+      <!-- ========================================= -->
+      <section class="hero-copy" aria-label="Lesson overview">
+        <div class="hero-copy-inner">
+          <div class="kicker">
+            <span class="pill">Lesson 1</span>
+            <span class="pill">20–30 min</span>
+            <span class="pill">Grades 2–4</span>
+            <span class="pill">Print-ready</span>
+          </div>
+
+          <h1 class="h1">Plants &amp; Animals</h1>
+
+          <p class="lede">
+            This page is designed like a premium educational website — but when you print it,
+            it becomes a clean worksheet. Read each section, study the images, then answer in
+            the writing boxes (type on screen or write on paper).
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🌿 SECTION 1 — WHAT MAKES SOMETHING ALIVE -->
+      <!-- ========================================= -->
+      <section class="section" id="s1" aria-label="What makes something alive">
+        <div class="section-inner">
+          <div class="media" style="background-image:
+            radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+            linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+            var(--img-plants);">
+            <span class="pill chip">Section 1</span>
+          </div>
+
+          <div class="content">
+            <h2 class="h2">What makes something a living thing?</h2>
+
+            <p class="lede">
+              Living things have needs and can do certain jobs to stay alive. Many living things
+              <strong>grow</strong>, <strong>use energy</strong>, <strong>respond</strong> to changes, and <strong>make more</strong> of their kind.
+            </p>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Quick Facts</h3>
+                <ul>
+                  <li>Plants make their own food using sunlight.</li>
+                  <li>Animals must eat plants or other animals.</li>
+                  <li>All living things need water and energy.</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Look Closely</h3>
+                <ul>
+                  <li>Find a leaf, stem, and flower (or bud).</li>
+                  <li>What clues show the plant is alive?</li>
+                  <li>Where might it get water?</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt A — Living or Not?</span>
+                <span class="hint">2–3 sentences</span>
+              </div>
+
+              <textarea class="answer" placeholder="Explain how you know the thing in the picture is alive. Use at least two clues."></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Living things grow, use energy, respond to changes, and reproduce (plants also make food from sunlight).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🐾 SECTION 2 — NEEDS (FOOD, WATER, AIR)   -->
+      <!-- ========================================= -->
+      <section class="section" id="s2" aria-label="Living things need food, water, and air">
+        <div class="section-inner">
+          <div class="media" style="background-image:
+            radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+            linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+            var(--img-animals);">
+            <span class="pill chip">Section 2</span>
+          </div>
+
+          <div class="content">
+            <h2 class="h2">What do plants and animals need?</h2>
+
+            <p class="lede">
+              Plants and animals both need <strong>water</strong> and <strong>energy</strong>.
+              Animals also need <strong>food</strong>. Plants need <strong>sunlight</strong> to make food.
+              Many animals need <strong>air</strong> to breathe.
+            </p>
+
+            <div class="callout">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-top:2px;">
+                <path d="M12 2l1.4 6.2L20 7l-4.8 4.1L16.8 18 12 14.9 7.2 18l1.6-6.9L4 7l6.6 1.2L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Website on screen, worksheet on paper:</strong> these writing boxes work both ways.</p>
+            </div>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Plants Need</h3>
+                <ul>
+                  <li>Sunlight</li>
+                  <li>Water</li>
+                  <li>Air (carbon dioxide)</li>
+                  <li>Space to grow</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Animals Need</h3>
+                <ul>
+                  <li>Food</li>
+                  <li>Water</li>
+                  <li>Air (oxygen)</li>
+                  <li>Shelter</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt B — Compare</span>
+                <span class="hint">Fill both lines</span>
+              </div>
+
+              <textarea class="answer" placeholder="1) One need plants and animals share is: ______________________&#10;2) One need that is different is: _____________________________"></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Shared needs include water/energy; difference: plants need sunlight to make food, animals must eat.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🏞️ SECTION 3 — HABITATS                  -->
+      <!-- ========================================= -->
+      <section class="section" id="s3" aria-label="Habitats">
+        <div class="section-inner">
+          <div class="media" style="background-image:
+            radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+            linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+            var(--img-habitat);">
+            <span class="pill chip">Section 3</span>
+          </div>
+
+          <div class="content">
+            <h2 class="h2">Habitats: a living thing’s home</h2>
+
+            <p class="lede">
+              A <strong>habitat</strong> is the place where a plant or animal lives. A good habitat provides
+              <strong>food</strong>, <strong>water</strong>, <strong>shelter</strong>, and <strong>space</strong>.
+            </p>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Vocabulary</h3>
+                <ul>
+                  <li><strong>Habitat</strong>: where it lives</li>
+                  <li><strong>Shelter</strong>: safe place to hide/rest</li>
+                  <li><strong>Resource</strong>: something it needs</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Image Mission</h3>
+                <ul>
+                  <li>Name 2 things you see.</li>
+                  <li>On paper: circle where shelter might be.</li>
+                  <li>What food could exist here?</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt C — Habitat Report</span>
+                <span class="hint">3–4 sentences</span>
+              </div>
+
+              <textarea class="answer" placeholder="Describe this habitat. What resources could help plants and animals survive here?"></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Habitat provides resources: food, water, shelter, and space (use visible evidence).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🧬 SECTION 4 — ADAPTATIONS               -->
+      <!-- ========================================= -->
+      <section class="section" id="s4" aria-label="Adaptations">
+        <div class="section-inner">
+          <div class="media" style="background-image:
+            radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+            linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+            var(--img-adapt);">
+            <span class="pill chip">Section 4</span>
+          </div>
+
+          <div class="content">
+            <h2 class="h2">Adaptations: helpful body parts or behaviors</h2>
+
+            <p class="lede">
+              An <strong>adaptation</strong> is something that helps a living thing survive. It can be a body part
+              (like sharp claws) or a behavior (like migrating). Adaptations match the habitat.
+            </p>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Examples</h3>
+                <ul>
+                  <li>Thick fur keeps animals warm.</li>
+                  <li>Camouflage helps hide from predators.</li>
+                  <li>Waxy leaves help plants save water.</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Think Like a Scientist</h3>
+                <ul>
+                  <li>What problem does the habitat create?</li>
+                  <li>What feature solves that problem?</li>
+                  <li>How does it help survival?</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt D — Match &amp; Explain</span>
+                <span class="hint">One paragraph</span>
+              </div>
+
+              <textarea class="answer" placeholder="Choose one plant OR one animal. Name one adaptation and explain how it helps in its habitat."></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Adaptation = trait/behavior that improves survival (tie it to habitat problem + solution).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- ✅ SECTION 5 — REVIEW + CREATE            -->
+      <!-- ========================================= -->
+      <section class="section" id="s5" aria-label="Review and summary">
+        <div class="section-inner">
+          <div class="media" style="background-image:
+            radial-gradient(600px 300px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+            linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.34)),
+            var(--img-review);">
+            <span class="pill chip">Section 5</span>
+          </div>
+
+          <div class="content">
+            <h2 class="h2">Quick Check + Create</h2>
+
+            <p class="lede">
+              Finish strong. Use the words <strong>needs</strong>, <strong>habitat</strong>, and <strong>adaptation</strong>.
+            </p>
+
+            <div class="mini">
+              <div class="card">
+                <h3>Mini Quiz</h3>
+                <ul>
+                  <li>Define <strong>habitat</strong> in your own words.</li>
+                  <li>Name 2 needs all living things share.</li>
+                  <li>What is an <strong>adaptation</strong>?</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Invent a new animal.</li>
+                  <li>Choose its habitat.</li>
+                  <li>Give it 2 adaptations.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt E — Summary</span>
+                <span class="hint">5–6 sentences</span>
+              </div>
+
+              <textarea class="answer" placeholder="Write a short summary: needs, habitats, and adaptations. Use all three words."></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Summary includes shared needs (water/energy), habitat resources, and adaptations that match habitat.
+              </div>
+            </div>
+
+            <div class="prompt">
+              <div class="label">
+                <span>Prompt F — Create an Animal</span>
+                <span class="hint">Bullets OK</span>
+              </div>
+
+              <textarea class="answer" placeholder="Name: ____________&#10;Habitat: ____________&#10;Adaptation #1: ____________ (helps by ________)&#10;Adaptation #2: ____________ (helps by ________)"></textarea>
+
+              <div class="teacher">
+                ✔ Key idea: Adaptations must connect to habitat challenges (cold, heat, predators, low water, etc.).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- 🔚 END (NO FOOTER — HOMEPAGE-LIKE)        -->
+      <!-- ========================================= -->
+
+    </div>
+  </main>
+
+  <!-- ✅ STOP HERE: BODY layer only (waiting for Script instructions) -->
+  
+    <!-- ========================================= -->
+  <!-- 🧠 SCRIPT LAYER — INTERACTIVITY + SAVE     -->
+  <!-- Teacher toggle • Local autosave • Jump nav -->
+  <!-- ========================================= -->
+  <script>
+  (() => {
+    "use strict";
+
+    /* =========================
+       🔎 HELPERS
+    ========================= */
+    const $  = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+    const STORAGE_KEY = "biosphere_kids_v3::answers";
+    const MODE_KEY    = "biosphere_kids_v3::teacherMode";
+
+    const safeParse = (s, fallback) => { try { return JSON.parse(s); } catch { return fallback; } };
+    const save = (data) => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {} };
+    const load = () => safeParse(localStorage.getItem(STORAGE_KEY), {});
+
+    /* =========================
+       🧑‍🏫 TEACHER MODE
+       - toggles visibility of .teacher blocks
+    ========================= */
+    function setTeacherMode(on){
+      document.body.classList.toggle("teacher-mode", !!on);
+
+      const btn = $("#teacherToggle");
+      if (btn){
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.textContent = on ? "Teacher Mode: ON" : "Teacher Mode";
+      }
+
+      try { localStorage.setItem(MODE_KEY, on ? "1" : "0"); } catch {}
+    }
+
+    function initTeacherToggle(){
+      const btn = $("#teacherToggle");
+      if (!btn) return;
+
+      const stored = (localStorage.getItem(MODE_KEY) || "0") === "1";
+      setTeacherMode(stored);
+
+      btn.addEventListener("click", () => {
+        const isOn = document.body.classList.contains("teacher-mode");
+        setTeacherMode(!isOn);
+      });
+    }
+
+    /* =========================
+       🧠 AUTOSAVE (TEXTAREAS)
+       - persistent answers via localStorage
+       - stable ids generated if missing
+       - optional autogrow for nicer typing
+    ========================= */
+    function initAutosave(){
+      const data = load();
+      const textareas = $$("textarea.answer");
+
+      textareas.forEach((ta, i) => {
+        if (!ta.id) ta.id = `ans-${String(i + 1).padStart(2, "0")}`;
+
+        if (data[ta.id] != null) ta.value = data[ta.id];
+
+        const onInput = () => {
+          data[ta.id] = ta.value;
+          save(data);
+        };
+
+        ta.addEventListener("input", onInput, { passive:true });
+        ta.addEventListener("change", onInput, { passive:true });
+      });
+
+      // Autogrow (screen only)
+      const autoGrow = (ta) => {
+        if (!ta) return;
+        if (window.matchMedia && window.matchMedia("print").matches) return;
+
+        ta.style.height = "auto";
+        ta.style.height = Math.min(ta.scrollHeight, 520) + "px";
+      };
+
+      textareas.forEach((ta) => {
+        autoGrow(ta);
+        ta.addEventListener("input", () => autoGrow(ta), { passive:true });
+      });
+
+      // Keep print layout consistent
+      window.addEventListener("beforeprint", () => {
+        textareas.forEach((ta) => (ta.style.height = ""));
+      });
+    }
+
+    /* =========================
+       🧭 JUMP NAV
+       - buttons with data-jump="#id"
+    ========================= */
+    function initJumpNav(){
+      $$("[data-jump]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const sel = btn.getAttribute("data-jump");
+          const el = sel ? document.querySelector(sel) : null;
+          if (!el) return;
+          el.scrollIntoView({ behavior:"smooth", block:"start" });
+        });
+      });
+    }
+
+    /* =========================
+       ✅ BOOT
+    ========================= */
+    function boot(){
+      initTeacherToggle();
+      initAutosave();
+      initJumpNav();
+    }
+
+    if (document.readyState === "loading"){
+      document.addEventListener("DOMContentLoaded", boot, { once:true });
+    } else {
+      boot();
+    }
+  })();
+  </script>
+
+</body>
+</html>

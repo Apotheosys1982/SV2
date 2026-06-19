@@ -1,0 +1,139 @@
+{
+  "id": "lesson-XX",
+  "meta": {
+    "kicker": ["Lesson X", "20–30 min", "Grades 2–4", "Print-ready"],
+    "title": "Lesson Title",
+    "subtitle": "Lesson Title • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Hero image description",
+    "imageQuery": "Lesson Title elementary science",
+    "screenImage": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/lesson-XX-hero.png"
+  },
+  "heroCopy": {
+    "lede": "This page is designed like a premium educational website — but when you print it, it becomes a clean worksheet. Read each section, study the images, then answer in the writing boxes (type on screen or write on paper).",
+    "whatStudentsLearn": "In this lesson, students will explore key concepts and develop understanding through inquiry-based activities. Each section includes quick facts, a look-closely mission, and writing prompts that build vocabulary and complete-sentence explanations.",
+    "learningTargets": [
+      "Learning target 1.",
+      "Learning target 2.",
+      "Learning target 3.",
+      "Learning target 4."
+    ],
+    "studentDirections": [
+      "Read the section and study the image.",
+      "Use the Quick Facts to support your answers.",
+      "Write in complete sentences when asked.",
+      "On paper: you may circle, label, or underline key details."
+    ],
+    "keyVocabulary": [
+      { "term": "Term1", "def": "Definition of first key vocabulary term." },
+      { "term": "Term2", "def": "Definition of second key vocabulary term." },
+      { "term": "Term3", "def": "Definition of third key vocabulary term." },
+      { "term": "Term4", "def": "Definition of fourth key vocabulary term." }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "Lesson Title section 1 elementary science",
+      "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/lesson-XX-s1.png",
+      "title": "Section 1 Title",
+      "lede": "Brief introduction to this section's focus.",
+      "cards": [
+        { "title": "Quick Facts", "items": ["Fact 1.", "Fact 2.", "Fact 3."] },
+        { "title": "Look Closely", "items": ["Observation prompt 1.", "Observation prompt 2.", "Observation prompt 3."] }
+      ],
+      "prompt": {
+        "label": "Prompt A — Section Title",
+        "hint": "2–3 sentences",
+        "placeholder": "Write your response here.",
+        "teacherKey": "✔ Key idea: Main concept students should grasp."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "Lesson Title section 2 elementary science",
+      "screenImage": "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/lesson-XX-s2.png",
+      "title": "Section 2 Title",
+      "lede": "Brief introduction to this section's focus.",
+      "cards": [
+        { "title": "Quick Facts", "items": ["Fact 1.", "Fact 2.", "Fact 3."] },
+        { "title": "Look Closely", "items": ["Observation prompt 1.", "Observation prompt 2.", "Observation prompt 3."] }
+      ],
+      "prompt": {
+        "label": "Prompt B — Section Title",
+        "hint": "Fill both lines",
+        "placeholder": "Write your response here.",
+        "teacherKey": "✔ Key idea: Main concept students should grasp."
+      }
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "Lesson Title section 3 elementary science",
+      "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/lesson-XX-s3.png",
+      "title": "Section 3 Title",
+      "lede": "Brief introduction to this section's focus.",
+      "cards": [
+        { "title": "Vocabulary", "items": ["Vocabulary detail 1.", "Vocabulary detail 2.", "Vocabulary detail 3."] },
+        { "title": "Image Mission", "items": ["Look for evidence in the image.", "Name two details you notice.", "Explain what the details show."] }
+      ],
+      "prompt": {
+        "label": "Prompt C — Explain",
+        "hint": "3–4 sentences",
+        "placeholder": "Write your response here.",
+        "teacherKey": "✔ Key idea: Student uses evidence and vocabulary accurately."
+      }
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "Lesson Title section 4 elementary science",
+      "screenImage": "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/lesson-XX-s4.png",
+      "title": "Section 4 Title",
+      "lede": "Brief introduction to this section's focus.",
+      "cards": [
+        { "title": "Examples", "items": ["Example 1.", "Example 2.", "Example 3."] },
+        { "title": "Think Like a Scientist", "items": ["What do you observe?", "What could explain it?", "What evidence supports your idea?"] }
+      ],
+      "prompt": {
+        "label": "Prompt D — Apply",
+        "hint": "One paragraph",
+        "placeholder": "Write your response here.",
+        "teacherKey": "✔ Key idea: Student applies the concept to a clear example."
+      }
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "Lesson Title review elementary science",
+      "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/lesson-XX-s5.png",
+      "title": "Quick Check + Create",
+      "lede": "Review the main idea and show what you learned.",
+      "cards": [
+        { "title": "Mini Quiz", "items": ["Review question 1.", "Review question 2.", "Review question 3."] },
+        { "title": "Challenge", "items": ["Create a model or example.", "Use vocabulary.", "Explain your reasoning."] }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Write a short summary using the key vocabulary.",
+        "teacherKey": "✔ Key idea: Summary includes the lesson's main vocabulary and cause-effect relationships."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Create your own example and explain how it connects to the lesson.",
+        "teacherKey": "✔ Key idea: Student creates a relevant example and explains the connection."
+      }
+    }
+  ]
+}

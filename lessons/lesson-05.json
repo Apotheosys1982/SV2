@@ -1,0 +1,231 @@
+{
+  "id": "lesson-05",
+  "meta": {
+    "kicker": [
+      "Lesson 5",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Trees",
+    "subtitle": "How Trees Grow and Help Life on Earth • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "A peaceful forest path under a canopy of lush green leaves in summer sunlight",
+    "screenImage": "https://images.pexels.com/photos/15748057/pexels-photo-15748057.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/rainforest.png",
+    "imageQuery": "forest trees canopy"
+  },
+  "heroCopy": {
+    "lede": "This page is designed like a premium educational website — but when you print it, it becomes a clean worksheet. Read each section, study the images, then answer in the writing boxes (type on screen or write on paper).",
+    "whatStudentsLearn": "In this lesson, students explore what makes a tree a tree, learn the names and jobs of each tree part, discover how trees use sunlight, water, and air to grow, and find out how trees help animals and people every day. Each section includes quick facts, observation missions, and writing prompts that build science vocabulary and complete-sentence explanations.",
+    "learningTargets": [
+      "I can describe what a tree is and name its main parts.",
+      "I can explain the jobs of roots, trunk, branches, and leaves.",
+      "I can describe how trees use sunlight, water, air, and soil to grow.",
+      "I can explain at least three ways trees help animals and people."
+    ],
+    "studentDirections": [
+      "Read the section and study the image.",
+      "Use the \"Quick Facts\" to support your answers.",
+      "Write in complete sentences when asked.",
+      "On paper: you may draw and label a tree with its parts."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Roots",
+        "def": "the part of the tree underground that soaks up water and holds the tree in place."
+      },
+      {
+        "term": "Trunk",
+        "def": "the thick stem of the tree that holds it up and carries water from the roots to the leaves."
+      },
+      {
+        "term": "Leaves",
+        "def": "the flat green parts of a tree that catch sunlight and make food for the tree."
+      },
+      {
+        "term": "Photosynthesis",
+        "def": "the way a tree uses sunlight, water, and air to make its own food."
+      },
+      {
+        "term": "Habitat",
+        "def": "a home in nature where an animal finds food, water, and shelter."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "screenImage": "https://images.pexels.com/photos/7501502/pexels-photo-7501502.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/plant.png",
+      "title": "What Is a Tree?",
+      "lede": "A tree is a tall plant with a thick stem called a trunk. Trees are some of the biggest and oldest living things on Earth. Some trees are taller than a house, and some have been alive for hundreds of years!",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Trees are plants, but they are much bigger and live much longer than most plants.",
+            "A tree has four main parts: roots, trunk, branches, and leaves.",
+            "There are over 60,000 different kinds of trees in the world."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at the trees in the image. Can you see the trunks? The branches? The leaves?",
+            "How are these trees different from a small plant or a bush?",
+            "What do you think is happening underground that we cannot see?"
+          ]
+        }
+      ],
+      "callout": "Trees are alive — they grow, drink water, and make food, just like you!",
+      "prompt": {
+        "label": "Prompt A — Observe a Tree",
+        "hint": "2–3 sentences",
+        "placeholder": "Look at the trees in the image. Describe what you see. What makes a tree different from a small plant?",
+        "teacherKey": "✔ Key idea: A tree is a tall plant with a thick trunk, branches, and leaves. It is bigger and lives longer than most plants."
+      },
+      "imageQuery": "tall tree low angle"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "screenImage": "https://images.pexels.com/photos/33526769/pexels-photo-33526769.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/habitat.png",
+      "title": "Parts of a Tree",
+      "lede": "Every tree has four main parts, and each part has an important job. Roots drink water from the soil. The trunk holds the tree up. Branches reach out to hold the leaves. And leaves catch sunlight to make food.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Roots grow underground and soak up water and nutrients from the soil.",
+            "The trunk is like a straw — it carries water up from the roots to the leaves.",
+            "Leaves are the food factories of the tree. They use sunlight to make energy."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look up at the canopy of leaves. How do they spread out to catch sunlight?",
+            "What do you think the trunk looks like beneath all those leaves?",
+            "Why do you think most leaves are green?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt B — Name the Parts",
+        "hint": "Fill both lines",
+        "placeholder": "1) The part of the tree that drinks water from the soil is the: ______________________\n2) The part that catches sunlight to make food is the: ______________________",
+        "teacherKey": "✔ Key idea: Roots drink water. Leaves catch sunlight and make food. The trunk carries water up. Branches hold the leaves out to the sun."
+      },
+      "imageQuery": "tree leaves canopy branches"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "screenImage": "https://images.pexels.com/photos/18238010/pexels-photo-18238010.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/sunflower.png",
+      "title": "How Trees Grow",
+      "lede": "Trees need four things to grow: sunlight, water, air, and soil. The leaves catch sunlight. The roots drink water from the soil. The leaves also breathe in a gas from the air called carbon dioxide. When sunlight, water, and air come together in the leaves, the tree makes its own food. This amazing process is called photosynthesis.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Photosynthesis is how a tree makes food using sunlight, water, and air.",
+            "Sunlight gives the tree energy. Water comes up from the roots. Air enters through tiny holes in the leaves.",
+            "A tree can make enough food to grow taller, grow new branches, and even make seeds."
+          ]
+        },
+        {
+          "title": "Think Like a Scientist",
+          "items": [
+            "What would happen to a tree if it got no sunlight for a whole month?",
+            "Why do you think trees grow faster in the spring and summer?",
+            "If you were a tree, which of the four things (sunlight, water, air, soil) would you need most?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — How Trees Make Food",
+        "hint": "3–4 sentences",
+        "placeholder": "Explain how a tree uses sunlight, water, and air to make its own food. Use the word photosynthesis in your answer.",
+        "teacherKey": "✔ Key idea: Trees use sunlight + water + air in their leaves to make food. This process is called photosynthesis. Without any one of these, the tree cannot make food."
+      },
+      "imageQuery": "sunlight leaves photosynthesis"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "screenImage": "https://images.pexels.com/photos/13206702/pexels-photo-13206702.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/squirrel.png",
+      "title": "How Trees Help Animals",
+      "lede": "Trees are like apartment buildings for animals. Birds build nests in the branches. Squirrels hide nuts in the bark. Insects live under the leaves. Many animals eat the fruits, seeds, or leaves. A tree is a whole neighborhood — a habitat — where animals find food, water, and shelter.",
+      "cards": [
+        {
+          "title": "Animals That Use Trees",
+          "items": [
+            "Birds build nests in branches and eat berries from the tree.",
+            "Squirrels climb the trunk and hide food in the bark.",
+            "Insects, frogs, and lizards use leaves and bark as shelter."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Look at the fallen tree. Where might a bird build a nest?",
+            "Can you see any places where an animal could hide?",
+            "What food might this tree provide for animals?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — A Tree Neighborhood",
+        "hint": "One paragraph",
+        "placeholder": "Describe how a tree can be a home for animals. Use the word habitat in your answer. Name at least two animals that might live in or near a tree.",
+        "teacherKey": "✔ Key idea: A tree is a habitat — it gives animals shelter (nests, hiding spots), food (fruits, seeds, leaves), and water. Birds, squirrels, insects, and many other animals depend on trees."
+      },
+      "imageQuery": "animals in trees forest"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "screenImage": "https://images.pexels.com/photos/12480458/pexels-photo-12480458.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "printImage": "assets/images/sunset.png",
+      "title": "How Trees Help People",
+      "lede": "Trees are important for people too. When trees make food, they also make oxygen — the air we breathe. Trees give us shade on hot days. We use wood from trees to build houses, furniture, and paper. Trees also make our neighborhoods beautiful and help keep the air clean.",
+      "cards": [
+        {
+          "title": "Ways Trees Help Us",
+          "items": [
+            "Trees make oxygen, which people and animals need to breathe.",
+            "Tree shade keeps us cool and protects us from the hot sun.",
+            "Wood from trees is used to build homes, make furniture, and create paper."
+          ]
+        },
+        {
+          "title": "Why It Matters",
+          "items": [
+            "Trees clean the air by taking in carbon dioxide and releasing oxygen.",
+            "Trees make parks and neighborhoods beautiful and peaceful.",
+            "Without trees, many animals would lose their homes — and we would lose clean air."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Trees and People",
+        "hint": "5–6 sentences",
+        "placeholder": "Explain at least three ways trees help people. Include how trees help us breathe, stay cool, and build things. Why should we take care of trees?",
+        "teacherKey": "✔ Key idea: Trees help people by making oxygen (clean air), providing shade, and giving us wood for building and paper. We should protect trees because they keep our air clean and our planet healthy."
+      },
+      "promptF": {
+        "label": "Prompt F — My Tree Story",
+        "hint": "Bullets OK",
+        "placeholder": "Think about a tree you have seen or visited:\n1) Where was the tree? ____________\n2) What did it look like? ____________\n3) What animals or people might use this tree? ____________\n4) Why is this tree important? ____________",
+        "teacherKey": "✔ Key idea: Student connects the lesson to a real tree they know, describing its appearance, its role as a habitat, and why it matters to the community."
+      },
+      "imageQuery": "tree lined park path"
+    }
+  ]
+}
