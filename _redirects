@@ -1,6 +1,10 @@
 # Netlify redirects — SV2 SEO snapshot layer
-# Clean lesson URLs → static snapshot files (served at same URL, status 200)
+# Clean subject and lesson URLs → static snapshot files (served at same URL, status 200)
 # These are explicit rules for maximum compatibility.
+
+/subject/science /seo-snapshots/subject-science.html 200
+/subject/geography /seo-snapshots/subject-geography.html 200
+/subject/history /seo-snapshots/subject-history.html 200
 
 /lesson/lesson-01 /seo-snapshots/lesson-01.html 200
 /lesson/lesson-02 /seo-snapshots/lesson-02.html 200
@@ -8,3 +12,9 @@
 /lesson/lesson-04 /seo-snapshots/lesson-04.html 200
 /lesson/lesson-05 /seo-snapshots/lesson-05.html 200
 /lesson/lesson-06 /seo-snapshots/lesson-06.html 200
+/lesson/geography-01 /seo-snapshots/geography-01.html 200
+/lesson/geography-02 /seo-snapshots/geography-02.html 200
+/lesson/geography-03 /seo-snapshots/geography-03.html 200
+/lesson/history-01 /seo-snapshots/history-01.html 200
+/lesson/history-02 /seo-snapshots/history-02.html 200
+/lesson/history-03 /seo-snapshots/history-03.html 200

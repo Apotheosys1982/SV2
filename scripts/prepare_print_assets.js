@@ -20,6 +20,7 @@
  *
  * Usage:
  *   node scripts/prepare_print_assets.js --lesson lesson-04
+ *   node scripts/prepare_print_assets.js --lessons geography-01,geography-02,history-01
  *   node scripts/prepare_print_assets.js --all
  */
 
@@ -172,9 +173,9 @@ function workOrderForLesson(lesson, rows) {
   lines.push('## Image Generator Prompt Template');
   lines.push('');
   lines.push('```text');
-  lines.push('Use case: scientific-educational');
+  lines.push('Use case: elementary educational lesson');
   lines.push('Asset type: black-and-white printable worksheet image');
-  lines.push('Primary request: Convert the provided source image into a clean black-and-white coloring-page version for a Grades 2-4 science worksheet.');
+  lines.push('Primary request: Convert the provided source image into a clean black-and-white coloring-page version for a Grades 2-4 printable worksheet.');
   lines.push('Input image role: reference/edit target; preserve subject and composition.');
   lines.push('Style: crisp outline drawing, white background, no grayscale fill, no shadows, no text, no watermark, no decorative frame.');
   lines.push('Output: 1024 x 683 PNG, high contrast, print-safe, kid-friendly, clear enough for a worksheet.');
@@ -241,8 +242,8 @@ async function prepareLesson(lessonId) {
 
 function discoverLessonIds() {
   return fs.readdirSync(LESSONS_DIR)
-    .filter((file) => /^lesson-\d+\.json$/.test(file))
-    .sort()
+    .filter((file) => /^[a-z][a-z0-9-]*-\d+\.json$/.test(file))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     .map((file) => file.replace('.json', ''));
 }
 
@@ -252,10 +253,16 @@ async function main() {
 
   if (args.all) {
     lessonIds = discoverLessonIds();
+  } else if (args.lessons) {
+    lessonIds = String(args.lessons)
+      .split(',')
+      .map((lessonId) => lessonId.trim())
+      .filter(Boolean);
   } else if (args.lesson) {
     lessonIds = [args.lesson];
   } else {
     console.error('Usage: node scripts/prepare_print_assets.js --lesson lesson-04');
+    console.error('   or: node scripts/prepare_print_assets.js --lessons lesson-04,lesson-05');
     console.error('   or: node scripts/prepare_print_assets.js --all');
     process.exit(1);
   }

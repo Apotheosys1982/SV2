@@ -1,23 +1,37 @@
 # SEO Generation Report
 
-**Generated:** 2026-06-11T10:10:46.209Z
+**Generated:** 2026-06-20T02:04:34.999Z
 **Base URL:** https://ariya-science.netlify.app
 
 ## Lesson Snapshots
 
 | Lesson | Status | File | Size |
 |--------|--------|------|------|
-| lesson-01 | ✓ PASS | seo-snapshots/lesson-01.html | 14.4 KB |
+| lesson-01 | ✓ PASS | seo-snapshots/lesson-01.html | 14.5 KB |
 | lesson-02 | ✓ PASS | seo-snapshots/lesson-02.html | 13.6 KB |
-| lesson-03 | ✓ PASS | seo-snapshots/lesson-03.html | 15.0 KB |
-| lesson-04 | ✓ PASS | seo-snapshots/lesson-04.html | 15.9 KB |
-| lesson-05 | ✓ PASS | seo-snapshots/lesson-05.html | 16.7 KB |
-| lesson-06 | ✓ PASS | seo-snapshots/lesson-06.html | 18.0 KB |
+| lesson-03 | ✓ PASS | seo-snapshots/lesson-03.html | 15.1 KB |
+| lesson-04 | ✓ PASS | seo-snapshots/lesson-04.html | 16.0 KB |
+| lesson-05 | ✓ PASS | seo-snapshots/lesson-05.html | 16.8 KB |
+| lesson-06 | ✓ PASS | seo-snapshots/lesson-06.html | 18.1 KB |
+| geography-01 | ✓ PASS | seo-snapshots/geography-01.html | 13.8 KB |
+| geography-02 | ✓ PASS | seo-snapshots/geography-02.html | 13.8 KB |
+| geography-03 | ✓ PASS | seo-snapshots/geography-03.html | 13.8 KB |
+| history-01 | ✓ PASS | seo-snapshots/history-01.html | 13.9 KB |
+| history-02 | ✓ PASS | seo-snapshots/history-02.html | 14.1 KB |
+| history-03 | ✓ PASS | seo-snapshots/history-03.html | 14.1 KB |
+
+## Subject Snapshots
+
+| Subject | Status | File | Size |
+|---------|--------|------|------|
+| science | ✓ PASS | seo-snapshots/subject-science.html | 6.7 KB |
+| geography | ✓ PASS | seo-snapshots/subject-geography.html | 4.2 KB |
+| history | ✓ PASS | seo-snapshots/subject-history.html | 4.4 KB |
 
 ## Sitemap
 
 - **File:** sitemap.xml
-- **URLs:** 7 (root + 6 lessons)
+- **URLs:** 16 (root + 3 subjects + 12 lessons)
 
 ## Robots
 
@@ -33,11 +47,12 @@
 
 - **File:** _redirects
 - **Status:** ✓ generated
-- **Rules:** 6 explicit lesson routes
+- **Rules:** 15 explicit subject/lesson routes
 
 ## Summary
 
-- **Snapshots generated:** 6/6
+- **Lesson snapshots generated:** 12/12
+- **Subject snapshots generated:** 3/3
 - **Failures:** 0
 - **Overall:** ✓ All systems operational
 

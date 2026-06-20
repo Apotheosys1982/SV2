@@ -1,0 +1,234 @@
+{
+  "id": "geography-03",
+  "subjectId": "geography",
+  "meta": {
+    "kicker": [
+      "Lesson 3",
+      "Geography",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Regions & Communities",
+    "subtitle": "How Places Shape Daily Life • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Children studying a world map to compare regions and communities",
+    "imageQuery": "children world map regions climates communities elementary geography hero",
+    "screenImage": "https://images.pexels.com/photos/8554137/pexels-photo-8554137.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/geography-03-hero.png"
+  },
+  "heroCopy": {
+    "lede": "Regions are areas with shared features. Land, water, climate, resources, and routes all shape how communities grow.",
+    "whatStudentsLearn": "Students learn to describe regions by physical and human features, connect climate and resources to daily life, and plan routes or communities using geography evidence.",
+    "learningTargets": [
+      "I can describe a region using shared features.",
+      "I can explain how climate affects daily life.",
+      "I can identify natural resources and careful use.",
+      "I can plan a community using land, water, and routes."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Region",
+        "def": "An area with features that make it similar."
+      },
+      {
+        "term": "Climate",
+        "def": "The usual weather in a place over a long time."
+      },
+      {
+        "term": "Resource",
+        "def": "Something people use from the land, water, or environment."
+      },
+      {
+        "term": "Route",
+        "def": "A path people use to move from one place to another."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "aerial town roads homes physical human features region geography",
+      "screenImage": "https://images.pexels.com/photos/13777907/pexels-photo-13777907.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-03-s1.png",
+      "title": "What Is a Region?",
+      "lede": "A region is an area with shared features. A region can be described by land, water, weather, plants, buildings, jobs, or culture.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Some regions are hot and dry.",
+            "Some regions are cold and snowy.",
+            "Some regions are urban, rural, coastal, or mountainous."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Notice land and water features.",
+            "Look for clues about homes or transportation.",
+            "Ask what makes this place similar to nearby places."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Describe a Region",
+        "hint": "Use evidence",
+        "placeholder": "Describe a region using weather, land, plants, or buildings.",
+        "teacherKey": "✔ Key idea: A region can be described by shared physical or human features."
+      },
+      "ariaLabel": "Aerial town view showing roads homes and land features that define a region"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "desert mountains dry climate region geography",
+      "screenImage": "https://images.pexels.com/photos/6491624/pexels-photo-6491624.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-03-s2.png",
+      "title": "Weather and Climate",
+      "lede": "Weather can change today, but climate describes what weather is usually like over a long time.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Climate affects clothing and homes.",
+            "Climate affects which plants can grow.",
+            "Climate can affect transportation and outdoor activities."
+          ]
+        },
+        {
+          "title": "Compare",
+          "items": [
+            "How might a snowy region be different from a desert?",
+            "What would people wear?",
+            "What would homes need to protect people from?"
+          ]
+        }
+      ],
+      "callout": "Climate is one clue. Geographers also study landforms, resources, and human choices.",
+      "prompt": {
+        "label": "Prompt B — Climate Clues",
+        "hint": "Compare places",
+        "placeholder": "How might daily life be different in a snowy region and a hot dry region?",
+        "teacherKey": "✔ Key idea: Climate affects clothing, homes, transportation, plants, and activities."
+      },
+      "ariaLabel": "Desert mountain landscape showing a dry climate region"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "forest river water trees natural resources geography",
+      "screenImage": "https://images.pexels.com/photos/27896674/pexels-photo-27896674.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-03-s3.png",
+      "title": "Natural Resources",
+      "lede": "People use resources from land and water to meet needs. Communities do best when resources are used carefully.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "Water can be used for drinking, farming, and transportation.",
+            "Soil helps people grow food.",
+            "Trees, fish, sunlight, and minerals are resources too."
+          ]
+        },
+        {
+          "title": "Resource Match",
+          "items": [
+            "Name one resource in the image.",
+            "Tell how people might use it.",
+            "Explain one way to avoid wasting it."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Resource Match",
+        "hint": "Cause and effect",
+        "placeholder": "Choose one resource and explain how people use it carefully.",
+        "teacherKey": "✔ Key idea: Resources include water, soil, trees, fish, minerals, and sunlight; careful use prevents waste."
+      },
+      "ariaLabel": "Forest and river landscape showing water and trees as natural resources"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "bridge road river transportation route geography",
+      "screenImage": "https://images.pexels.com/photos/17408653/pexels-photo-17408653.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-03-s4.png",
+      "title": "Transportation and Routes",
+      "lede": "People choose routes based on land, water, distance, and safety. A smart route depends on the geography of a region.",
+      "cards": [
+        {
+          "title": "Examples",
+          "items": [
+            "Roads may go around mountains.",
+            "Boats can move along rivers and coasts.",
+            "Bridges help people cross water."
+          ]
+        },
+        {
+          "title": "Think Like a Geographer",
+          "items": [
+            "Find obstacles on the map.",
+            "Choose a safe route.",
+            "Explain why the route makes sense."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Plan a Route",
+        "hint": "Use geography evidence",
+        "placeholder": "Pick a route across a region and explain why it is a smart path.",
+        "teacherKey": "✔ Key idea: Student uses geography evidence such as rivers, mountains, roads, or distance."
+      },
+      "ariaLabel": "Bridge and road crossing water to show transportation routes"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "aerial community roads neighborhood planning geography",
+      "screenImage": "https://images.pexels.com/photos/8811589/pexels-photo-8811589.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-03-s5.png",
+      "title": "Quick Check + Community Plan",
+      "lede": "Geography helps explain how communities grow, change, and solve problems.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "What is a region?",
+            "How can climate affect daily life?",
+            "Name one natural resource."
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Design a small community.",
+            "Place homes, roads, water, and parks.",
+            "Explain why each feature belongs there."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize how land, water, climate, and resources shape communities.",
+        "teacherKey": "✔ Key idea: Summary connects physical features to human choices."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Design a small community and explain where homes, roads, water, and parks belong.",
+        "teacherKey": "✔ Key idea: Student places features logically and explains geography choices."
+      },
+      "ariaLabel": "Aerial view of roads and buildings for planning a community"
+    }
+  ]
+}

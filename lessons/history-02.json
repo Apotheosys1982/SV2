@@ -1,0 +1,229 @@
+{
+  "id": "history-02",
+  "subjectId": "history",
+  "meta": {
+    "kicker": [
+      "Lesson 2",
+      "History",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Rivers, Cities & Early America",
+    "subtitle": "How Communities Grew Near Land and Water • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Ancient ruins by the Nile River showing how communities grew near water",
+    "imageQuery": "ancient Nile river temple ruins early communities world history elementary",
+    "screenImage": "https://images.pexels.com/photos/31730196/pexels-photo-31730196.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/history-02-hero.png"
+  },
+  "heroCopy": {
+    "lede": "Many communities grew near rivers and useful land. World history and American history both show how people adapted to places.",
+    "whatStudentsLearn": "Students explore why rivers helped communities grow, how ancient Egypt and early cities used land and writing, and how Indigenous communities in North America used deep knowledge of local places.",
+    "learningTargets": [
+      "I can explain why rivers helped communities grow.",
+      "I can describe how the Nile supported ancient Egypt.",
+      "I can explain why writing helped early cities.",
+      "I can connect local knowledge to community survival and care."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Community",
+        "def": "A group of people living, working, and solving problems together."
+      },
+      {
+        "term": "Civilization",
+        "def": "A large organized society with communities, jobs, rules, and culture."
+      },
+      {
+        "term": "Trade",
+        "def": "The exchange of goods or services."
+      },
+      {
+        "term": "Local knowledge",
+        "def": "Careful understanding of the land, water, seasons, plants, and animals in a place."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "river community water farming travel early history elementary",
+      "screenImage": "https://images.pexels.com/photos/18934703/pexels-photo-18934703.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-02-s1.png",
+      "title": "Rivers Help Communities Grow",
+      "lede": "Many communities grew near rivers because rivers gave water, food, travel routes, and rich soil.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Rivers can support farming.",
+            "Rivers can provide fish and water.",
+            "Rivers can help people travel and trade."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Find water and nearby land.",
+            "Think about where farms might be.",
+            "Ask how people could move goods."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — River Reasons",
+        "hint": "Give two reasons",
+        "placeholder": "Explain two reasons people might build a community near a river.",
+        "teacherKey": "✔ Key idea: Rivers support farming, drinking water, fishing, transportation, and trade."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "ancient Egypt Nile River temple ruins elementary history",
+      "screenImage": "https://images.pexels.com/photos/34137936/pexels-photo-34137936.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-02-s2.png",
+      "title": "Ancient Egypt and the Nile",
+      "lede": "The Nile River helped ancient Egyptian farmers grow food in a dry region. Its flooding left rich soil behind.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "The Nile provided water in a dry place.",
+            "Floods could leave fertile soil.",
+            "Boats moved people and goods along the river."
+          ]
+        },
+        {
+          "title": "Image Mission",
+          "items": [
+            "Notice the river and dry land nearby.",
+            "Look for evidence of buildings or ruins.",
+            "Ask why water mattered here."
+          ]
+        }
+      ],
+      "callout": "A river can be both a natural feature and a historical clue.",
+      "prompt": {
+        "label": "Prompt B — Nile Clues",
+        "hint": "Use evidence",
+        "placeholder": "How did the Nile help people in ancient Egypt?",
+        "teacherKey": "✔ Key idea: The Nile provided water, fertile soil, food, and a travel path."
+      }
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "ancient writing old books records early cities history elementary",
+      "screenImage": "https://images.pexels.com/photos/16009458/pexels-photo-16009458.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-02-s3.png",
+      "title": "Ancient Cities and Writing",
+      "lede": "In places like Mesopotamia, cities used writing, laws, and trade to organize life and remember important information.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "City: a large community where many people live and work.",
+            "Writing: marks that record words or ideas.",
+            "Record: information saved so people can remember it."
+          ]
+        },
+        {
+          "title": "Historian Tools",
+          "items": [
+            "Look for what was recorded.",
+            "Ask who made the record.",
+            "Think about why the record mattered."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Why Writing Matters",
+        "hint": "Cause and effect",
+        "placeholder": "Explain why writing helped ancient people remember or share information.",
+        "teacherKey": "✔ Key idea: Writing helped record goods, stories, rules, messages, and events."
+      }
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "North America landscape river local knowledge Indigenous communities respectful history",
+      "screenImage": "https://images.pexels.com/photos/17850382/pexels-photo-17850382.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-02-s4.png",
+      "title": "Indigenous Communities in North America",
+      "lede": "Many Native nations built communities with deep knowledge of local land, water, plants, animals, and seasons.",
+      "cards": [
+        {
+          "title": "Respectful History",
+          "items": [
+            "Native nations are diverse, not all the same.",
+            "Communities used detailed local knowledge.",
+            "Many Native nations continue today."
+          ]
+        },
+        {
+          "title": "Compare",
+          "items": [
+            "How did people find food?",
+            "How did seasons matter?",
+            "How did knowledge of place help people care for resources?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Land Knowledge",
+        "hint": "Respectful evidence",
+        "placeholder": "Explain how knowing a place well can help a community live there.",
+        "teacherKey": "✔ Key idea: Students connect local knowledge to food, shelter, travel, seasons, and care for the land."
+      }
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "ancient river community world history elementary social studies",
+      "screenImage": "https://images.pexels.com/photos/18934581/pexels-photo-18934581.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-02-s5.png",
+      "title": "Quick Check + Compare Communities",
+      "lede": "World history and American history both show how people adapt to places and organize community life.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "Why were rivers useful?",
+            "How did writing help early cities?",
+            "What is local knowledge?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Design a river community.",
+            "Label food, homes, travel, and one source historians might study.",
+            "Explain how the place helps the community."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize how rivers, land, writing, and local knowledge helped communities.",
+        "teacherKey": "✔ Key idea: Summary compares at least two communities and uses evidence."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Draw or describe a community near a river. Label food, homes, travel, and a source of history.",
+        "teacherKey": "✔ Key idea: Student includes geography, community needs, and one historical source."
+      }
+    }
+  ]
+}

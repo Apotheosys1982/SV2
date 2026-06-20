@@ -6,23 +6,44 @@ const path = require('path');
 const LESSONS_DIR = path.join(__dirname, '..', 'lessons');
 const MANIFEST_FILE = path.join(LESSONS_DIR, 'manifest.json');
 
-// Load current manifest to preserve ordering
-let currentManifest = { defaultLessonId: 'lesson-01', lessons: [] };
-try {
-  const manifestContent = fs.readFileSync(MANIFEST_FILE, 'utf-8');
-  currentManifest = JSON.parse(manifestContent);
-} catch (err) {
-  console.log(`Note: No existing manifest found. Creating new one.`);
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
 
-// Scan lessons directory for lesson JSON files
+function subjectFromLessonId(lessonId) {
+  if (/^lesson-\d+$/.test(lessonId)) return 'science';
+  const match = lessonId.match(/^([a-z][a-z0-9-]*)-\d+$/);
+  return match ? match[1] : 'science';
+}
+
+function lessonNumber(lessonId) {
+  const match = lessonId.match(/(\d+)$/);
+  return match ? String(Number(match[1])) : lessonId;
+}
+
+// Load current manifest to preserve ordering and subject metadata.
+let currentManifest = {
+  defaultSubjectId: 'science',
+  defaultLessonId: 'lesson-01',
+  subjects: [
+    { id: 'science', label: 'Science', defaultLessonId: 'lesson-01' },
+  ],
+  lessons: [],
+};
+
+try {
+  currentManifest = readJson(MANIFEST_FILE);
+} catch (err) {
+  console.log('Note: No existing manifest found. Creating a new one.');
+}
+
+// Scan lessons directory for subject-aware lesson JSON files.
 let lessonFiles = [];
 try {
   const files = fs.readdirSync(LESSONS_DIR);
-  lessonFiles = files.filter(file => {
-    const match = file.match(/^lesson-(\d+)\.json$/);
-    return match !== null;
-  }).sort();
+  lessonFiles = files
+    .filter((file) => /^[a-z][a-z0-9-]*-\d+\.json$/.test(file))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 } catch (err) {
   console.error(`Error scanning lessons directory: ${err.message}`);
   process.exit(1);
@@ -33,49 +54,49 @@ if (lessonFiles.length === 0) {
   process.exit(1);
 }
 
-// Build new lesson entries, preserving labels from current manifest where possible
 const currentManifestMap = {};
-currentManifest.lessons.forEach(lesson => {
+(currentManifest.lessons || []).forEach((lesson) => {
   currentManifestMap[lesson.id] = lesson;
 });
 
+const subjectIds = new Set((currentManifest.subjects || []).map((subject) => subject.id));
 const newLessons = [];
-lessonFiles.forEach(file => {
+
+lessonFiles.forEach((file) => {
   const lessonId = file.replace('.json', '');
-  
-  // Try to preserve existing label
-  let label = currentManifestMap[lessonId]?.label;
-  
-  // If no label exists, generate one by reading the lesson file
-  if (!label) {
-    try {
-      const lessonContent = fs.readFileSync(path.join(LESSONS_DIR, file), 'utf-8');
-      const lesson = JSON.parse(lessonContent);
-      const num = lessonId.split('-')[1];
-      label = `Lesson ${num} — ${lesson.meta?.title || 'Untitled'}`;
-    } catch (err) {
-      console.warn(`Warning: Could not read ${file}, using default label`);
-      const num = lessonId.split('-')[1];
-      label = `Lesson ${num}`;
-    }
+  const existing = currentManifestMap[lessonId] || {};
+  const lessonPath = path.join(LESSONS_DIR, file);
+  let lesson = {};
+
+  try {
+    lesson = readJson(lessonPath);
+  } catch (err) {
+    console.warn(`Warning: Could not read ${file}, using manifest/default metadata`);
   }
-  
+
+  const subjectId = existing.subjectId || lesson.subjectId || subjectFromLessonId(lessonId);
+  if (subjectId && !subjectIds.has(subjectId)) {
+    console.warn(`Warning: ${lessonId} has subjectId "${subjectId}" that is not registered in manifest subjects`);
+  }
+
+  const label = existing.label || `Lesson ${lessonNumber(lessonId)} — ${lesson.meta?.title || 'Untitled'}`;
+
   newLessons.push({
     id: lessonId,
-    label: label,
-    file: `lessons/${lessonId}.json`
+    subjectId,
+    label,
+    file: `lessons/${lessonId}.json`,
   });
 });
 
-// Update manifest
 currentManifest.lessons = newLessons;
 
 try {
-  fs.writeFileSync(MANIFEST_FILE, JSON.stringify(currentManifest, null, 2));
-  console.log(`✓ Updated manifest.json`);
+  fs.writeFileSync(MANIFEST_FILE, JSON.stringify(currentManifest, null, 2) + '\n');
+  console.log('✓ Updated manifest.json');
   console.log(`  Found ${newLessons.length} lesson file(s):`);
-  newLessons.forEach(lesson => {
-    console.log(`    - ${lesson.id}: ${lesson.label}`);
+  newLessons.forEach((lesson) => {
+    console.log(`    - ${lesson.subjectId}/${lesson.id}: ${lesson.label}`);
   });
 } catch (err) {
   console.error(`Error writing manifest: ${err.message}`);

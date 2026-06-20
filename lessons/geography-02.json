@@ -1,0 +1,229 @@
+{
+  "id": "geography-02",
+  "subjectId": "geography",
+  "meta": {
+    "kicker": [
+      "Lesson 2",
+      "Geography",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Landforms & Bodies of Water",
+    "subtitle": "Mountains, Rivers, Oceans, and More • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Island, mountains, and water showing landforms and bodies of water",
+    "imageQuery": "mountains river ocean coast island elementary geography landforms",
+    "screenImage": "https://images.pexels.com/photos/13172864/pexels-photo-13172864.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/geography-02-hero.png"
+  },
+  "heroCopy": {
+    "lede": "Earth has many natural features. Landforms and bodies of water help us describe what places look like and how people live there.",
+    "whatStudentsLearn": "Students identify common landforms and bodies of water, compare features such as mountains and valleys, and explain how coasts and islands shape human choices.",
+    "learningTargets": [
+      "I can define landform and body of water.",
+      "I can compare mountains, hills, valleys, and plains.",
+      "I can describe rivers, lakes, oceans, coasts, and islands.",
+      "I can use geography vocabulary to design an imaginary place."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Landform",
+        "def": "A natural shape on Earth’s surface."
+      },
+      {
+        "term": "Body of water",
+        "def": "A water feature such as a river, lake, or ocean."
+      },
+      {
+        "term": "Coast",
+        "def": "The area where land meets the ocean."
+      },
+      {
+        "term": "Island",
+        "def": "Land that has water all around it."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "sea coast hill natural landform elementary geography",
+      "screenImage": "https://images.pexels.com/photos/17850382/pexels-photo-17850382.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-02-s1.png",
+      "title": "What Is a Landform?",
+      "lede": "A landform is a natural shape on Earth’s surface. Some landforms rise high, some are flat, and some are surrounded by water.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Mountains rise high above nearby land.",
+            "Plains are broad and mostly flat.",
+            "Deserts, valleys, hills, and islands are landforms too."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Find high land and low land.",
+            "Look for where land meets water.",
+            "Think about what might be hard or easy to cross."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Name the Landform",
+        "hint": "Describe it",
+        "placeholder": "Choose one landform and describe what it looks like.",
+        "teacherKey": "✔ Key idea: Landforms include mountains, hills, plains, valleys, islands, coasts, and deserts."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "hills river islands valley aerial geography landforms",
+      "screenImage": "https://images.pexels.com/photos/19850077/pexels-photo-19850077.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-02-s2.png",
+      "title": "Mountains, Hills, and Valleys",
+      "lede": "Some land rises high, and some land dips low between higher places. Comparing shapes helps geographers describe a place.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "A mountain is high and often steep.",
+            "A hill is raised land that is usually lower than a mountain.",
+            "A valley is lower land between hills or mountains."
+          ]
+        },
+        {
+          "title": "Compare",
+          "items": [
+            "Which feature is highest?",
+            "Which feature is lowest?",
+            "Where might water flow?"
+          ]
+        }
+      ],
+      "callout": "Landforms can affect roads, weather, farms, and where people build communities.",
+      "prompt": {
+        "label": "Prompt B — Compare",
+        "hint": "Use two features",
+        "placeholder": "How are a mountain and a valley different?",
+        "teacherKey": "✔ Key idea: Mountains rise high; valleys are lower land between hills or mountains."
+      }
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "river lake ocean body of water geography elementary lesson",
+      "screenImage": "https://images.pexels.com/photos/18934703/pexels-photo-18934703.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-02-s3.png",
+      "title": "Rivers, Lakes, and Oceans",
+      "lede": "Bodies of water can be small or huge, still or moving, fresh or salty. They provide resources and travel routes.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "River: moving water that flows across land.",
+            "Lake: water surrounded by land.",
+            "Ocean: a huge body of salty water."
+          ]
+        },
+        {
+          "title": "Image Mission",
+          "items": [
+            "Look for moving water or still water.",
+            "Notice nearby landforms.",
+            "Ask how people might use this water."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Water Clues",
+        "hint": "3 examples",
+        "placeholder": "Explain how a river, lake, and ocean are different.",
+        "teacherKey": "✔ Key idea: Rivers flow, lakes are surrounded by land, and oceans are huge bodies of salty water."
+      }
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "river island water around land geography elementary",
+      "screenImage": "https://images.pexels.com/photos/14777357/pexels-photo-14777357.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-02-s4.png",
+      "title": "Coasts and Islands",
+      "lede": "A coast is where land meets the ocean, and an island has water around it. People plan carefully in these places.",
+      "cards": [
+        {
+          "title": "Examples",
+          "items": [
+            "Coasts may have beaches, cliffs, ports, or wetlands.",
+            "Islands can be large or small.",
+            "Weather and waves can change coastal places."
+          ]
+        },
+        {
+          "title": "Think Like a Geographer",
+          "items": [
+            "How would people travel here?",
+            "Where would buildings be safest?",
+            "What resources might people use?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Coast or Island?",
+        "hint": "One paragraph",
+        "placeholder": "Describe a coast or island and name one challenge people might plan for there.",
+        "teacherKey": "✔ Key idea: Students connect land/water features to waves, storms, bridges, boats, or safe building."
+      }
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "mountain island water geography model landforms",
+      "screenImage": "https://images.pexels.com/photos/13172864/pexels-photo-13172864.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-02-s5.png",
+      "title": "Quick Check + Build a Model",
+      "lede": "Landforms and water features help us describe real places and imagine new ones.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "Define landform.",
+            "Name two bodies of water.",
+            "What makes an island an island?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Invent an island.",
+            "Add three landforms and two bodies of water.",
+            "Explain how people could travel or find water there."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize four landforms or bodies of water from this lesson.",
+        "teacherKey": "✔ Key idea: Summary accurately names and describes at least four features."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Draw or describe an imaginary island with three landforms and two bodies of water.",
+        "teacherKey": "✔ Key idea: Student includes correct geography vocabulary and labels."
+      }
+    }
+  ]
+}
