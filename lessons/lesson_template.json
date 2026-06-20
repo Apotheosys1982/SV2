@@ -1,5 +1,6 @@
 {
   "id": "lesson-XX",
+  "subjectId": "science",
   "meta": {
     "kicker": ["Lesson X", "20–30 min", "Grades 2–4", "Print-ready"],
     "title": "Lesson Title",
@@ -7,7 +8,7 @@
   },
   "hero": {
     "ariaLabel": "Hero image description",
-    "imageQuery": "Lesson Title elementary science",
+    "imageQuery": "Lesson Title elementary lesson",
     "screenImage": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600",
     "printImage": "assets/images/lesson-XX-hero.png"
   },
@@ -37,7 +38,7 @@
     {
       "id": "s1",
       "chip": "Section 1",
-      "imageQuery": "Lesson Title section 1 elementary science",
+      "imageQuery": "Lesson Title section 1 elementary lesson",
       "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
       "printImage": "assets/images/lesson-XX-s1.png",
       "title": "Section 1 Title",
@@ -56,7 +57,7 @@
     {
       "id": "s2",
       "chip": "Section 2",
-      "imageQuery": "Lesson Title section 2 elementary science",
+      "imageQuery": "Lesson Title section 2 elementary lesson",
       "screenImage": "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400",
       "printImage": "assets/images/lesson-XX-s2.png",
       "title": "Section 2 Title",
@@ -75,7 +76,7 @@
     {
       "id": "s3",
       "chip": "Section 3",
-      "imageQuery": "Lesson Title section 3 elementary science",
+      "imageQuery": "Lesson Title section 3 elementary lesson",
       "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
       "printImage": "assets/images/lesson-XX-s3.png",
       "title": "Section 3 Title",
@@ -94,7 +95,7 @@
     {
       "id": "s4",
       "chip": "Section 4",
-      "imageQuery": "Lesson Title section 4 elementary science",
+      "imageQuery": "Lesson Title section 4 elementary lesson",
       "screenImage": "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1400",
       "printImage": "assets/images/lesson-XX-s4.png",
       "title": "Section 4 Title",
@@ -113,7 +114,7 @@
     {
       "id": "s5",
       "chip": "Section 5",
-      "imageQuery": "Lesson Title review elementary science",
+      "imageQuery": "Lesson Title review elementary lesson",
       "screenImage": "https://images.pexels.com/photos/1680255/pexels-photo-1680255.jpeg?auto=compress&cs=tinysrgb&w=1400",
       "printImage": "assets/images/lesson-XX-s5.png",
       "title": "Quick Check + Create",

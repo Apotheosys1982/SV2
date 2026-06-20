@@ -49,7 +49,10 @@ function parseArgs(argv) {
 }
 
 function loadEnv() {
-  const env = {};
+  const env = {
+    PEXELS_API_KEY: process.env.PEXELS_API_KEY || '',
+    PIXABAY_API_KEY: process.env.PIXABAY_API_KEY || '',
+  };
   if (!fs.existsSync(ENV_FILE)) return env;
 
   const content = fs.readFileSync(ENV_FILE, 'utf8');
@@ -266,7 +269,7 @@ async function main() {
   const hasPexels = Boolean(env.PEXELS_API_KEY);
   const hasPixabay = Boolean(env.PIXABAY_API_KEY);
   if (!hasPexels && !hasPixabay) {
-    console.error('No image provider API keys available. Expected scripts/.env with PEXELS_API_KEY and/or PIXABAY_API_KEY.');
+    console.error('No image provider API keys available. Expected PEXELS_API_KEY and/or PIXABAY_API_KEY in process env or scripts/.env.');
     process.exit(1);
   }
 

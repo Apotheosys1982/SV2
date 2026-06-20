@@ -796,14 +796,15 @@
         width:100%;
         justify-content:stretch;
         display:grid;
-        grid-template-columns: 1fr auto auto auto;
+        grid-template-columns: 1fr 1fr 44px 44px auto;
         gap:8px;
       }
       #teacherToggle{
         grid-column: 1 / -1;
         justify-content:center;
       }
-      #lessonSelect{
+      #lessonSelect,
+      #subjectSelect{
         min-width:0;
         width:100%;
       }
@@ -831,7 +832,7 @@
     }
     @media (max-width: 430px){
       .top-actions{
-        grid-template-columns: 1fr 44px 44px;
+        grid-template-columns: 1fr 1fr 44px 44px;
       }
       .top-actions .btn.primary{
         grid-column: 1 / -1;
@@ -1126,6 +1127,10 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
     </svg>
     <span data-teacher-toggle-label>Teacher Mode</span>
   </button>
+
+  <select id="subjectSelect" class="btn" aria-label="Select subject">
+    <option value="science">Science</option>
+  </select>
 
   <select id="lessonSelect" class="btn" aria-label="Select lesson">
     <option value="lesson-01">Lesson 1</option>
@@ -1586,6 +1591,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
      📦 KEYS (Lesson-aware)
   ========================= */
   const MODE_KEY   = "biosphere_kids_v3::teacherMode";
+  const SUBJECT_KEY = "biosphere_kids_v3::currentSubject";
   const LESSON_KEY = "biosphere_kids_v3::currentLesson";
   const answersKeyFor = (lessonId) => `biosphere_kids_v3::answers::${lessonId}`;
 
@@ -1674,7 +1680,8 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
   function loadAutosaveData(lessonId){
     const key = answersKeyFor(lessonId);
     AUTOSAVE.lessonId = lessonId;
-    AUTOSAVE.data = safeParse(localStorage.getItem(key), {});
+    const parsed = safeParse(localStorage.getItem(key), {});
+    AUTOSAVE.data = parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
   }
 
   function saveAutosaveData(){
@@ -2005,8 +2012,14 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
     return p.get("lesson");
   }
 
-  function setURLLesson(id){
+  function getSubjectFromURL(){
     const p = new URLSearchParams(location.search);
+    return p.get("subject");
+  }
+
+  function setURLLesson(subjectId, id){
+    const p = new URLSearchParams(location.search);
+    if (subjectId) p.set("subject", subjectId);
     p.set("lesson", id);
     history.replaceState(null, "", `${location.pathname}?${p.toString()}`);
   }
@@ -2016,64 +2029,166 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
   ========================= */
 
   // ✅ Single source of truth + race lock
+  const DEFAULT_SUBJECT = { id: "science", label: "Science", defaultLessonId: "lesson-01" };
   let CURRENT_LESSON_ID = null;
+  let CURRENT_SUBJECT_ID = null;
   let LESSON_LOADING = false;
+
+  function subjectIdForLesson(entry){
+    return entry?.subjectId || entry?.subject || DEFAULT_SUBJECT.id;
+  }
+
+  function normalizeSubjects(manifest, lessons){
+    const subjects = Array.isArray(manifest.subjects) && manifest.subjects.length
+      ? manifest.subjects
+      : [DEFAULT_SUBJECT];
+    const seen = new Set();
+    const normalized = subjects
+      .filter((subject) => subject && subject.id && !seen.has(subject.id) && seen.add(subject.id))
+      .map((subject) => ({
+        id: subject.id,
+        label: subject.label || subject.id,
+        description: subject.description || "",
+        defaultLessonId: subject.defaultLessonId || lessons.find((lesson) => subjectIdForLesson(lesson) === subject.id)?.id || "",
+      }));
+
+    if (!normalized.some((subject) => subject.id === DEFAULT_SUBJECT.id)) {
+      normalized.unshift(DEFAULT_SUBJECT);
+    }
+
+    return normalized;
+  }
+
+  function lessonsForSubject(lessons, subjectId){
+    return lessons.filter((lesson) => subjectIdForLesson(lesson) === subjectId);
+  }
+
+  function defaultLessonForSubject(subjects, lessons, subjectId){
+    const subject = subjects.find((item) => item.id === subjectId);
+    const subjectLessons = lessonsForSubject(lessons, subjectId);
+    if (subject?.defaultLessonId && subjectLessons.some((lesson) => lesson.id === subject.defaultLessonId)) {
+      return subjectLessons.find((lesson) => lesson.id === subject.defaultLessonId);
+    }
+    return subjectLessons[0] || lessons[0] || null;
+  }
+
+  function setDocumentMeta(lesson){
+    const title = lesson?.meta?.title ? `${lesson.meta.title} — BioSphere Kids` : "BioSphere Kids";
+    document.title = title;
+
+    const description = lesson?.heroCopy?.whatStudentsLearn || lesson?.heroCopy?.lede || "";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription && description) metaDescription.setAttribute("content", description);
+  }
+
+  function populateSubjectSelect(subjects, selectedSubjectId){
+    const subjectSel = $("#subjectSelect");
+    if (!subjectSel) return;
+
+    subjectSel.innerHTML = "";
+    subjects.forEach((subject) => {
+      const opt = document.createElement("option");
+      opt.value = subject.id;
+      opt.textContent = subject.label || subject.id;
+      subjectSel.appendChild(opt);
+    });
+    subjectSel.value = selectedSubjectId;
+  }
+
+  function populateLessonSelect(lessons, subjectId, selectedLessonId){
+    const sel = $("#lessonSelect");
+    if (!sel) return;
+
+    const subjectLessons = lessonsForSubject(lessons, subjectId);
+    sel.innerHTML = "";
+    subjectLessons.forEach((lesson) => {
+      const opt = document.createElement("option");
+      opt.value = lesson.id;
+      opt.textContent = lesson.label || lesson.id;
+      sel.appendChild(opt);
+    });
+    if (selectedLessonId) sel.value = selectedLessonId;
+  }
+
+  function resolveStart(manifest, subjects, lessons){
+    const urlId = getLessonFromURL();
+    const urlSubject = getSubjectFromURL();
+    const storedSubject = localStorage.getItem(SUBJECT_KEY);
+    const storedLesson = localStorage.getItem(LESSON_KEY);
+    const fallbackSubject = manifest.defaultSubjectId || subjects[0]?.id || DEFAULT_SUBJECT.id;
+
+    const urlEntry = lessons.find((lesson) => lesson.id === urlId);
+    const storedEntry = lessons.find((lesson) => lesson.id === storedLesson);
+
+    let subjectId = urlSubject || (urlEntry && subjectIdForLesson(urlEntry)) || storedSubject || fallbackSubject;
+    if (!subjects.some((subject) => subject.id === subjectId)) {
+      subjectId = fallbackSubject;
+    }
+
+    let lessonEntry = null;
+    if (urlEntry && subjectIdForLesson(urlEntry) === subjectId) lessonEntry = urlEntry;
+    if (!lessonEntry && storedEntry && subjectIdForLesson(storedEntry) === subjectId) lessonEntry = storedEntry;
+    if (!lessonEntry) lessonEntry = defaultLessonForSubject(subjects, lessons, subjectId);
+
+    return {
+      subjectId,
+      lessonId: lessonEntry?.id || manifest.defaultLessonId || lessons[0]?.id,
+    };
+  }
 
   async function initLessons(){
     const manifest = await fetchJSON("lessons/manifest.json");
     const lessons = manifest.lessons || [];
-    const defaultId = manifest.defaultLessonId || (lessons[0] && lessons[0].id);
-
-    const stored = localStorage.getItem(LESSON_KEY);
-    const urlId = getLessonFromURL();
-    const startId = urlId || stored || defaultId;
+    const subjects = normalizeSubjects(manifest, lessons);
+    const start = resolveStart(manifest, subjects, lessons);
 
     const sel = $("#lessonSelect");
+    const subjectSel = $("#subjectSelect");
 
-    // Build dropdown options
+    populateSubjectSelect(subjects, start.subjectId);
+    populateLessonSelect(lessons, start.subjectId, start.lessonId);
+
     if (sel){
-      sel.innerHTML = "";
-      lessons.forEach((l) => {
-        const opt = document.createElement("option");
-        opt.value = l.id;
-        opt.textContent = l.label || l.id;
-        sel.appendChild(opt);
-      });
-
-      // Set initial UI state immediately
-      sel.value = startId;
-
       // Dropdown change = authoritative navigation
       sel.addEventListener("change", async () => {
         await loadLesson(sel.value, lessons, { source: "select" });
       });
     }
 
+    if (subjectSel){
+      subjectSel.addEventListener("change", async () => {
+        const target = defaultLessonForSubject(subjects, lessons, subjectSel.value);
+        if (target) await loadLesson(target.id, lessons, { source: "subject" });
+      });
+    }
+
     const prev = $("#lessonPrev");
     const next = $("#lessonNext");
 
-    const indexOf = (id) => lessons.findIndex((l) => l.id === id);
-
     if (prev){
       prev.addEventListener("click", async () => {
-        const current = CURRENT_LESSON_ID || (sel ? sel.value : startId);
-        const i = indexOf(current);
-        const target = lessons[Math.max(0, i - 1)];
+        const current = CURRENT_LESSON_ID || (sel ? sel.value : start.lessonId);
+        const subjectId = CURRENT_SUBJECT_ID || start.subjectId;
+        const subjectLessons = lessonsForSubject(lessons, subjectId);
+        const i = subjectLessons.findIndex((lesson) => lesson.id === current);
+        const target = subjectLessons[Math.max(0, i - 1)];
         if (target) await loadLesson(target.id, lessons, { source: "prev" });
       });
     }
 
     if (next){
       next.addEventListener("click", async () => {
-        const current = CURRENT_LESSON_ID || (sel ? sel.value : startId);
-        const i = indexOf(current);
-        const target = lessons[Math.min(lessons.length - 1, i + 1)];
+        const current = CURRENT_LESSON_ID || (sel ? sel.value : start.lessonId);
+        const subjectId = CURRENT_SUBJECT_ID || start.subjectId;
+        const subjectLessons = lessonsForSubject(lessons, subjectId);
+        const i = subjectLessons.findIndex((lesson) => lesson.id === current);
+        const target = subjectLessons[Math.min(subjectLessons.length - 1, i + 1)];
         if (target) await loadLesson(target.id, lessons, { source: "next" });
       });
     }
 
     // Load initial
-    await loadLesson(startId, lessons, { source: "boot" });
+    await loadLesson(start.lessonId, lessons, { source: "boot" });
   }
 
   async function loadLesson(id, lessons, meta = {}){
@@ -2081,30 +2196,39 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
     LESSON_LOADING = true;
 
     const sel  = $("#lessonSelect");
+    const subjectSel = $("#subjectSelect");
     const prev = $("#lessonPrev");
     const next = $("#lessonNext");
 
     // Disable controls during load (optional but stabilizes UI)
-    if (sel)  sel.disabled  = true;
+    if (sel) sel.disabled = true;
+    if (subjectSel) subjectSel.disabled = true;
     if (prev) prev.disabled = true;
     if (next) next.disabled = true;
 
     try{
       const entry = lessons.find((l) => l.id === id) || lessons[0];
       if (!entry) return;
+      const subjectId = subjectIdForLesson(entry);
 
       // ✅ Update UI selection IMMEDIATELY
       CURRENT_LESSON_ID = entry.id;
-document.body.setAttribute("data-lesson", entry.id);
+      CURRENT_SUBJECT_ID = subjectId;
+      document.body.setAttribute("data-lesson", entry.id);
+      document.body.setAttribute("data-subject", subjectId);
+      populateLessonSelect(lessons, subjectId, entry.id);
+      if (subjectSel) subjectSel.value = subjectId;
       if (sel) sel.value = entry.id;
 
       // Persist + URL
+      try { localStorage.setItem(SUBJECT_KEY, subjectId); } catch {}
       try { localStorage.setItem(LESSON_KEY, entry.id); } catch {}
-      setURLLesson(entry.id);
+      setURLLesson(subjectId, entry.id);
 
       // Fetch + apply
       const lesson = await fetchJSON(entry.file);
       applyLesson(lesson);
+      setDocumentMeta(lesson);
 
       // Autosave is lesson-aware
       initAutosave(entry.id);
@@ -2116,7 +2240,8 @@ document.body.setAttribute("data-lesson", entry.id);
       console.warn("loadLesson failed:", e);
     } finally{
       LESSON_LOADING = false;
-      if (sel)  sel.disabled  = false;
+      if (sel) sel.disabled = false;
+      if (subjectSel) subjectSel.disabled = false;
       if (prev) prev.disabled = false;
       if (next) next.disabled = false;
     }

@@ -1,0 +1,234 @@
+{
+  "id": "history-03",
+  "subjectId": "history",
+  "meta": {
+    "kicker": [
+      "Lesson 3",
+      "History",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "American Independence & World Ideas",
+    "subtitle": "Choices, Symbols, and Shared Rights • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "American flag in a classroom for a history lesson about symbols and civic ideas",
+    "imageQuery": "American flag classroom liberty symbols history elementary hero",
+    "screenImage": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/history-03-hero.png"
+  },
+  "heroCopy": {
+    "lede": "History helps us understand how people made choices, worked for change, and used symbols to remember important civic ideas.",
+    "whatStudentsLearn": "Students learn about colonies, the American Revolution, American symbols, and how ideas about fairness, rights, responsibility, and voice connect to people in many places.",
+    "learningTargets": [
+      "I can explain what a colony was.",
+      "I can name one cause of the American Revolution.",
+      "I can explain how symbols tell stories about ideas.",
+      "I can connect fairness and voice to communities around the world."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Colony",
+        "def": "A settlement or place ruled by another country."
+      },
+      {
+        "term": "Independence",
+        "def": "The ability of a country or group to govern itself."
+      },
+      {
+        "term": "Symbol",
+        "def": "An object, picture, or place that stands for an idea."
+      },
+      {
+        "term": "Rights",
+        "def": "Freedoms or protections that people believe should be respected."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "colonial North America map historic settlements colonies",
+      "screenImage": "https://images.pexels.com/photos/13005864/pexels-photo-13005864.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-03-s1.png",
+      "title": "Colonies in North America",
+      "lede": "Before the United States became a country, thirteen colonies in North America were ruled by Great Britain.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "A colony is ruled by another country.",
+            "Colonists lived far across the ocean from Britain.",
+            "People in the colonies had many different jobs and experiences."
+          ]
+        },
+        {
+          "title": "Map Mission",
+          "items": [
+            "Find North America on a map.",
+            "Think about distance across the ocean.",
+            "Ask why distance could make governing hard."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Colony Clues",
+        "hint": "Explain",
+        "placeholder": "Explain what a colony was and name one challenge colonists faced.",
+        "teacherKey": "✔ Key idea: Colonies were settlements ruled by another country; challenges included distance, taxes, laws, and daily survival."
+      },
+      "ariaLabel": "Historic map-style image for learning about colonies in North America"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "American Revolution reenactment soldiers independence history",
+      "screenImage": "https://images.pexels.com/photos/35386789/pexels-photo-35386789.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-03-s2.png",
+      "title": "The American Revolution",
+      "lede": "Many colonists wanted more say in the rules and taxes that affected them. This disagreement helped lead to the American Revolution.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Some colonists thought taxes were unfair.",
+            "Many wanted representation, or a voice, in government.",
+            "The colonies declared independence in 1776."
+          ]
+        },
+        {
+          "title": "Cause and Effect",
+          "items": [
+            "Cause: people disagreed about rules and taxes.",
+            "Effect: people organized, protested, and debated.",
+            "Effect: war and independence followed."
+          ]
+        }
+      ],
+      "callout": "History often has more than one cause. Strong answers name a cause and explain the effect.",
+      "prompt": {
+        "label": "Prompt B — Cause and Effect",
+        "hint": "One reason",
+        "placeholder": "Explain one reason some colonists wanted independence.",
+        "teacherKey": "✔ Key idea: Students connect unfair taxes or lack of representation to the desire for independence."
+      },
+      "ariaLabel": "Revolutionary War reenactors representing the American Revolution"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "Liberty Bell American symbol independence liberty history",
+      "screenImage": "https://images.pexels.com/photos/5437555/pexels-photo-5437555.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-03-s3.png",
+      "title": "Symbols Tell Stories",
+      "lede": "Flags, bells, documents, monuments, songs, and seals can remind people of important ideas and events.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "Symbol: something that stands for an idea.",
+            "Liberty: freedom.",
+            "Independence: self-government."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "What symbol do you see?",
+            "What idea might it represent?",
+            "Who might understand it differently?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Symbol Meaning",
+        "hint": "Use one symbol",
+        "placeholder": "Choose one American symbol and explain what idea it represents.",
+        "teacherKey": "✔ Key idea: Symbols can represent freedom, unity, independence, laws, or remembrance."
+      },
+      "ariaLabel": "Liberty Bell as an American symbol connected to liberty and independence"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "voting ballot civic voice rights fairness democracy",
+      "screenImage": "https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-03-s4.png",
+      "title": "Ideas Travel Around the World",
+      "lede": "Ideas about rights, fairness, responsibility, and self-government have been discussed by many people in many countries.",
+      "cards": [
+        {
+          "title": "World Connections",
+          "items": [
+            "People in many places care about fairness.",
+            "Communities make rules to solve problems.",
+            "Having a voice means people can share ideas and concerns."
+          ]
+        },
+        {
+          "title": "Think Like a Historian",
+          "items": [
+            "Ask who had a voice.",
+            "Ask who was left out.",
+            "Ask how ideas changed over time."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Shared Ideas",
+        "hint": "Explain why",
+        "placeholder": "Why might people in different places care about fairness and having a voice?",
+        "teacherKey": "✔ Key idea: Students identify fairness, rights, rules, voting, and community voice as shared civic ideas."
+      },
+      "ariaLabel": "Ballot and voting scene representing civic voice and shared rights"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "scales of justice law civic responsibility rights symbol",
+      "screenImage": "https://images.pexels.com/photos/8731036/pexels-photo-8731036.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-03-s5.png",
+      "title": "Quick Check + Civic Poster",
+      "lede": "History helps us understand how people worked for change and how communities remember big ideas.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "What was a colony?",
+            "Name one reason for independence.",
+            "What is one civic idea people care about?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Choose one civic idea.",
+            "Make a poster with a clear symbol or slogan.",
+            "Explain how the idea helps a community."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize the colonies, independence, symbols, and shared ideas from this lesson.",
+        "teacherKey": "✔ Key idea: Summary includes American independence and connects it to broader ideas of rights and fairness."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Create a poster for one civic idea: fairness, freedom, responsibility, or having a voice.",
+        "teacherKey": "✔ Key idea: Poster names one idea, gives an example, and uses a clear symbol or slogan."
+      },
+      "ariaLabel": "Scales of justice and law books for a civic ideas poster"
+    }
+  ]
+}
