@@ -84,16 +84,43 @@ function kickerToTimeRequired(kicker) {
   return '';
 }
 
+function subjectIdForEntry(entry) {
+  return entry.subjectId || entry.subject || 'science';
+}
+
+function subjectsFromManifest(manifest) {
+  const lessons = Array.isArray(manifest.lessons) ? manifest.lessons : [];
+  const subjects = Array.isArray(manifest.subjects) && manifest.subjects.length
+    ? manifest.subjects
+    : [{ id: 'science', label: 'Science', defaultLessonId: manifest.defaultLessonId || (lessons[0] && lessons[0].id) || '' }];
+
+  const seen = new Set();
+  return subjects
+    .filter((subject) => subject && subject.id && !seen.has(subject.id) && seen.add(subject.id))
+    .map((subject) => ({
+      id: subject.id,
+      label: subject.label || subject.id,
+      description: subject.description || '',
+      defaultLessonId: subject.defaultLessonId || lessons.find((entry) => subjectIdForEntry(entry) === subject.id)?.id || '',
+    }));
+}
+
+function subjectById(subjects, subjectId) {
+  return subjects.find((subject) => subject.id === subjectId) || { id: subjectId, label: subjectId, description: '' };
+}
+
 // ─── Snapshot Template ───────────────────────────────────────────────────────
 
-function buildSnapshot(lesson, canonicalUrl) {
+function buildSnapshot(lesson, canonicalUrl, context = {}) {
   const meta = lesson.meta || {};
   const hero = lesson.hero || {};
   const heroCopy = lesson.heroCopy || {};
   const sections = Array.isArray(lesson.sections) ? lesson.sections : [];
   const kicker = meta.kicker || [];
+  const subject = context.subject || {};
+  const subjectLabel = subject.label || lesson.subjectId || '';
 
-  const title = (meta.title ? meta.title + ' — ' : '') + 'BioSphere Kids';
+  const title = (meta.title ? meta.title + ' — ' : '') + (subjectLabel ? subjectLabel + ' — ' : '') + 'BioSphere Kids';
   const description = truncate(heroCopy.whatStudentsLearn || heroCopy.lede || '', 160);
   const ogDescription = heroCopy.lede || heroCopy.whatStudentsLearn || '';
   const ogImage = hero.screenImage || '';
@@ -135,6 +162,8 @@ function buildSnapshot(lesson, canonicalUrl) {
       name: v.term || '',
     })),
     learningResourceType: 'Lesson plan',
+    articleSection: subjectLabel || undefined,
+    educationalSubject: subjectLabel || undefined,
     inLanguage: 'en',
     isAccessibleForFree: true,
   };
@@ -355,9 +384,98 @@ ${contentHtml}
 </html>`;
 }
 
+function buildSubjectSnapshot(subject, lessonRows, canonicalUrl) {
+  const title = `${subject.label} Lessons — BioSphere Kids`;
+  const description = truncate(subject.description || `${subject.label} printable web lessons for elementary students.`, 160);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: canonicalUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: 'BioSphere Kids',
+    },
+    hasPart: lessonRows.map((row) => ({
+      '@type': 'LearningResource',
+      name: row.lesson.meta && row.lesson.meta.title ? row.lesson.meta.title : row.entry.label,
+      url: `${BASE_URL}/lesson/${row.entry.id}`,
+      learningResourceType: 'Lesson plan',
+      educationalSubject: subject.label,
+      isAccessibleForFree: true,
+    })),
+  };
+
+  const lessonsHtml = lessonRows.map((row) => {
+    const lesson = row.lesson || {};
+    const meta = lesson.meta || {};
+    const heroCopy = lesson.heroCopy || {};
+    const descriptionText = heroCopy.whatStudentsLearn || heroCopy.lede || row.entry.label;
+    return `    <li>
+      <a href="${BASE_URL}/lesson/${escapeHtml(row.entry.id)}">${escapeHtml(meta.title || row.entry.label)}</a>
+      <p>${escapeHtml(descriptionText)}</p>
+    </li>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(description)}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BioSphere Kids" />
+  <meta property="og:title" content="${escapeHtml(title)}" />
+  <meta property="og:description" content="${escapeHtml(description)}" />
+  <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
+  <script type="application/ld+json">
+${JSON.stringify(jsonLd, null, 2)}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: #182132;
+      background: #ffffff;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    a { color: #1d4f8f; font-weight: 700; }
+    header { border-bottom: 2px solid #e2e8f0; margin-bottom: 24px; padding-bottom: 18px; }
+    h1 { color: #17335f; font-size: 2rem; line-height: 1.15; margin-bottom: 8px; }
+    .lede { color: #4a5568; font-size: 1.05rem; }
+    ul { list-style: none; display: grid; gap: 16px; margin-top: 22px; }
+    li { border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; background: #f8fafc; }
+    li p { margin-top: 6px; color: #4a5568; }
+    nav { margin-top: 28px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>${escapeHtml(subject.label)} Lessons</h1>
+    <p class="lede">${escapeHtml(subject.description || description)}</p>
+  </header>
+  <main>
+    <ul>
+${lessonsHtml}
+    </ul>
+  </main>
+  <nav aria-label="Back to app">
+    <a href="${BASE_URL}/?subject=${escapeHtml(subject.id)}">Open ${escapeHtml(subject.label)} in BioSphere Kids</a>
+  </nav>
+</body>
+</html>`;
+}
+
 // ─── Sitemap ─────────────────────────────────────────────────────────────────
 
-function buildSitemap(lessons) {
+function buildSitemap(lessons, subjects) {
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -367,6 +485,15 @@ function buildSitemap(lessons) {
     '    <priority>1.0</priority>',
     '  </url>',
   ];
+
+  subjects.forEach((subject) => {
+    const subjectUrl = `${BASE_URL}/subject/${subject.id}`;
+    lines.push('  <url>');
+    lines.push(`    <loc>${subjectUrl}</loc>`);
+    lines.push('    <changefreq>monthly</changefreq>');
+    lines.push('    <priority>0.95</priority>');
+    lines.push('  </url>');
+  });
 
   lessons.forEach((l) => {
     const lessonUrl = `${BASE_URL}/lesson/${l.id}`;
@@ -399,6 +526,13 @@ function buildNetlifyToml() {
   return [
     '# Netlify configuration for SV2 SEO snapshot layer',
     '# Clean lesson URLs: /lesson/lesson-XX → seo-snapshots/lesson-XX.html',
+    '# Clean subject URLs: /subject/science → seo-snapshots/subject-science.html',
+    '',
+    '[[redirects]]',
+    '  from = "/subject/:id"',
+    '  to = "/seo-snapshots/subject-:id.html"',
+    '  status = 200',
+    '  force = true',
     '',
     '[[redirects]]',
     '  from = "/lesson/:id"',
@@ -411,13 +545,17 @@ function buildNetlifyToml() {
 
 // ─── _redirects ──────────────────────────────────────────────────────────────
 
-function buildRedirects(lessons) {
+function buildRedirects(lessons, subjects) {
   const lines = [
     '# Netlify redirects — SV2 SEO snapshot layer',
-    '# Clean lesson URLs → static snapshot files (served at same URL, status 200)',
+    '# Clean subject and lesson URLs → static snapshot files (served at same URL, status 200)',
     '# These are explicit rules for maximum compatibility.',
     '',
   ];
+  subjects.forEach((subject) => {
+    lines.push(`/subject/${subject.id} /seo-snapshots/subject-${subject.id}.html 200`);
+  });
+  lines.push('');
   lessons.forEach((l) => {
     lines.push(`/lesson/${l.id} /seo-snapshots/${l.id}.html 200`);
   });
@@ -478,6 +616,8 @@ function runCheckMode(args) {
   }
 
   const lessons = manifest.lessons || [];
+  const subjects = subjectsFromManifest(manifest);
+  const lessonRows = [];
 
   lessons.forEach((entry) => {
     const lessonPath = path.join(ROOT, entry.file);
@@ -489,13 +629,21 @@ function runCheckMode(args) {
       return;
     }
 
-    const expected = buildSnapshot(lesson, `${BASE_URL}/lesson/${entry.id}`);
+    lessonRows.push({ entry, lesson });
+    const subject = subjectById(subjects, subjectIdForEntry(entry));
+    const expected = buildSnapshot(lesson, `${BASE_URL}/lesson/${entry.id}`, { subject, entry });
     results.push(compareGeneratedFile(`seo-snapshots/${entry.id}.html`, expected));
   });
 
-  results.push(compareGeneratedFile('sitemap.xml', buildSitemap(lessons)));
+  subjects.forEach((subject) => {
+    const subjectLessons = lessonRows.filter((row) => subjectIdForEntry(row.entry) === subject.id);
+    const expected = buildSubjectSnapshot(subject, subjectLessons, `${BASE_URL}/subject/${subject.id}`);
+    results.push(compareGeneratedFile(`seo-snapshots/subject-${subject.id}.html`, expected));
+  });
+
+  results.push(compareGeneratedFile('sitemap.xml', buildSitemap(lessons, subjects)));
   results.push(compareGeneratedFile('robots.txt', buildRobots()));
-  results.push(compareGeneratedFile('_redirects', buildRedirects(lessons)));
+  results.push(compareGeneratedFile('_redirects', buildRedirects(lessons, subjects)));
 
   if (fs.existsSync(NETLIFY_FILE)) {
     results.push({ file: 'netlify.toml', status: 'PASS', detail: 'File exists; syntax is covered by validation' });
@@ -551,7 +699,9 @@ function main() {
   }
 
   const lessons = manifest.lessons || [];
-  console.log(`  Found ${lessons.length} lessons in manifest.`);
+  const subjects = subjectsFromManifest(manifest);
+  const lessonRows = [];
+  console.log(`  Found ${lessons.length} lessons across ${subjects.length} subjects in manifest.`);
 
   // 2. Ensure snapshots directory
   fs.mkdirSync(SNAPSHOTS_DIR, { recursive: true });
@@ -573,8 +723,10 @@ function main() {
       continue;
     }
 
+    lessonRows.push({ entry, lesson });
+    const subject = subjectById(subjects, subjectIdForEntry(entry));
     const canonicalUrl = `${BASE_URL}/lesson/${entry.id}`;
-    const snapshotHtml = buildSnapshot(lesson, canonicalUrl);
+    const snapshotHtml = buildSnapshot(lesson, canonicalUrl, { subject, entry });
     const snapshotFile = path.join(SNAPSHOTS_DIR, `${entry.id}.html`);
 
     try {
@@ -600,16 +752,48 @@ function main() {
   });
   reportLines.push('');
 
+  console.log('\nGenerating subject snapshots...');
+  const subjectSnapshotResults = [];
+  for (const subject of subjects) {
+    const subjectLessons = lessonRows.filter((row) => subjectIdForEntry(row.entry) === subject.id);
+    const canonicalUrl = `${BASE_URL}/subject/${subject.id}`;
+    const snapshotHtml = buildSubjectSnapshot(subject, subjectLessons, canonicalUrl);
+    const snapshotFile = path.join(SNAPSHOTS_DIR, `subject-${subject.id}.html`);
+
+    try {
+      fs.writeFileSync(snapshotFile, snapshotHtml, 'utf-8');
+      const sizeKb = (Buffer.byteLength(snapshotHtml, 'utf-8') / 1024).toFixed(1);
+      console.log(`  ✓ ${subject.id}: seo-snapshots/subject-${subject.id}.html (${sizeKb} KB)`);
+      subjectSnapshotResults.push({ id: subject.id, status: 'PASS', file: `seo-snapshots/subject-${subject.id}.html`, sizeKb });
+    } catch (err) {
+      console.error(`  ✗ ${subject.id}: FAILED to write subject snapshot: ${err.message}`);
+      subjectSnapshotResults.push({ id: subject.id, status: 'FAIL', error: err.message });
+      allOk = false;
+    }
+  }
+
+  reportLines.push('## Subject Snapshots');
+  reportLines.push('');
+  reportLines.push('| Subject | Status | File | Size |');
+  reportLines.push('|---------|--------|------|------|');
+  subjectSnapshotResults.forEach((r) => {
+    const sizeCol = r.sizeKb ? `${r.sizeKb} KB` : (r.error || '');
+    const fileCol = r.file || '';
+    reportLines.push(`| ${r.id} | ${r.status === 'PASS' ? '✓' : '✗'} ${r.status} | ${fileCol} | ${sizeCol} |`);
+  });
+  reportLines.push('');
+
   // 4. Generate sitemap
   console.log('\nGenerating sitemap.xml...');
   try {
-    const sitemapXml = buildSitemap(lessons);
+    const sitemapXml = buildSitemap(lessons, subjects);
     fs.writeFileSync(SITEMAP_FILE, sitemapXml, 'utf-8');
-    console.log(`  ✓ sitemap.xml (${lessons.length + 1} URLs)`);
+    const urlCount = lessons.length + subjects.length + 1;
+    console.log(`  ✓ sitemap.xml (${urlCount} URLs)`);
     reportLines.push('## Sitemap');
     reportLines.push('');
     reportLines.push(`- **File:** sitemap.xml`);
-    reportLines.push(`- **URLs:** ${lessons.length + 1} (root + ${lessons.length} lessons)`);
+    reportLines.push(`- **URLs:** ${urlCount} (root + ${subjects.length} subjects + ${lessons.length} lessons)`);
     reportLines.push('');
   } catch (err) {
     console.error('  ✗ sitemap.xml FAILED:', err.message);
@@ -658,7 +842,7 @@ function main() {
       reportLines.push('');
       reportLines.push('- **File:** netlify.toml');
       reportLines.push('- **Status:** ✓ created');
-      reportLines.push('- **Routing:** `/lesson/:id` → `/seo-snapshots/:id.html` (status 200)');
+      reportLines.push('- **Routing:** `/subject/:id` and `/lesson/:id` snapshot redirects (status 200)');
       reportLines.push('');
     } catch (err) {
       console.error('  ✗ netlify.toml FAILED:', err.message);
@@ -673,15 +857,15 @@ function main() {
   // 6b. Generate _redirects (always overwrite — must stay in sync with lessons)
   console.log('Generating _redirects...');
   try {
-    const redirectsContent = buildRedirects(lessons);
+    const redirectsContent = buildRedirects(lessons, subjects);
     fs.writeFileSync(REDIRECTS_FILE, redirectsContent, 'utf-8');
-    const ruleCount = lessons.length;
-    console.log(`  ✓ _redirects (${ruleCount} explicit lesson rules)`);
+    const ruleCount = lessons.length + subjects.length;
+    console.log(`  ✓ _redirects (${ruleCount} explicit subject/lesson rules)`);
     reportLines.push('## Netlify Redirects (_redirects)');
     reportLines.push('');
     reportLines.push('- **File:** _redirects');
     reportLines.push('- **Status:** ✓ generated');
-    reportLines.push(`- **Rules:** ${ruleCount} explicit lesson routes`);
+    reportLines.push(`- **Rules:** ${ruleCount} explicit subject/lesson routes`);
     reportLines.push('');
   } catch (err) {
     console.error('  ✗ _redirects FAILED:', err.message);
@@ -697,8 +881,11 @@ function main() {
   reportLines.push('');
   const passCount = snapshotResults.filter((r) => r.status === 'PASS').length;
   const failCount = snapshotResults.filter((r) => r.status === 'FAIL').length;
-  reportLines.push(`- **Snapshots generated:** ${passCount}/${lessons.length}`);
-  reportLines.push(`- **Failures:** ${failCount}`);
+  const subjectPassCount = subjectSnapshotResults.filter((r) => r.status === 'PASS').length;
+  const subjectFailCount = subjectSnapshotResults.filter((r) => r.status === 'FAIL').length;
+  reportLines.push(`- **Lesson snapshots generated:** ${passCount}/${lessons.length}`);
+  reportLines.push(`- **Subject snapshots generated:** ${subjectPassCount}/${subjects.length}`);
+  reportLines.push(`- **Failures:** ${failCount + subjectFailCount}`);
   reportLines.push(`- **Overall:** ${allOk ? '✓ All systems operational' : '✗ Some components failed — review above'}`);
   reportLines.push('');
   reportLines.push('---');

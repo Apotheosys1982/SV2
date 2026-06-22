@@ -1,0 +1,63 @@
+.wm-shared-card {
+  view-transition-name: var(--wm-shared-card-name, none);
+  contain: layout;
+}
+
+.wm-shared-hero {
+  view-transition-name: var(--wm-shared-hero-name, none);
+  contain: layout;
+}
+
+.wm-shared-title {
+  view-transition-name: var(--wm-shared-title-name, none);
+  contain: layout;
+}
+
+.wm-shared-metric {
+  view-transition-name: var(--wm-shared-metric-name, none);
+  contain: layout;
+}
+
+.wm-shared-evidence {
+  view-transition-name: var(--wm-shared-evidence-name, none);
+  contain: layout;
+}
+
+::view-transition-group(*) {
+  animation-duration: var(--wm-motion-duration-standard, 220ms);
+  animation-timing-function: var(--wm-motion-ease-standard, cubic-bezier(.2, 0, .18, 1));
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: var(--wm-motion-duration-standard, 220ms);
+  animation-timing-function: var(--wm-motion-ease-standard, cubic-bezier(.2, 0, .18, 1));
+}
+
+.wm-transition-expand {
+  --wm-motion-pattern: expand;
+}
+
+.wm-transition-collapse {
+  --wm-motion-pattern: collapse;
+}
+
+.wm-transition-focus {
+  --wm-motion-pattern: focus;
+}
+
+.wm-transition-drill-down {
+  --wm-motion-pattern: drill-down;
+}
+
+.wm-transition-return {
+  --wm-motion-pattern: return;
+}
+
+.wm-transition-promote {
+  --wm-motion-pattern: promote;
+}
+
+.wm-transition-reveal {
+  --wm-motion-pattern: reveal;
+}

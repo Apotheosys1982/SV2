@@ -12,6 +12,7 @@ const args = process.argv.slice(2);
 let lessonId = '';
 let title = '';
 let subtitle = '';
+let subjectId = 'science';
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--id' && i + 1 < args.length) {
@@ -23,18 +24,28 @@ for (let i = 0; i < args.length; i++) {
   if (args[i] === '--subtitle' && i + 1 < args.length) {
     subtitle = args[i + 1];
   }
+  if (args[i] === '--subject' && i + 1 < args.length) {
+    subjectId = args[i + 1];
+  }
 }
 
 // Validate inputs
 if (!lessonId || !title || !subtitle) {
-  console.error('Usage: node create_lesson.js --id lesson-XX --title "Title" --subtitle "Subtitle"');
+  console.error('Usage: node create_lesson.js --id lesson-XX --subject science --title "Title" --subtitle "Subtitle"');
   process.exit(1);
 }
 
 // Validate lesson ID format
-const lessonIdRegex = /^lesson-\d{2,}$/;
-if (!lessonIdRegex.test(lessonId)) {
-  console.error(`Error: Lesson ID must match pattern 'lesson-XX' (e.g., lesson-04, lesson-10). Got: ${lessonId}`);
+if (!/^[a-z][a-z0-9-]*$/.test(subjectId)) {
+  console.error(`Error: Subject ID must be lowercase letters, numbers, or hyphens. Got: ${subjectId}`);
+  process.exit(1);
+}
+
+const scienceLessonRegex = /^lesson-\d{2,}$/;
+const subjectLessonRegex = new RegExp(`^${subjectId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}-\\d{2,}$`);
+if (subjectId === 'science' ? !scienceLessonRegex.test(lessonId) : !subjectLessonRegex.test(lessonId)) {
+  const expected = subjectId === 'science' ? 'lesson-XX' : `${subjectId}-XX`;
+  console.error(`Error: Lesson ID must match ${expected}. Got: ${lessonId}`);
   process.exit(1);
 }
 
@@ -57,16 +68,54 @@ try {
 
 // Replace placeholders
 template.id = lessonId;
+template.subjectId = subjectId;
 template.meta.title = title;
-template.meta.subtitle = `${title} • Printable Web Lesson`;
+template.meta.subtitle = `${subtitle} • Printable Web Lesson`;
 template.hero.ariaLabel = `${title} lesson image`;
-template.hero.imageQuery = title;
+template.hero.imageQuery = `${title} elementary ${subjectId} lesson`;
+if (template.hero.printImage) {
+  template.hero.printImage = template.hero.printImage.replace(/lesson-XX/g, lessonId);
+}
 if (Array.isArray(template.sections)) {
-  template.sections.forEach((section) => {
+  template.sections.forEach((section, idx) => {
     if (!section.imageQuery) {
-      section.imageQuery = `${title} ${section.title || section.id || 'science lesson'}`;
+      section.imageQuery = `${title} ${section.title || section.id || subjectId + ' lesson'}`;
+    }
+    if (section.imageQuery) {
+      section.imageQuery = section.imageQuery.replace(/elementary science/g, `elementary ${subjectId}`);
+    }
+    if (section.printImage) {
+      section.printImage = section.printImage.replace(/lesson-XX/g, lessonId);
+    } else {
+      section.printImage = `assets/images/${lessonId}-s${idx + 1}.png`;
     }
   });
+}
+
+// Load manifest
+let manifest;
+try {
+  const manifestContent = fs.readFileSync(MANIFEST_FILE, 'utf-8');
+  manifest = JSON.parse(manifestContent);
+} catch (err) {
+  console.error(`Error loading manifest: ${err.message}`);
+  process.exit(1);
+}
+
+const subject = (manifest.subjects || []).find((item) => item.id === subjectId);
+if (!subject) {
+  console.error(`Error: Subject ${subjectId} is not registered in manifest.json`);
+  process.exit(1);
+}
+
+const lessonNum = (lessonId.match(/(\d+)$/) || [null, lessonId])[1];
+template.meta.kicker = [`Lesson ${String(Number(lessonNum))}`, subject.label || subjectId, '20–30 min', 'Grades 2–4', 'Print-ready'];
+
+// Check if lesson is already in manifest
+const alreadyExists = manifest.lessons.some(lesson => lesson.id === lessonId);
+if (alreadyExists) {
+  console.error(`Error: Lesson ${lessonId} is already registered in manifest.json`);
+  process.exit(1);
 }
 
 // Create new lesson file
@@ -78,27 +127,11 @@ try {
   process.exit(1);
 }
 
-// Update manifest
-let manifest;
-try {
-  const manifestContent = fs.readFileSync(MANIFEST_FILE, 'utf-8');
-  manifest = JSON.parse(manifestContent);
-} catch (err) {
-  console.error(`Error loading manifest: ${err.message}`);
-  process.exit(1);
-}
-
-// Check if lesson is already in manifest
-const alreadyExists = manifest.lessons.some(lesson => lesson.id === lessonId);
-if (alreadyExists) {
-  console.error(`Error: Lesson ${lessonId} is already registered in manifest.json`);
-  process.exit(1);
-}
-
 // Add new lesson to manifest
 manifest.lessons.push({
   id: lessonId,
-  label: `Lesson ${lessonId.split('-')[1]} — ${title}`,
+  subjectId,
+  label: `Lesson ${String(Number(lessonNum))} — ${title}`,
   file: `lessons/${lessonId}.json`
 });
 
@@ -119,6 +152,7 @@ try {
 
 console.log(`\n✓ Successfully created lesson: ${lessonId}`);
 console.log(`  Title: ${title}`);
+console.log(`  Subject: ${subjectId}`);
 console.log(`  File: ${newLessonFile}`);
 
 console.log(`\nNext steps:`);
@@ -129,5 +163,5 @@ console.log(`  4. Run: node scripts/prepare_print_assets.js --lesson ${lessonId}
 console.log(`  5. Agent step: use Codex imagegen to convert cached source images into black-and-white coloring-page PNGs at each printImage path`);
 console.log(`  6. Run: node scripts/generate_seo.js`);
 console.log(`  7. Run: node scripts/validate_project.js`);
-console.log(`  8. Test at http://localhost:8000/?lesson=${lessonId}`);
+console.log(`  8. Test at http://localhost:8000/?subject=${subjectId}&lesson=${lessonId}`);
 console.log(`  9. Run checkpoint with a receipt`);

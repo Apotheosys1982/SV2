@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <!-- ========================================= -->
 <!-- 🧠 HEAD LAYER — BIOSPHERE KIDS (V3 WHITE)  -->
 <!-- Website-first UI • Worksheet-at-print      -->
@@ -37,6 +39,9 @@
 <meta name="twitter:image:alt" content="BioSphere Kids lesson preview" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
+  <link rel="preload" as="image" href="assets/images/elephant.png" />
+  <link rel="preload" as="image" href="assets/images/tiger.png" />
+  <link rel="preload" as="image" href="assets/images/habitat.png" />
 
   <!-- ========================================= -->
   <!-- 🔤 FONTS                                  -->
@@ -1087,6 +1092,10 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
   }
 }
   </style>
+  <link rel="stylesheet" href="./motion/motion-tokens.css?v=20260621T040046Z" />
+  <link rel="stylesheet" href="./motion/view-transition-library.css?v=20260621T040046Z" />
+  <link rel="stylesheet" href="./motion/shared-element-library.css?v=20260621T040046Z" />
+  <link rel="stylesheet" href="styles.css?v=20260621T040046Z" />
 
   <!-- ✅ STOP HERE: HEAD + CSS layer only (waiting for Body instructions) -->
 </head>
@@ -1142,7 +1151,7 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
     </svg>
   </button>
 
-  <button class="btn primary" type="button" onclick="window.print()">
+  <button class="btn primary" type="button" data-print-lesson>
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-3a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3a2 2 0 0 1-2 2h-2M7 14h10v7H7v-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
     </svg>
@@ -1562,7 +1571,105 @@ body[data-lesson="lesson-03"] img.print-img[data-print="s3"]{
       <!-- ========================================= -->
 
     </div>
+    <footer class="site-footer no-print" aria-label="BioSphere Kids source and limits">
+      <div class="site-footer__inner">
+        <span>BioSphere Kids / SV2 snapshot. Source-backed from imported lesson files and local project metadata.</span>
+        <span>
+          <a href="source-manifest.json">Source manifest</a>
+          <span aria-hidden="true"> · </span>
+          <a href="lessons/manifest.json">Lesson manifest</a>
+          <span aria-hidden="true"> · </span>
+          <a href="sitemap.xml">Sitemap</a>
+        </span>
+      </div>
+    </footer>
   </main>
+
+  <div class="surface-runtime-controls no-print" aria-label="BioSphere Kids runtime controls">
+    <button class="menu-button" type="button" data-menu-open aria-label="Open BioSphere guide menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="ask-launcher" type="button" data-open-assistant aria-label="Ask BioSphere Kids">Ask</button>
+  </div>
+
+  <aside class="site-menu no-print" data-site-menu aria-hidden="true">
+    <div class="site-menu__scrim" data-menu-scrim></div>
+    <nav class="site-menu__panel" aria-label="BioSphere Kids menu">
+      <div class="site-menu__head">
+        <div>
+          <p>BIOSPHERE GUIDE</p>
+          <strong>Lesson map</strong>
+        </div>
+        <button type="button" data-menu-close aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <a href="#top">Top of lesson</a>
+      <a href="#s1">Learn</a>
+      <a href="#s2">Observe</a>
+      <a href="#s3">Habitats</a>
+      <a href="#s4">Adapt</a>
+      <a href="#s5">Review</a>
+      <a href="source-manifest.json">Source manifest</a>
+      <button type="button" data-open-assistant data-suggest="What does this assistant know?">Ask the assistant</button>
+    </nav>
+  </aside>
+
+  <section class="focus-mode no-print wm-transition-focus" data-focus-modal aria-hidden="true" role="dialog" aria-modal="true" aria-label="Focus Mode">
+    <button class="focus-mode__backdrop" type="button" data-focus-close aria-label="Exit Focus Mode"></button>
+    <article class="focus-mode__panel wm-motion-surface">
+      <button class="focus-mode__close" type="button" data-focus-close aria-label="Exit Focus Mode">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="focus-mode__scroll" data-focus-scroll>
+        <div class="focus-mode__content" data-focus-content></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="assistant-modal no-print" data-assistant-modal aria-hidden="true" role="dialog" aria-modal="true" aria-label="Ask BioSphere Kids">
+    <div class="assistant-panel">
+      <header class="assistant-head assistant-topbar wm-motion-surface wm-assistant-chrome">
+        <div>
+          <p>BIOSPHERE GUIDE</p>
+          <h2>Ask BioSphere Kids</h2>
+        </div>
+        <button type="button" data-close-assistant>Close</button>
+      </header>
+      <div class="assistant-body" data-assistant-body>
+        <div class="conversation" data-conversation>
+          <article class="message message--assistant">
+            <p>I answer from the imported SV2 lesson snapshot. Ask about lesson topics, teacher mode, printing, autosave, source limits, or safe ways to use the science activities.</p>
+            <div class="quick-prompts">
+              <button type="button" data-suggest="What lessons are included?">Lesson list</button>
+              <button type="button" data-suggest="Can I print this?">Print</button>
+              <button type="button" data-suggest="What does teacher mode do?">Teacher mode</button>
+              <button type="button" data-suggest="Where do answers come from?">Sources</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <form class="assistant-composer wm-motion-surface wm-assistant-chrome" data-ask-form>
+        <label for="biosphereAskInput">Message</label>
+        <div class="composer-row">
+          <textarea id="biosphereAskInput" name="question" rows="2" autocomplete="off" placeholder="Ask about lessons, printing, teacher mode, or science terms."></textarea>
+          <button type="submit" aria-label="Ask BioSphere Kids">↑</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="surface-runtime-hero-signals no-print" hidden>
+    <span class="hero-image" data-slide="1">assets/images/elephant.png</span>
+    <span class="hero-image" data-slide="2">assets/images/tiger.png</span>
+    <span class="hero-image" data-slide="3">assets/images/habitat.png</span>
+  </div>
 
   
   <!-- ✅ STOP HERE: BODY layer only (waiting for Script instructions) -->
@@ -2145,5 +2252,6 @@ document.body.setAttribute("data-lesson", entry.id);
   }
 })();
 </script>
+<script src="script.js?v=20260621T040046Z"></script>
 </body>
 </html>

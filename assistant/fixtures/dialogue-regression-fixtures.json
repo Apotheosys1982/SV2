@@ -1,0 +1,45 @@
+{
+  "fixture_set": "sv2-dialogue-regression",
+  "minimum_required_flows": 3,
+  "flows": [
+    {
+      "id": "lesson-to-print",
+      "turns": [
+        {
+          "input": "What lessons are included?",
+          "expected_answer_id": "lesson-inventory"
+        },
+        {
+          "input": "Can I print one?",
+          "expected_answer_id": "foundation-print-mode"
+        }
+      ]
+    },
+    {
+      "id": "source-to-live",
+      "turns": [
+        {
+          "input": "What source does this use?",
+          "expected_answer_id": "source-layer-overview"
+        },
+        {
+          "input": "Is it live data?",
+          "expected_answer_id": "live-data-boundary"
+        }
+      ]
+    },
+    {
+      "id": "student-help",
+      "turns": [
+        {
+          "input": "What is a habitat?",
+          "expected_answer_id": "foundation-science-terms"
+        },
+        {
+          "input": "Just give me the answer",
+          "expected_answer_id": "homework-learning-boundary"
+        }
+      ]
+    }
+  ]
+}

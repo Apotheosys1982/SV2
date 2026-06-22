@@ -1,0 +1,47 @@
+{
+  "fixture_set": "sv2-structural-disambiguation",
+  "minimum_required_cases": 8,
+  "cases": [
+    {
+      "input": "What is SV2?",
+      "expected_answer_id": "foundation-sv2",
+      "expected_route_family": "foundational_context"
+    },
+    {
+      "input": "Is this live data?",
+      "expected_answer_id": "live-data-boundary",
+      "expected_route_family": "live_data_boundary"
+    },
+    {
+      "input": "Can I print this?",
+      "expected_answer_id": "foundation-print-mode",
+      "expected_route_family": "foundational_context"
+    },
+    {
+      "input": "Can my teacher see my answers?",
+      "expected_answer_id": "foundation-autosave",
+      "expected_route_family": "foundational_context"
+    },
+    {
+      "input": "Write my worksheet for me",
+      "expected_answer_id": "homework-learning-boundary",
+      "expected_route_family": "safe_learning_boundary"
+    },
+    {
+      "input": "Tell me about lesson 6",
+      "expected_answer_id": "lesson-summary-lesson-06",
+      "expected_route_family": "lesson_summary"
+    },
+    {
+      "input": "Where do answers come from?",
+      "expected_answer_id": "source-layer-overview",
+      "expected_route_family": "source_context"
+    },
+    {
+      "input": "What can this not answer?",
+      "expected_answer_id": "source-limitation",
+      "expected_route_family": "source_limitation"
+    }
+  ],
+  "flows": []
+}

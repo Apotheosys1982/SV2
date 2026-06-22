@@ -1,0 +1,35 @@
+{
+  "fixture_set": "sv2-lesson-source-fixtures",
+  "fixtures": [
+    {
+      "id": "lesson-01",
+      "input": "Tell me about Plants & Animals",
+      "expected_answer_id": "lesson-summary-plants"
+    },
+    {
+      "id": "lesson-02",
+      "input": "Tell me about Food Chains",
+      "expected_answer_id": "lesson-summary-food-chains"
+    },
+    {
+      "id": "lesson-03",
+      "input": "Tell me about Ecosystems & Interdependence",
+      "expected_answer_id": "lesson-summary-ecosystems"
+    },
+    {
+      "id": "lesson-04",
+      "input": "Tell me about The Water Cycle",
+      "expected_answer_id": "lesson-summary-water-cycle"
+    },
+    {
+      "id": "lesson-05",
+      "input": "Tell me about Trees",
+      "expected_answer_id": "lesson-summary-trees"
+    },
+    {
+      "id": "lesson-06",
+      "input": "Tell me about Habitats",
+      "expected_answer_id": "lesson-summary-habitats"
+    }
+  ]
+}

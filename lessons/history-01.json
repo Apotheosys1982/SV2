@@ -1,0 +1,232 @@
+{
+  "id": "history-01",
+  "subjectId": "history",
+  "meta": {
+    "kicker": [
+      "Lesson 1",
+      "History",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "History Detectives",
+    "subtitle": "Learning About the Past from Clues • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Vintage books and papers representing clues historians study",
+    "imageQuery": "old books photographs artifacts primary sources history hero",
+    "screenImage": "https://images.pexels.com/photos/8546110/pexels-photo-8546110.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/history-01-hero.png"
+  },
+  "heroCopy": {
+    "lede": "History is the study of people, places, events, and choices from the past. Historians look for clues and use evidence carefully.",
+    "whatStudentsLearn": "Students learn how historians use timelines, artifacts, photographs, maps, letters, and other primary sources to ask questions and build explanations about the past.",
+    "learningTargets": [
+      "I can explain what history studies.",
+      "I can place events in order on a timeline.",
+      "I can identify artifacts and primary sources.",
+      "I can compare daily life long ago with daily life today."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "History",
+        "def": "The study of people, places, events, and choices from the past."
+      },
+      {
+        "term": "Timeline",
+        "def": "A line that shows events in order from earliest to latest."
+      },
+      {
+        "term": "Artifact",
+        "def": "An object from the past that gives clues."
+      },
+      {
+        "term": "Primary source",
+        "def": "A source made by someone who saw or experienced an event."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "old books vintage papers history detective clues elementary",
+      "screenImage": "https://images.pexels.com/photos/5009177/pexels-photo-5009177.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-01-s1.png",
+      "title": "What Is History?",
+      "lede": "History tells stories about the past, but historians do more than remember. They ask questions and look for evidence.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "History includes world history, American history, and local history.",
+            "Historians use evidence instead of guessing.",
+            "The past can be studied from many points of view."
+          ]
+        },
+        {
+          "title": "Historian Tools",
+          "items": [
+            "Questions help guide research.",
+            "Sources provide clues.",
+            "Evidence supports explanations."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Past or Present",
+        "hint": "2 examples",
+        "placeholder": "Name one thing from the past and one thing from today. How can you tell?",
+        "teacherKey": "✔ Key idea: Students distinguish past and present using evidence."
+      }
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "pocket watch old photographs timeline sequence history",
+      "screenImage": "https://images.pexels.com/photos/36591275/pexels-photo-36591275.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-01-s2.png",
+      "title": "Timelines Put Events in Order",
+      "lede": "A timeline shows events from earliest to latest. It helps readers see sequence, change, and cause and effect.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Timelines move in time order.",
+            "Dates, years, or time words can label events.",
+            "Timelines help us compare before and after."
+          ]
+        },
+        {
+          "title": "Sequence Mission",
+          "items": [
+            "Find the first event.",
+            "Find the last event.",
+            "Use words like before, after, first, next, and finally."
+          ]
+        }
+      ],
+      "callout": "A timeline can show world events, American events, community events, or your own life events.",
+      "prompt": {
+        "label": "Prompt B — Order Events",
+        "hint": "Sequence",
+        "placeholder": "Write three events in order from first to last.",
+        "teacherKey": "✔ Key idea: Timelines use time words and sequence to show change."
+      },
+      "ariaLabel": "Pocket watch and old papers representing timeline order and historical sequence"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "historical artifacts old documents primary source museum books",
+      "screenImage": "https://images.pexels.com/photos/11077597/pexels-photo-11077597.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-01-s3.png",
+      "title": "Artifacts and Primary Sources",
+      "lede": "Objects, letters, photos, maps, and recordings can help us learn what life was like. Each source gives clues and raises questions.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "Artifact: an object people made or used.",
+            "Primary source: a source from the time being studied.",
+            "Evidence: clues that support an explanation."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "What do you notice first?",
+            "Who might have used this source?",
+            "What question would you ask next?"
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Source Clues",
+        "hint": "Use evidence",
+        "placeholder": "Choose one source and explain what it might teach a historian.",
+        "teacherKey": "✔ Key idea: A source gives clues, but historians must observe carefully and ask questions."
+      }
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "historic classroom wooden desks daily life long ago school history",
+      "screenImage": "https://images.pexels.com/photos/9285/wood-houses-school-old.jpg?cs=srgb&dl=pexels-clickerhappy-9285.jpg&fm=jpg",
+      "printImage": "assets/images/history-01-s4.png",
+      "title": "Daily Life Long Ago",
+      "lede": "Children around the world and in early America lived, worked, played, and learned in different ways. Some things changed, and some needs stayed the same.",
+      "cards": [
+        {
+          "title": "Compare",
+          "items": [
+            "People needed food, shelter, community, and learning.",
+            "Homes, tools, transportation, and schools changed over time.",
+            "Different communities had different experiences."
+          ]
+        },
+        {
+          "title": "Think Like a Historian",
+          "items": [
+            "Compare respectfully.",
+            "Use specific details.",
+            "Avoid assuming everyone lived the same way."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Compare Daily Life",
+        "hint": "Then and now",
+        "placeholder": "Compare one part of daily life long ago with daily life today.",
+        "teacherKey": "✔ Key idea: Student compares with respect and gives one specific example."
+      },
+      "ariaLabel": "Historic classroom with wooden desks showing daily life long ago"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "old family photographs notebooks timeline personal history",
+      "screenImage": "https://images.pexels.com/photos/20197079/pexels-photo-20197079.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/history-01-s5.png",
+      "title": "Quick Check + Family Timeline",
+      "lede": "We can study world history, American history, community history, and personal history by using sources and sequence.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "What is a timeline?",
+            "Name one kind of primary source.",
+            "Why should historians use evidence?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Create a three-event timeline.",
+            "Use clear labels.",
+            "Put events in order from first to last."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize how historians use timelines and sources.",
+        "teacherKey": "✔ Key idea: Summary includes past/present, timelines, sources, and evidence."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Create a short timeline with three events from your life, family, school, or community.",
+        "teacherKey": "✔ Key idea: Timeline has three ordered events with clear labels."
+      },
+      "ariaLabel": "Old photographs and notebooks for creating a family timeline"
+    }
+  ]
+}

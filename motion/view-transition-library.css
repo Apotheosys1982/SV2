@@ -1,0 +1,50 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--wm-motion-duration-standard, 220ms);
+  animation-timing-function: var(--wm-motion-ease-standard, cubic-bezier(.2, 0, .18, 1));
+}
+
+::view-transition-old(root) {
+  animation-name: wm-root-exit;
+}
+
+::view-transition-new(root) {
+  animation-name: wm-root-enter;
+}
+
+@keyframes wm-root-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: .92;
+    transform: translateY(calc(var(--wm-motion-slide-short, 10px) * -1));
+  }
+}
+
+@keyframes wm-root-enter {
+  from {
+    opacity: .96;
+    transform: translateY(var(--wm-motion-slide-short, 10px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
+  }
+}

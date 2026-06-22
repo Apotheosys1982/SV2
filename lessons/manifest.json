@@ -1,35 +1,98 @@
 {
+  "defaultSubjectId": "science",
   "defaultLessonId": "lesson-01",
+  "subjects": [
+    {
+      "id": "science",
+      "label": "Science",
+      "description": "Life science, earth science, and printable observation lessons.",
+      "defaultLessonId": "lesson-01"
+    },
+    {
+      "id": "geography",
+      "label": "Geography",
+      "description": "Maps, landforms, regions, communities, and place-based reasoning.",
+      "defaultLessonId": "geography-01"
+    },
+    {
+      "id": "history",
+      "label": "History",
+      "description": "World history and American history lessons built around evidence, timelines, communities, and civic ideas.",
+      "defaultLessonId": "history-01"
+    }
+  ],
   "lessons": [
     {
       "id": "lesson-01",
+      "subjectId": "science",
       "label": "Lesson 1 — Plants & Animals",
       "file": "lessons/lesson-01.json"
     },
     {
       "id": "lesson-02",
+      "subjectId": "science",
       "label": "Lesson 2 — Food Chains",
       "file": "lessons/lesson-02.json"
     },
     {
       "id": "lesson-03",
+      "subjectId": "science",
       "label": "Lesson 3 — Ecosystems & Interdependence",
       "file": "lessons/lesson-03.json"
     },
     {
       "id": "lesson-04",
+      "subjectId": "science",
       "label": "Lesson 04 — The Water Cycle",
       "file": "lessons/lesson-04.json"
     },
     {
       "id": "lesson-05",
+      "subjectId": "science",
       "label": "Lesson 05 — Trees",
       "file": "lessons/lesson-05.json"
     },
     {
       "id": "lesson-06",
+      "subjectId": "science",
       "label": "Lesson 06 — Habitats",
       "file": "lessons/lesson-06.json"
+    },
+    {
+      "id": "geography-01",
+      "subjectId": "geography",
+      "label": "Lesson 1 — Maps & Globes",
+      "file": "lessons/geography-01.json"
+    },
+    {
+      "id": "geography-02",
+      "subjectId": "geography",
+      "label": "Lesson 2 — Landforms & Bodies of Water",
+      "file": "lessons/geography-02.json"
+    },
+    {
+      "id": "geography-03",
+      "subjectId": "geography",
+      "label": "Lesson 3 — Regions & Communities",
+      "file": "lessons/geography-03.json"
+    },
+    {
+      "id": "history-01",
+      "subjectId": "history",
+      "label": "Lesson 1 — History Detectives",
+      "file": "lessons/history-01.json"
+    },
+    {
+      "id": "history-02",
+      "subjectId": "history",
+      "label": "Lesson 2 — Rivers, Cities & Early America",
+      "file": "lessons/history-02.json"
+    },
+    {
+      "id": "history-03",
+      "subjectId": "history",
+      "label": "Lesson 3 — American Independence & World Ideas",
+      "file": "lessons/history-03.json"
     }
   ]
 }

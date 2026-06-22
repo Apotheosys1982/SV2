@@ -1,0 +1,101 @@
+{
+  "fixture_set": "sv2-source-layer",
+  "minimum_required": 10,
+  "fixtures": [
+    {
+      "id": "source-use",
+      "input": "What source does this use?",
+      "expected_route_family": "source_context",
+      "expected_answer_id": "source-layer-overview",
+      "required_phrases": [
+        "SV2",
+        "1091ecf"
+      ]
+    },
+    {
+      "id": "where-data",
+      "input": "Where do answers come from?",
+      "expected_route_family": "source_context",
+      "expected_answer_id": "source-layer-overview",
+      "required_phrases": [
+        "lesson manifest",
+        "lesson JSON"
+      ]
+    },
+    {
+      "id": "attribution",
+      "input": "Where does this data come from?",
+      "expected_route_family": "source_attribution",
+      "expected_answer_id": "source-attribution",
+      "required_phrases": [
+        "SV2",
+        "Apotheosys1982"
+      ]
+    },
+    {
+      "id": "not-know",
+      "input": "What can this not answer?",
+      "expected_route_family": "source_limitation",
+      "expected_answer_id": "source-limitation",
+      "required_phrases": [
+        "private classroom records"
+      ]
+    },
+    {
+      "id": "live-data",
+      "input": "Is this live data?",
+      "expected_route_family": "live_data_boundary",
+      "expected_answer_id": "live-data-boundary",
+      "required_phrases": [
+        "static",
+        "compiled"
+      ]
+    },
+    {
+      "id": "live-ai",
+      "input": "Is this using live AI?",
+      "expected_route_family": "live_data_boundary",
+      "expected_answer_id": "live-data-boundary",
+      "required_phrases": [
+        "No",
+        "static"
+      ]
+    },
+    {
+      "id": "freshness",
+      "input": "How current is this?",
+      "expected_route_family": "build_snapshot_boundary",
+      "expected_answer_id": "build-snapshot-boundary",
+      "required_phrases": [
+        "1091ecf"
+      ]
+    },
+    {
+      "id": "version",
+      "input": "Which version is this?",
+      "expected_route_family": "build_snapshot_boundary",
+      "expected_answer_id": "build-snapshot-boundary",
+      "required_phrases": [
+        "origin/codex/multi-subject-geography-history"
+      ]
+    },
+    {
+      "id": "source-backed",
+      "input": "Is this source backed?",
+      "expected_route_family": "source_context",
+      "expected_answer_id": "source-layer-overview",
+      "required_phrases": [
+        "build-time import"
+      ]
+    },
+    {
+      "id": "private-data",
+      "input": "Can you access my classroom data?",
+      "expected_route_family": "live_data_boundary",
+      "expected_answer_id": "live-data-boundary",
+      "required_phrases": [
+        "private classroom"
+      ]
+    }
+  ]
+}

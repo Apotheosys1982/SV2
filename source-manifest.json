@@ -1,0 +1,152 @@
+{
+  "schema_version": "0.1.0",
+  "assistant_slug": "sv2-biosphere-kids",
+  "domain": "elementary science, geography, and history lesson guidance and printable browser-native learning surfaces",
+  "selected_source_name": "SV2 BioSphere Kids multi-subject repository snapshot",
+  "selected_source_type": "dataset",
+  "source_url": "https://github.com/Apotheosys1982/SV2",
+  "license_or_usage_notes": "User-owned/local project material imported as a self-contained surface snapshot. No third-party API keys or secret files are included.",
+  "attribution_requirements": "Attribute BioSphere Kids / SV2 source snapshot and imported public lesson files; imported remote image URLs retain their original public URL posture from SV2.",
+  "access_method": "build_time_snapshot_from_local_git_checkout_branch",
+  "build_time_snapshot": true,
+  "live_runtime_dependency": false,
+  "freshness_date": "2026-06-21",
+  "upstream_branch": "origin/codex/multi-subject-geography-history",
+  "upstream_commit": "1091ecf",
+  "live_url_checked": "https://ariya-science.netlify.app",
+  "normalized_record_count": 12,
+  "indexed_field_count": 11,
+  "source_fields_used": [
+    "id",
+    "subjectId",
+    "meta",
+    "hero",
+    "heroCopy",
+    "sections",
+    "cards",
+    "prompts",
+    "teacherKey",
+    "printImage",
+    "screenImage",
+    "okf_index",
+    "llms_txt",
+    "sitemap"
+  ],
+  "source_fields_excluded": [
+    "scripts/.env",
+    ".git",
+    ".herenow",
+    "logs/sessions"
+  ],
+  "limitations": [
+    "No private classroom data",
+    "No live account records",
+    "No curriculum guarantee",
+    "No lesson mutation from browser assistant",
+    "No medical or safety advice",
+    "OKF files are agent-readable documentation; lesson JSON and source manifest remain the authoritative data records."
+  ],
+  "fallback_source_strategy": "If a question is not supported by imported SV2 lesson files or docs, answer with a boundary or clarification instead of inventing.",
+  "validation_status": "documented",
+  "imported_subjects": [
+    {
+      "id": "science",
+      "label": "Science",
+      "description": "Life science, earth science, and printable observation lessons.",
+      "defaultLessonId": "lesson-01"
+    },
+    {
+      "id": "geography",
+      "label": "Geography",
+      "description": "Maps, landforms, regions, communities, and place-based reasoning.",
+      "defaultLessonId": "geography-01"
+    },
+    {
+      "id": "history",
+      "label": "History",
+      "description": "World history and American history lessons built around evidence, timelines, communities, and civic ideas.",
+      "defaultLessonId": "history-01"
+    }
+  ],
+  "imported_lessons": [
+    {
+      "id": "lesson-01",
+      "subjectId": "science",
+      "title": "Plants & Animals",
+      "sections": 5
+    },
+    {
+      "id": "lesson-02",
+      "subjectId": "science",
+      "title": "Food Chains",
+      "sections": 5
+    },
+    {
+      "id": "lesson-03",
+      "subjectId": "science",
+      "title": "Ecosystems & Interdependence",
+      "sections": 5
+    },
+    {
+      "id": "lesson-04",
+      "subjectId": "science",
+      "title": "The Water Cycle",
+      "sections": 5
+    },
+    {
+      "id": "lesson-05",
+      "subjectId": "science",
+      "title": "Trees",
+      "sections": 5
+    },
+    {
+      "id": "lesson-06",
+      "subjectId": "science",
+      "title": "Habitats",
+      "sections": 5
+    },
+    {
+      "id": "geography-01",
+      "subjectId": "geography",
+      "title": "Maps & Globes",
+      "sections": 5
+    },
+    {
+      "id": "geography-02",
+      "subjectId": "geography",
+      "title": "Landforms & Bodies of Water",
+      "sections": 5
+    },
+    {
+      "id": "geography-03",
+      "subjectId": "geography",
+      "title": "Regions & Communities",
+      "sections": 5
+    },
+    {
+      "id": "history-01",
+      "subjectId": "history",
+      "title": "History Detectives",
+      "sections": 5
+    },
+    {
+      "id": "history-02",
+      "subjectId": "history",
+      "title": "Rivers, Cities & Early America",
+      "sections": 5
+    },
+    {
+      "id": "history-03",
+      "subjectId": "history",
+      "title": "American Independence & World Ideas",
+      "sections": 5
+    }
+  ],
+  "agent_readable_layer": {
+    "llms_txt": "/llms.txt",
+    "okf_index": "/okf/index.md",
+    "okf_file_count": 20,
+    "sitemap_includes_okf": true,
+    "purpose": "Expose the full 12-lesson artifact, source posture, assistant boundaries, UI rules, and reconstruction contract to external agents."
+  }
+}
