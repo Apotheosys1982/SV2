@@ -1,0 +1,66 @@
+:root {
+  --wm-motion-duration-instant: 80ms;
+  --wm-motion-duration-fast: 160ms;
+  --wm-motion-duration-standard: 220ms;
+  --wm-motion-duration-slow: 320ms;
+  --wm-motion-delay-none: 0ms;
+  --wm-motion-ease-standard: cubic-bezier(.2, 0, .18, 1);
+  --wm-motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --wm-motion-ease-enter: cubic-bezier(0, 0, .2, 1);
+  --wm-motion-scale-subtle: .985;
+  --wm-motion-scale-focus: 1.012;
+  --wm-motion-slide-short: 10px;
+  --wm-motion-slide-medium: 18px;
+  --wm-motion-fade-start: 0;
+  --wm-motion-fade-end: 1;
+  --wm-motion-focus-ring: 2px solid #b6ff4d;
+  --wm-motion-focus-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --wm-motion-duration-instant: 1ms;
+    --wm-motion-duration-fast: 1ms;
+    --wm-motion-duration-standard: 1ms;
+    --wm-motion-duration-slow: 1ms;
+    --wm-motion-slide-short: 0;
+    --wm-motion-slide-medium: 0;
+    --wm-motion-scale-subtle: 1;
+    --wm-motion-scale-focus: 1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: var(--wm-motion-focus-ring);
+  outline-offset: var(--wm-motion-focus-offset);
+}
+
+.wm-motion-ready {
+  scroll-behavior: smooth;
+}
+
+.wm-motion-surface {
+  transition:
+    opacity var(--wm-motion-duration-standard) var(--wm-motion-ease-standard),
+    transform var(--wm-motion-duration-standard) var(--wm-motion-ease-standard);
+}
+
+.wm-motion-focusable {
+  transition:
+    transform var(--wm-motion-duration-fast) var(--wm-motion-ease-standard),
+    border-color var(--wm-motion-duration-fast) var(--wm-motion-ease-standard),
+    background-color var(--wm-motion-duration-fast) var(--wm-motion-ease-standard);
+}
+
+.wm-motion-focusable:hover {
+  transform: scale(var(--wm-motion-scale-focus));
+}

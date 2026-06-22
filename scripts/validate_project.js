@@ -242,6 +242,10 @@ function loadManifest() {
   }
 }
 
+function subjectIdForEntry(entry) {
+  return entry.subjectId || entry.subject || 'science';
+}
+
 function checkManifestIntegrity() {
   const manifest = loadManifest();
   if (!manifest) {
@@ -250,25 +254,85 @@ function checkManifestIntegrity() {
 
   const errors = [];
   if (!manifest.defaultLessonId) errors.push('Missing defaultLessonId');
+  if (!manifest.defaultSubjectId) errors.push('Missing defaultSubjectId');
+  if (!Array.isArray(manifest.subjects) || manifest.subjects.length === 0) errors.push('No subjects in manifest');
   if (!Array.isArray(manifest.lessons) || manifest.lessons.length === 0) errors.push('No lessons in manifest');
 
+  const subjects = new Map();
+  for (const subject of manifest.subjects || []) {
+    if (!nonEmptyString(subject.id)) {
+      errors.push('Subject missing id');
+      continue;
+    }
+    if (subjects.has(subject.id)) errors.push(`Duplicate subject id: ${subject.id}`);
+    subjects.set(subject.id, subject);
+    if (!nonEmptyString(subject.label)) errors.push(`${subject.id} missing label`);
+    if (!nonEmptyString(subject.defaultLessonId)) errors.push(`${subject.id} missing defaultLessonId`);
+  }
+
+  ['science', 'geography', 'history'].forEach((requiredSubject) => {
+    if (!subjects.has(requiredSubject)) errors.push(`Missing required subject: ${requiredSubject}`);
+  });
+
+  if (manifest.defaultSubjectId && !subjects.has(manifest.defaultSubjectId)) {
+    errors.push(`defaultSubjectId not present in subjects: ${manifest.defaultSubjectId}`);
+  }
+
   const ids = new Set();
+  const countsBySubject = {};
   for (const entry of manifest.lessons || []) {
     if (!nonEmptyString(entry.id)) errors.push('Manifest entry missing id');
     if (!nonEmptyString(entry.label)) errors.push(`${entry.id || 'unknown'} missing label`);
     if (!nonEmptyString(entry.file)) errors.push(`${entry.id || 'unknown'} missing file`);
     if (ids.has(entry.id)) errors.push(`Duplicate lesson id: ${entry.id}`);
     ids.add(entry.id);
+
+    const subjectId = subjectIdForEntry(entry);
+    if (!nonEmptyString(subjectId)) errors.push(`${entry.id || 'unknown'} missing subjectId`);
+    if (subjectId && !subjects.has(subjectId)) errors.push(`${entry.id || 'unknown'} has unknown subjectId: ${subjectId}`);
+    countsBySubject[subjectId] = (countsBySubject[subjectId] || 0) + 1;
+
     if (entry.file && !fs.existsSync(path.join(ROOT, entry.file))) errors.push(`Missing lesson file: ${entry.file}`);
+
+    if (entry.file && fs.existsSync(path.join(ROOT, entry.file))) {
+      try {
+        const lesson = readJson(entry.file);
+        if (lesson.subjectId && lesson.subjectId !== subjectId) {
+          errors.push(`${entry.id} lesson subjectId (${lesson.subjectId}) does not match manifest (${subjectId})`);
+        }
+      } catch {
+        // JSON validity is reported by the dedicated JSON/contract checks.
+      }
+    }
   }
   if (manifest.defaultLessonId && !ids.has(manifest.defaultLessonId)) {
     errors.push(`defaultLessonId not present in lessons: ${manifest.defaultLessonId}`);
   }
+  if (manifest.defaultLessonId && manifest.defaultSubjectId) {
+    const defaultEntry = (manifest.lessons || []).find((entry) => entry.id === manifest.defaultLessonId);
+    if (defaultEntry && subjectIdForEntry(defaultEntry) !== manifest.defaultSubjectId) {
+      errors.push(`defaultLessonId ${manifest.defaultLessonId} does not belong to defaultSubjectId ${manifest.defaultSubjectId}`);
+    }
+  }
+
+  for (const subject of subjects.values()) {
+    if (subject.defaultLessonId && !ids.has(subject.defaultLessonId)) {
+      errors.push(`${subject.id} defaultLessonId not present in lessons: ${subject.defaultLessonId}`);
+    }
+    const defaultEntry = (manifest.lessons || []).find((entry) => entry.id === subject.defaultLessonId);
+    if (defaultEntry && subjectIdForEntry(defaultEntry) !== subject.id) {
+      errors.push(`${subject.id} defaultLessonId belongs to ${subjectIdForEntry(defaultEntry)}: ${subject.defaultLessonId}`);
+    }
+  }
+
+  if ((countsBySubject.science || 0) < 6) errors.push('Science subject should keep at least 6 lessons');
+  if ((countsBySubject.geography || 0) < 3) errors.push('Geography subject needs at least 3 lessons');
+  if ((countsBySubject.history || 0) < 3) errors.push('History subject needs at least 3 lessons');
 
   return {
     label: 'Manifest integrity',
     status: errors.length ? 'FAIL' : 'PASS',
-    detail: errors.length ? errors.join('; ') : `${manifest.lessons.length} lessons registered`,
+    detail: errors.length ? errors.join('; ') : `${manifest.subjects.length} subjects and ${manifest.lessons.length} lessons registered`,
   };
 }
 
@@ -292,6 +356,16 @@ function checkSeoArtifacts() {
   if (!sitemap.includes(`${BASE_URL}/`)) errors.push('sitemap missing root URL');
   if (!robots.includes(`${BASE_URL}/sitemap.xml`)) errors.push('robots.txt missing sitemap reference');
 
+  (manifest.subjects || []).forEach((subject) => {
+    const snapshot = `seo-snapshots/subject-${subject.id}.html`;
+    const cleanUrl = `${BASE_URL}/subject/${subject.id}`;
+    const redirectLine = `/subject/${subject.id} /seo-snapshots/subject-${subject.id}.html 200`;
+
+    if (!fs.existsSync(path.join(ROOT, snapshot))) errors.push(`Missing subject snapshot: ${snapshot}`);
+    if (!sitemap.includes(cleanUrl)) errors.push(`sitemap missing ${cleanUrl}`);
+    if (!redirects.includes(redirectLine)) errors.push(`_redirects missing ${redirectLine}`);
+  });
+
   manifest.lessons.forEach((entry) => {
     const snapshot = `seo-snapshots/${entry.id}.html`;
     const cleanUrl = `${BASE_URL}/lesson/${entry.id}`;
@@ -305,7 +379,7 @@ function checkSeoArtifacts() {
   return {
     label: 'SEO artifact coverage',
     status: errors.length ? 'FAIL' : 'PASS',
-    detail: errors.length ? errors.join('; ') : `${manifest.lessons.length} snapshots, sitemap URLs, and redirects covered`,
+    detail: errors.length ? errors.join('; ') : `${manifest.subjects.length} subject snapshots and ${manifest.lessons.length} lesson snapshots covered`,
   };
 }
 
@@ -317,6 +391,8 @@ function checkNetlifyToml() {
   }
   const content = fs.readFileSync(abs, 'utf-8');
   const ok = content.includes('[[redirects]]')
+    && content.includes('from = "/subject/:id"')
+    && content.includes('to = "/seo-snapshots/subject-:id.html"')
     && content.includes('from = "/lesson/:id"')
     && content.includes('to = "/seo-snapshots/:id.html"')
     && content.includes('status = 200');
@@ -324,7 +400,7 @@ function checkNetlifyToml() {
     relPath,
     label: 'Netlify TOML syntax',
     status: ok ? 'PASS' : 'FAIL',
-    detail: ok ? 'Redirect fallback syntax OK' : 'Expected [[redirects]] block for /lesson/:id',
+    detail: ok ? 'Subject and lesson redirect fallback syntax OK' : 'Expected [[redirects]] blocks for /subject/:id and /lesson/:id',
   };
 }
 
@@ -345,9 +421,12 @@ function buildResults() {
 
   const lessonsDir = path.join(ROOT, 'lessons');
   if (fs.existsSync(lessonsDir)) {
-    const lessonFiles = fs.readdirSync(lessonsDir).filter((f) => /^lesson-\d+\.json$/.test(f)).sort();
-    lessonFiles.forEach((file) => {
-      const relPath = `lessons/${file}`;
+    const manifest = loadManifest();
+    const manifestLessonFiles = manifest && Array.isArray(manifest.lessons)
+      ? manifest.lessons.map((entry) => entry.file).filter(nonEmptyString)
+      : fs.readdirSync(lessonsDir).filter((f) => /^lesson-\d+\.json$/.test(f)).sort().map((file) => `lessons/${file}`);
+    [...new Set(manifestLessonFiles)].forEach((relPath) => {
+      const file = path.basename(relPath);
       results.push(checkJson(relPath, `Lesson JSON: ${file}`));
       results.push(checkLessonContract(relPath));
     });
@@ -384,7 +463,7 @@ function summarizeResults(results) {
 function buildReport(results, summary, timestamp) {
   let md = `# Validation Report\n\n`;
   md += `**Generated:** ${timestamp}\n`;
-  md += `**Project:** SV2 Science Lessons\n`;
+  md += `**Project:** SV2 Multi-Subject Lessons\n`;
   md += `**Result:** ${summary.passed}/${summary.total} passed, ${summary.failed} failed\n\n`;
 
   md += `## Summary\n\n`;

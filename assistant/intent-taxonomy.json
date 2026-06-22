@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "assistant_slug": "sv2-biosphere-kids",
+  "route_families": [
+    {
+      "family": "identity",
+      "priority": 1,
+      "description": "SV2 identity route family."
+    },
+    {
+      "family": "foundational_context",
+      "priority": 2,
+      "description": "SV2 foundational_context route family."
+    },
+    {
+      "family": "lesson_navigation",
+      "priority": 3,
+      "description": "SV2 lesson_navigation route family."
+    },
+    {
+      "family": "science_concept_orientation",
+      "priority": 4,
+      "description": "SV2 science_concept_orientation route family."
+    },
+    {
+      "family": "teacher_parent_guidance",
+      "priority": 5,
+      "description": "SV2 teacher_parent_guidance route family."
+    },
+    {
+      "family": "print_worksheet_guidance",
+      "priority": 6,
+      "description": "SV2 print_worksheet_guidance route family."
+    },
+    {
+      "family": "teacher_mode_guidance",
+      "priority": 7,
+      "description": "SV2 teacher_mode_guidance route family."
+    },
+    {
+      "family": "autosave_local_state",
+      "priority": 8,
+      "description": "SV2 autosave_local_state route family."
+    },
+    {
+      "family": "source_context",
+      "priority": 9,
+      "description": "SV2 source_context route family."
+    },
+    {
+      "family": "source_attribution",
+      "priority": 10,
+      "description": "SV2 source_attribution route family."
+    },
+    {
+      "family": "source_limitation",
+      "priority": 11,
+      "description": "SV2 source_limitation route family."
+    },
+    {
+      "family": "live_data_boundary",
+      "priority": 12,
+      "description": "SV2 live_data_boundary route family."
+    },
+    {
+      "family": "build_snapshot_boundary",
+      "priority": 13,
+      "description": "SV2 build_snapshot_boundary route family."
+    },
+    {
+      "family": "maintenance_context",
+      "priority": 14,
+      "description": "SV2 maintenance_context route family."
+    },
+    {
+      "family": "safe_learning_boundary",
+      "priority": 15,
+      "description": "SV2 safe_learning_boundary route family."
+    },
+    {
+      "family": "off_topic_boundary",
+      "priority": 16,
+      "description": "SV2 off_topic_boundary route family."
+    },
+    {
+      "family": "clarification_needed",
+      "priority": 17,
+      "description": "SV2 clarification_needed route family."
+    },
+    {
+      "family": "cta_guidance",
+      "priority": 18,
+      "description": "SV2 cta_guidance route family."
+    }
+  ],
+  "protected_route_order": [
+    "safe_learning_boundary",
+    "source_context",
+    "source_limitation",
+    "live_data_boundary",
+    "foundational_context",
+    "lesson_navigation",
+    "science_concept_orientation",
+    "clarification_needed",
+    "off_topic_boundary"
+  ]
+}

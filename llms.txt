@@ -1,0 +1,66 @@
+# BioSphere Kids / SV2 Surface Assistant
+
+This is an agent-readable orientation file for the public artifact at https://ariya-science.netlify.app.
+
+## What this artifact is
+
+A static browser-native lesson surface imported from the SV2 multi-subject branch and enhanced with a bounded Surface Assistant. The rendered page shows one lesson at a time, but the deployed artifact includes the full lesson/source/OKF structure.
+
+## Source snapshot
+
+- Upstream repo: https://github.com/Apotheosys1982/SV2
+- Branch: origin/codex/multi-subject-geography-history
+- Commit: 1091ecf
+- Lesson count: 12
+- Subjects: Science, Geography, History
+
+## Read these first
+
+1. /source-manifest.json - source posture, limits, commit, record counts.
+2. /lessons/manifest.json - authoritative subject and lesson inventory.
+3. /sitemap.xml - canonical public URLs for lessons, subjects, source files, and OKF files.
+4. /okf/index.md - OKF-style agent-readable bundle map.
+5. /answer-pack.json - bounded assistant answer pack.
+6. /assistant/intent-taxonomy.json - route families, when present.
+
+## Lesson files
+
+- /lessons/lesson-01.json - Science / Lesson 1 — Plants & Animals
+- /lessons/lesson-02.json - Science / Lesson 2 — Food Chains
+- /lessons/lesson-03.json - Science / Lesson 3 — Ecosystems & Interdependence
+- /lessons/lesson-04.json - Science / Lesson 04 — The Water Cycle
+- /lessons/lesson-05.json - Science / Lesson 05 — Trees
+- /lessons/lesson-06.json - Science / Lesson 06 — Habitats
+- /lessons/geography-01.json - Geography / Lesson 1 — Maps & Globes
+- /lessons/geography-02.json - Geography / Lesson 2 — Landforms & Bodies of Water
+- /lessons/geography-03.json - Geography / Lesson 3 — Regions & Communities
+- /lessons/history-01.json - History / Lesson 1 — History Detectives
+- /lessons/history-02.json - History / Lesson 2 — Rivers, Cities & Early America
+- /lessons/history-03.json - History / Lesson 3 — American Independence & World Ideas
+
+## OKF-style files
+
+- /okf/assistant/answer-style.md
+- /okf/assistant/boundaries.md
+- /okf/assistant/intents.md
+- /okf/build/reconstruction-contract.md
+- /okf/build/validation-commands.md
+- /okf/concepts/agent-readable-artifact.md
+- /okf/concepts/biosphere-kids.md
+- /okf/concepts/five-section-lesson-renderer.md
+- /okf/concepts/okf-layer.md
+- /okf/concepts/surface-assistant.md
+- /okf/index.md
+- /okf/log.md
+- /okf/playbooks/agent-reconstruction-flow.md
+- /okf/playbooks/lesson-audit-flow.md
+- /okf/sources/source-manifest.md
+- /okf/sources/source-posture.md
+- /okf/ui/mobile-rules.md
+- /okf/ui/source-links.md
+- /okf/validation/readiness-checklist.md
+- /okf/validation/test-suite.md
+
+## Boundaries
+
+The assistant is static and source-backed. It does not know private classroom records, student accounts, school policy, medical/safety guarantees, or live data. It can explain lessons, summarize teacher-note style answer guidance, route users through print/teacher/autosave behavior, and disclose source limits.

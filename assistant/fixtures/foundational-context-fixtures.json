@@ -1,0 +1,144 @@
+{
+  "fixture_set": "sv2-foundational-context",
+  "minimum_required": 10,
+  "fixtures": [
+    {
+      "id": "what-is-biosphere",
+      "input": "What is BioSphere Kids?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "identity-overview",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "browser-based",
+        "lessons"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "what-is-sv2",
+      "input": "What is SV2?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-sv2",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "static",
+        "lesson engine"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "lesson-engine",
+      "input": "What is a lesson engine?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-lesson-engine",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "manifest",
+        "JSON"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "teacher-mode",
+      "input": "What is teacher mode?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-teacher-mode",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "Teacher mode",
+        "notes"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "print-mode",
+      "input": "What is print mode?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-print-mode",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "worksheet",
+        "printed"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "autosave",
+      "input": "What does autosave mean?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-autosave",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "localStorage",
+        "browser"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "habitat",
+      "input": "What is a habitat?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-science-terms",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "science terms",
+        "habitat"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "ecosystem",
+      "input": "What is an ecosystem?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-science-terms",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "science terms",
+        "ecosystems"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "food-chain",
+      "input": "What is a food chain?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-science-terms",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "food chains"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    },
+    {
+      "id": "water-cycle",
+      "input": "What is the water cycle?",
+      "expected_route_family": "foundational_context",
+      "expected_answer_id": "foundation-science-terms",
+      "forbidden_route_family": "generic_fallback",
+      "required_phrases": [
+        "water cycle"
+      ],
+      "forbidden_phrases": [
+        "live classroom data"
+      ]
+    }
+  ]
+}

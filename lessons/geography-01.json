@@ -1,0 +1,234 @@
+{
+  "id": "geography-01",
+  "subjectId": "geography",
+  "meta": {
+    "kicker": [
+      "Lesson 1",
+      "Geography",
+      "20–30 min",
+      "Grades 2–4",
+      "Print-ready"
+    ],
+    "title": "Maps & Globes",
+    "subtitle": "Tools for Finding Places • Printable Web Lesson"
+  },
+  "hero": {
+    "ariaLabel": "Teacher and student using a globe and world map for a geography lesson",
+    "imageQuery": "teacher student globe world map elementary geography classroom hero",
+    "screenImage": "https://images.pexels.com/photos/5428269/pexels-photo-5428269.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "printImage": "assets/images/geography-01-hero.png"
+  },
+  "heroCopy": {
+    "lede": "Geographers use maps, globes, symbols, and directions to understand where places are and how to move between them.",
+    "whatStudentsLearn": "Students learn how maps and globes represent Earth, how symbols and legends help readers understand places, and how cardinal directions make routes easier to explain.",
+    "learningTargets": [
+      "I can explain what maps and globes show.",
+      "I can compare a flat map with a round globe.",
+      "I can use symbols, keys, and legends to read a map.",
+      "I can describe a route using north, south, east, and west."
+    ],
+    "studentDirections": [
+      "Read the section and study the image before answering.",
+      "Use the vocabulary and quick facts to support your thinking.",
+      "Write in complete sentences unless the prompt says bullets are okay.",
+      "On paper: circle, label, or underline important evidence in the print image."
+    ],
+    "keyVocabulary": [
+      {
+        "term": "Map",
+        "def": "A drawing that shows places from above."
+      },
+      {
+        "term": "Globe",
+        "def": "A small round model of Earth."
+      },
+      {
+        "term": "Legend",
+        "def": "A key that explains map symbols."
+      },
+      {
+        "term": "Compass rose",
+        "def": "A symbol that shows north, south, east, and west."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "chip": "Section 1",
+      "imageQuery": "paper map roads symbols places close up geography",
+      "screenImage": "https://images.pexels.com/photos/6664694/pexels-photo-6664694.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-01-s1.png",
+      "title": "What Maps Show",
+      "lede": "A map is a drawing that shows places from above. Maps can show land, water, roads, buildings, borders, and routes.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "Maps show places from a top-down view.",
+            "Different maps can show different kinds of information.",
+            "A map title tells the reader what the map is about."
+          ]
+        },
+        {
+          "title": "Look Closely",
+          "items": [
+            "Find a route, a place name, and a symbol.",
+            "Notice what is close together and what is far apart.",
+            "Ask what the map helps someone do."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt A — Read a Map",
+        "hint": "2–3 sentences",
+        "placeholder": "Name three things a map can show and explain how they help people.",
+        "teacherKey": "✔ Key idea: Maps show places, routes, symbols, land, water, and important locations."
+      },
+      "ariaLabel": "Close-up paper map showing roads and places for learning what maps show"
+    },
+    {
+      "id": "s2",
+      "chip": "Section 2",
+      "imageQuery": "globe close up earth continents oceans geography",
+      "screenImage": "https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-01-s2.png",
+      "title": "Globes Show Earth",
+      "lede": "A globe is shaped like Earth, so it helps us see how land and water wrap around the planet.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "A globe is round like Earth.",
+            "Globes show continents, oceans, and countries.",
+            "A globe is useful for seeing the whole planet."
+          ]
+        },
+        {
+          "title": "Compare",
+          "items": [
+            "A map is flat and easy to carry.",
+            "A globe is round and shows Earth’s shape.",
+            "Both maps and globes help us find places."
+          ]
+        }
+      ],
+      "callout": "Maps and globes are tools. The best tool depends on the question you are trying to answer.",
+      "prompt": {
+        "label": "Prompt B — Map or Globe?",
+        "hint": "Compare",
+        "placeholder": "Explain one way a map and a globe are alike and one way they are different.",
+        "teacherKey": "✔ Key idea: Both show places on Earth; globes are round while maps are flat and easier to carry."
+      },
+      "ariaLabel": "Close-up globe showing Earth for comparing globes and maps"
+    },
+    {
+      "id": "s3",
+      "chip": "Section 3",
+      "imageQuery": "map pins route symbols legend paper map geography",
+      "screenImage": "https://images.pexels.com/photos/8828318/pexels-photo-8828318.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-01-s3.png",
+      "title": "Symbols, Keys, and Legends",
+      "lede": "Map symbols stand for real things like roads, rivers, parks, schools, airports, and capital cities.",
+      "cards": [
+        {
+          "title": "Vocabulary",
+          "items": [
+            "Symbol: a small picture or mark with a meaning.",
+            "Legend: the part of a map that explains symbols.",
+            "Scale: a clue for real distances on a map."
+          ]
+        },
+        {
+          "title": "Map Mission",
+          "items": [
+            "Choose two symbols and predict what they mean.",
+            "Find the legend or key.",
+            "Use the key to check your thinking."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt C — Use the Key",
+        "hint": "2 examples",
+        "placeholder": "Choose two map symbols and tell what each one means.",
+        "teacherKey": "✔ Key idea: A key or legend explains symbols so readers can understand the map."
+      },
+      "ariaLabel": "Paper map with pins showing symbols and routes like a map legend"
+    },
+    {
+      "id": "s4",
+      "chip": "Section 4",
+      "imageQuery": "compass on map cardinal directions navigation geography",
+      "screenImage": "https://images.pexels.com/photos/14436278/pexels-photo-14436278.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-01-s4.png",
+      "title": "Directions and Compass Rose",
+      "lede": "A compass rose helps readers find north, south, east, and west. Directions make routes clear.",
+      "cards": [
+        {
+          "title": "Quick Facts",
+          "items": [
+            "North and south point up and down on many maps.",
+            "East and west point side to side on many maps.",
+            "Directions can be combined, such as northeast."
+          ]
+        },
+        {
+          "title": "Think Like a Geographer",
+          "items": [
+            "Start with a clear beginning place.",
+            "Use direction words in order.",
+            "Check that another reader could follow your route."
+          ]
+        }
+      ],
+      "prompt": {
+        "label": "Prompt D — Give Directions",
+        "hint": "Route writing",
+        "placeholder": "Write directions from one place to another using north, south, east, or west.",
+        "teacherKey": "✔ Key idea: Students use cardinal directions in a clear route."
+      },
+      "ariaLabel": "Compass on a map for learning cardinal directions"
+    },
+    {
+      "id": "s5",
+      "chip": "Section 5",
+      "imageQuery": "person holding folded map route planning geography activity",
+      "screenImage": "https://images.pexels.com/photos/7009860/pexels-photo-7009860.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "printImage": "assets/images/geography-01-s5.png",
+      "title": "Quick Check + Create a Map",
+      "lede": "Maps help people organize information about places. A good map has a title, symbols, a legend, and directions.",
+      "cards": [
+        {
+          "title": "Mini Quiz",
+          "items": [
+            "What is one thing a map can show?",
+            "How is a globe different from a map?",
+            "What does a legend explain?"
+          ]
+        },
+        {
+          "title": "Challenge",
+          "items": [
+            "Design a classroom or neighborhood map.",
+            "Add a title and at least three symbols.",
+            "Create a key that explains the symbols."
+          ]
+        }
+      ],
+      "promptE": {
+        "label": "Prompt E — Summary",
+        "hint": "5–6 sentences",
+        "placeholder": "Summarize how maps, globes, symbols, and directions help people.",
+        "teacherKey": "✔ Key idea: Summary includes maps/globes, symbols/key, and directions."
+      },
+      "promptF": {
+        "label": "Prompt F — Create",
+        "hint": "Bullets OK",
+        "placeholder": "Design a classroom or neighborhood map with a title, symbols, and a key.",
+        "teacherKey": "✔ Key idea: Student creates a readable map with labels, symbols, and a key."
+      },
+      "ariaLabel": "Folded map used to plan a route for creating a map activity"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "assistant_slug": "sv2-biosphere-kids",
+  "foundational_terms": [
+    "BioSphere Kids",
+    "SV2",
+    "lesson engine",
+    "lesson JSON",
+    "lesson manifest",
+    "teacher mode",
+    "print mode",
+    "autosave",
+    "localStorage",
+    "worksheet",
+    "habitat",
+    "ecosystem",
+    "food chain",
+    "water cycle",
+    "adaptation"
+  ],
+  "acronym_map": {
+    "SV2": "static BioSphere Kids science lesson engine",
+    "SEO": "search engine optimization",
+    "JSON": "JavaScript Object Notation"
+  },
+  "route_family": "foundational_context"
+}

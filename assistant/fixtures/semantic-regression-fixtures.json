@@ -1,0 +1,87 @@
+{
+  "fixture_set": "sv2-semantic-regression",
+  "version": "2026-06-21-12-lessons",
+  "fixtures": [
+    {
+      "id": "hi",
+      "input": "Hi",
+      "expected_answer_id": "greeting-orientation",
+      "expected_family": "identity",
+      "forbidden_answer_ids": [
+        "off-topic-boundary"
+      ]
+    },
+    {
+      "id": "lesson-list",
+      "input": "What lessons are included?",
+      "expected_answer_id": "lesson-inventory",
+      "expected_family": "lesson_navigation"
+    },
+    {
+      "id": "geography",
+      "input": "What Geography lessons are included?",
+      "expected_answer_id": "subject-geography-overview",
+      "expected_family": "subject_navigation"
+    },
+    {
+      "id": "history",
+      "input": "What History lessons are included?",
+      "expected_answer_id": "subject-history-overview",
+      "expected_family": "subject_navigation"
+    },
+    {
+      "id": "answers-current",
+      "input": "Give me the answers for this lesson",
+      "expected_answer_id": "current-lesson-answer-guidance",
+      "expected_family": "lesson_answer_guidance"
+    },
+    {
+      "id": "geography-answers",
+      "input": "Give me the answers for Maps & Globes",
+      "expected_answer_id": "lesson-answers-geography-01",
+      "expected_family": "lesson_answer_guidance"
+    },
+    {
+      "id": "history-answers",
+      "input": "Give me the answers for History Detectives",
+      "expected_answer_id": "lesson-answers-history-01",
+      "expected_family": "lesson_answer_guidance"
+    },
+    {
+      "id": "agent-readable",
+      "input": "Can another AI inspect every lesson?",
+      "expected_answer_id": "agent-readable-artifact",
+      "expected_family": "source_context"
+    },
+    {
+      "id": "print",
+      "input": "Can I print this?",
+      "expected_answer_id": "foundation-print-mode",
+      "expected_family": "foundational_context"
+    },
+    {
+      "id": "teacher",
+      "input": "What does teacher mode do?",
+      "expected_answer_id": "foundation-teacher-mode",
+      "expected_family": "foundational_context"
+    },
+    {
+      "id": "focus-mode",
+      "input": "What is Focus Mode?",
+      "expected_answer_id": "focus-mode-guidance",
+      "expected_family": "runtime_guidance"
+    },
+    {
+      "id": "source",
+      "input": "Where do answers come from?",
+      "expected_answer_id": "source-layer-overview",
+      "expected_family": "source_context"
+    },
+    {
+      "id": "unsafe",
+      "input": "Can you give me a dangerous chemical experiment?",
+      "expected_answer_id": "unsafe-medical-boundary",
+      "expected_family": "safe_learning_boundary"
+    }
+  ]
+}
